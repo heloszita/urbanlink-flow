@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Sua Logística</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <strong class="logo">Sua Logística</strong>
+      <nav>
+        <a href="#" class="ativo">Início</a>
+        <a href="#">Solicitações</a>
+        <a href="#">Rastreamento</a>
+        <a href="#">Suporte</a>
+      </nav>
+      <span>Olá, Heloísa</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- BUSCA DE RASTREAMENTO + AÇÃO PRINCIPAL -->
+    <section class="destaque">
+      <h1>Onde está a sua carga?</h1>
+
+      <form id="form-rastreio" class="busca">
+        <label for="codigo">Código de rastreio ou número do pedido</label>
+        <div class="busca-campos">
+          <input type="text" id="codigo" name="codigo" placeholder="Ex.: FR-240817">
+          <button type="submit">Rastrear</button>
+        </div>
+      </form>
+
+      <p id="resultado-rastreio" class="resultado" hidden></p>
+
+      <button type="button" id="btn-nova" class="btn-principal">
+        + Criar Nova Solicitação de Entrega
+      </button>
+    </section>
+
+    <!-- FORMULÁRIO DE NOVA SOLICITAÇÃO (aparece ao clicar no botão) -->
+    <section id="nova-solicitacao" class="cartao" hidden>
+      <h2>Nova solicitação de entrega</h2>
+
+      <form id="form-frete">
+        <div class="grade">
+          <div>
+            <label for="origem">Origem</label>
+            <input type="text" id="origem" name="origem" placeholder="Cidade, UF ou CEP" required>
+          </div>
+          <div>
+            <label for="destino">Destino</label>
+            <input type="text" id="destino" name="destino" placeholder="Cidade, UF ou CEP" required>
+          </div>
+          <div>
+            <label for="data-coleta">Data da coleta</label>
+            <input type="date" id="data-coleta" name="data-coleta">
+          </div>
+          <div>
+            <label for="tipo-carga">Tipo de carga</label>
+            <select id="tipo-carga" name="tipo-carga">
+              <option value="seca">Carga seca</option>
+              <option value="refrigerada">Refrigerada</option>
+              <option value="fragil">Frágil</option>
+              <option value="perigosa">Carga perigosa</option>
+            </select>
+          </div>
+          <div>
+            <label for="peso">Peso total (kg)</label>
+            <input type="number" id="peso" name="peso" min="1" required>
+          </div>
+          <div>
+            <label for="volumes">Volumes</label>
+            <input type="number" id="volumes" name="volumes" min="1" value="1">
+          </div>
+          <div>
+            <label for="veiculo">Veículo</label>
+            <select id="veiculo" name="veiculo">
+              <option value="van">Van</option>
+              <option value="3-4">Caminhão 3/4</option>
+              <option value="truck">Truck</option>
+              <option value="carreta">Carreta</option>
+            </select>
+          </div>
+        <label for="obs">Observações (opcional)</label>
+        <textarea id="obs" name="obs" rows="3"></textarea>
+
+        <div class="acoes">
+          <button type="button" id="btn-cancelar" class="btn-secundario">Cancelar</button>
+          <button type="submit" class="btn-principal">Enviar solicitação</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- CARTÕES DE RESUMO -->
+    <section>
+      <h2>Resumo das entregas</h2>
+      <div class="cartoes">
+        <article class="cartao">
+          <p class="numero">5</p>
+          <h3>Entregas ativas</h3>
+          <ul class="lista-simples">
+            <li>Aguardando coleta: 1</li>
+            <li>Em trânsito: 2</li>
+            <li>Saiu para entrega: 1</li>
+            <li>Atrasadas: 1</li>
+          </ul>
+        </article>
+
+        <article class="cartao">
+          <p class="numero">3</p>
+          <h3>Entregas concluídas</h3>
+          <p>Neste mês · última em 19/10</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PEDIDOS RECENTES -->
+    <section>
+      <h2>Pedidos recentes</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Rota</th>
+            <th>Carga</th>
+            <th>Previsão</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Sua Logística · Suporte: [telefone] · [e-mail]</p>
+  </footer>
+
+  <script>
+    var formNova = document.getElementById('nova-solicitacao');
+    var resultado = document.getElementById('resultado-rastreio');
+    var campoCodigo = document.getElementById('codigo');
+
+    // Mostrar / esconder o formulário de nova solicitação
+    document.getElementById('btn-nova').addEventListener('click', function () {
+      formNova.hidden = false;
+      formNova.scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('btn-cancelar').addEventListener('click', function () {
+      formNova.hidden = true;
+    });
+
+    // Campo dinâmico: temperatura só para carga refrigerada
+    document.getElementById('tipo-carga').addEventListener('change', function () {
+      document.getElementById('campo-temperatura').hidden = (this.value !== 'refrigerada');
+    });
+
+    // Rastreamento (aqui entra a chamada à API depois)
+    function rastrear(codigo) {
+      if (!codigo.trim()) {
+        resultado.textContent = 'Digite um código de rastreio.';
+      } else {
+        // TODO: trocar por fetch('SUA_API/rastreio/' + codigo)
+        resultado.textContent = 'Consultando o pedido ' + codigo.toUpperCase() + '...';
+      }
+      resultado.hidden = false;
+    }
+
+    document.getElementById('form-rastreio').addEventListener('submit', function (e) {
+      e.preventDefault();
+      rastrear(campoCodigo.value);
+    });
+
+    // Links "Rastrear" da tabela
+    var links = document.querySelectorAll('a[data-codigo]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        campoCodigo.value = this.getAttribute('data-codigo');
+        rastrear(campoCodigo.value);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Envio do formulário de frete
+    document.getElementById('form-frete').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // TODO: trocar por fetch('SUA_API/fretes', { method: 'POST', body: ... })
+      alert('Solicitação enviada!');
+      this.reset();
+      formNova.hidden = true;
+    });
+  </script>
+</body>
+</html>

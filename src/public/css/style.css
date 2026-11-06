@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Ocultar radio buttons de controle */
+input[type="radio"] {
+  display: none;
+}
+
+/* Ocultar elementos por padrão */
+.etapa-2,
+.titulo-cliente, .titulo-motorista, .titulo-gestor,
+.campos-cliente, .campos-motorista, .campos-gestor {
+  display: none;
+}
+
+/* --- REGRAS CSS DE ALTERNÂNCIA VIA :checked --- */
+
+/* Estado inicial: Exibe Etapa 1 */
+#radio-inicio:checked ~ .etapa-1 {
+  display: block;
+}
+
+/* Ao selecionar um perfil: Oculta Etapa 1 e Mostra Etapa 2 */
+#radio-cliente:checked ~ .etapa-1,
+#radio-motorista:checked ~ .etapa-1,
+#radio-gestor:checked ~ .etapa-1 {
+  display: none;
+}
+
+#radio-cliente:checked ~ .etapa-2,
+#radio-motorista:checked ~ .etapa-2,
+#radio-gestor:checked ~ .etapa-2 {
+  display: block;
+}
+
+/* Exibe títulos e campos específicos conforme o perfil selecionado */
+#radio-cliente:checked ~ .etapa-2 .titulo-cliente,
+#radio-cliente:checked ~ .etapa-2 .campos-cliente {
+  display: block;
+}
+
+#radio-motorista:checked ~ .etapa-2 .titulo-motorista,
+#radio-motorista:checked ~ .etapa-2 .campos-motorista {
+  display: block;
+}
+
+#radio-gestor:checked ~ .etapa-2 .titulo-gestor,
+#radio-gestor:checked ~ .etapa-2 .campos-gestor {
+  display: block;
+}
+
+/* --- ESTILOS VISUAIS DOS COMPONENTES --- */
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+p.subtitulo {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-btn {
+  background-color: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+.card-btn:hover {
+  border-color: #3b82f6;
+  background-color: #1e293b;
+  transform: translateY(-2px);
+}
+
+.card-btn .icon {
+  font-size: 2rem;
+}
+
+.card-btn strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 1rem;
+}
+
+.card-btn small {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.btn-voltar {
+  display: inline-block;
+  color: #60a5fa;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+  text-decoration: underline;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+  padding: 12px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.form-group input[type="file"] {
+  padding: 8px;
+  font-size: 0.85rem;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: #3b82f6;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #334155;
+  margin: 20px 0;
+}
+
+.section-title {
+  font-size: 0.95rem;
+  color: #38bdf8;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #1d4ed8;
+}
+
