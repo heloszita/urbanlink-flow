@@ -1,0 +1,358 @@
+/* =========================================
+   BASE E RESET
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background-color: #f5f7fa; color: #333; }
+.fundo-cinza { background-color: #eef2f6; }
+.icone-img { width: 24px; height: auto; display: block; }
+
+/* =========================================
+   CABEÇALHO INTERNO
+========================================= */
+.cabecalho-interno {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 40px; background-color: #ffffff; border-bottom: 1px solid #ddd;
+}
+.cabecalho-interno .logo { display: flex; align-items: center; gap: 15px; }
+.imagem-logo { height: 20px; }
+.icone-menu { font-size: 1.5rem; color: #f35b3f; cursor: pointer; }
+
+.navegacao-topo a {
+    text-decoration: none; color: #666; font-size: 0.9rem; font-weight: bold; margin: 0 15px;
+}
+.navegacao-topo a.ativo { color: #f35b3f; }
+
+.perfil-usuario { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: bold; color: #1b1642; }
+
+/* =========================================
+   HERO / RASTREIO (Ecrã 1)
+========================================= */
+.area-rastreio {
+    background-color: #1b1642; color: #ffffff; padding: 40px;
+}
+.area-rastreio h1 { font-size: 1.8rem; margin-bottom: 5px; }
+.area-rastreio p { color: #a3a1c6; font-size: 0.9rem; margin-bottom: 20px; }
+.busca-rastreio {
+    display: flex; gap: 10px; max-width: 600px; background: white; padding: 5px; border-radius: 4px; align-items: center;
+}
+.busca-rastreio input {
+    flex: 1; border: none; padding: 10px; outline: none; font-size: 0.95rem;
+}
+.icone-busca { margin-left: 10px; }
+
+/* =========================================
+   ESTRUTURA DE CONTEÚDO
+========================================= */
+.conteudo-dashboard { padding: 40px; max-width: 1200px; margin: 0 auto; }
+.cabecalho-secao { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.migalhas { font-size: 0.8rem; color: #888; font-weight: bold; }
+.cabecalho-secao h2, .cabecalho-pagina h2 { color: #1b1642; font-size: 1.6rem; margin-top: 5px; }
+.subtitulo-pagina { font-size: 0.9rem; color: #666; margin-top: 5px; margin-bottom: 30px; }
+
+/* =========================================
+   CARTÕES E ESTATÍSTICAS
+========================================= */
+.layout-grid-dashboard { display: flex; gap: 20px; }
+.coluna-esq { flex: 2; display: flex; flex-direction: column; gap: 20px; }
+.coluna-dir { flex: 1; }
+
+.cartoes-resumo { display: flex; gap: 20px; }
+.cartao-info { background: #fff; padding: 25px; border-radius: 8px; flex: 1; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.numero-cartao { font-size: 2.2rem; font-weight: bold; color: #1b1642; margin: 5px 0; }
+.titulo-cartao { font-size: 0.8rem; font-weight: bold; color: #555; }
+.subtexto-cartao { font-size: 0.8rem; color: #888; }
+
+/* =========================================
+   TABELA
+========================================= */
+.secao-tabela { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.topo-tabela { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.topo-tabela h3 { font-size: 1.1rem; color: #1b1642; }
+.link-ver-todos { color: #f35b3f; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+
+.tabela-pedidos { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
+.tabela-pedidos th { padding: 12px 0; border-bottom: 1px solid #eee; color: #888; font-weight: normal; }
+.tabela-pedidos td { padding: 15px 0; border-bottom: 1px solid #eee; color: #333; }
+.link-acao { text-decoration: none; color: #888; font-weight: bold; }
+.destaque-laranja { color: #f35b3f; }
+
+.badge { padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
+.badge-verde { background: #dcf5e3; color: #1a7a38; }
+.badge-azul { background: #e0f2fe; color: #0369a1; }
+.badge-amarelo { background: #fdf5d3; color: #9c7300; }
+.badge-vermelho { background: #fee2e2; color: #b91c1c; }
+
+/* =========================================
+   CARTÃO PRÓXIMA ENTREGA
+========================================= */
+.cartao-proxima-entrega { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.destaque-hora { font-size: 1.8rem; color: #1b1642; margin: 5px 0; }
+.divisor { border: 0; height: 1px; background: #eee; margin: 20px 0; }
+.cabecalho-rota { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.codigo-rota { font-weight: bold; font-size: 1.1rem; }
+.previsao-texto { font-size: 0.8rem; color: #888; }
+.barra-progresso { height: 6px; background: #eee; border-radius: 3px; margin: 15px 0 5px; overflow: hidden; }
+.progresso-preenchido { height: 100%; background: #f35b3f; }
+.info-motorista { font-size: 0.75rem; color: #666; margin-bottom: 20px; }
+.perfil-motorista { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.icone-avatar { width: 40px; height: 40px; border-radius: 50%; background: #eee; }
+.nome-motorista { font-weight: bold; font-size: 0.9rem; }
+.veiculo-motorista { font-size: 0.75rem; color: #888; }
+.botoes-acao { display: flex; gap: 10px; }
+
+/* =========================================
+   FORMULÁRIO DE NOVA SOLICITAÇÃO (Ecrã 2)
+========================================= */
+.layout-duas-colunas { display: flex; gap: 30px; align-items: flex-start; }
+.area-formulario { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.area-resumo { width: 320px; position: sticky; top: 20px; }
+
+.bloco-form { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.cabecalho-passo { display: flex; gap: 15px; align-items: center; margin-bottom: 20px; }
+.numero-passo { background: #1b1642; color: #fff; width: 28px; height: 28px; display: flex; justify-content: center; align-items: center; border-radius: 50%; font-weight: bold; font-size: 0.9rem; }
+.cabecalho-passo h3 { font-size: 1.1rem; color: #1b1642; }
+.cabecalho-passo p { font-size: 0.8rem; color: #888; }
+
+.caixa-radio { display: flex; align-items: center; gap: 15px; border: 1px solid #eee; padding: 15px; border-radius: 6px; margin-bottom: 10px; cursor: pointer; }
+.caixa-radio.selecionado { border-color: #ddd; background-color: #fafafa; }
+.caixa-radio p { font-size: 0.85rem; color: #666; margin-top: 3px; }
+.tag-padrao { margin-left: auto; font-size: 0.7rem; background: #eee; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
+
+.grade-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.col-dupla { grid-column: span 2; }
+.grupo-input { display: flex; flex-direction: column; gap: 5px; }
+.grupo-input label { font-size: 0.8rem; font-weight: bold; color: #444; }
+.grupo-input input, .grupo-input select { padding: 10px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
+
+.opcoes-botoes { display: flex; gap: 10px; margin-bottom: 15px; }
+.botao-seletor { flex: 1; padding: 10px; border: 1px solid #ddd; background: transparent; border-radius: 4px; font-weight: bold; cursor: pointer; color: #555; }
+.botao-seletor.ativo { border-color: #1b1642; color: #1b1642; background: #f8f9fa; }
+.alerta-info { background: #e0f2fe; color: #0369a1; padding: 12px; font-size: 0.8rem; border-radius: 4px; margin-bottom: 20px; }
+
+/* =========================================
+   CARTÃO RESUMO LATERAL
+========================================= */
+.cartao-resumo { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.cartao-resumo h3 { font-size: 1.1rem; color: #1b1642; margin-bottom: 20px; }
+.item-resumo { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.item-resumo small { font-size: 0.75rem; color: #888; font-weight: bold; display: block; margin-bottom: 3px; }
+.item-resumo p { font-size: 0.9rem; color: #333; font-weight: bold; }
+
+.estimativas { display: flex; gap: 10px; margin: 20px 0; }
+.caixa-estimativa { flex: 1; background: #f5f7fa; padding: 10px; border-radius: 4px; text-align: center; }
+.caixa-estimativa small { font-size: 0.7rem; color: #888; display: block; }
+.caixa-estimativa p { font-weight: bold; color: #1b1642; margin-top: 3px; }
+
+/* =========================================
+   BOTÕES COMUNS
+========================================= */
+.botao { padding: 12px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; border: none; text-align: center; }
+.botao-primario { background: #f35b3f; color: white; }
+.botao-secundario { background: transparent; color: #1b1642; border: 1px solid #ddd; }
+.total-largura { width: 100%; margin-bottom: 10px; }
+/* =========================================
+   TELA DE ATENDIMENTO
+========================================= */
+.hero-atendimento { background: #fff; padding: 40px 20px; }
+.conteudo-centralizado { max-width: 1000px; margin: 0 auto; width: 100%; }
+.hero-atendimento h1 { color: #1b1642; font-size: 2rem; margin-bottom: 10px; }
+.hero-atendimento p { color: #666; margin-bottom: 25px; }
+.input-busca-grande { width: 100%; max-width: 600px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+
+.area-azul-claro { background-color: #aeddf2; padding: 40px 20px; min-height: 60vh; }
+.grid-contatos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
+.cartao-contato { background: #fff; padding: 20px; border-radius: 8px; display: flex; gap: 15px; align-items: flex-start; }
+.cartao-contato.ativo { box-shadow: 0 0 0 2px #f35b3f; } /* Borda laranja para o ativo */
+.cartao-contato strong { color: #1b1642; display: block; margin-bottom: 5px; font-size: 1rem; }
+.cartao-contato p { color: #666; font-size: 0.8rem; line-height: 1.4; }
+
+.layout-duas-colunas-atendimento { display: flex; gap: 30px; }
+
+/* Chat */
+.janela-chat { flex: 2; background: #fff; border-radius: 8px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.cabecalho-chat { background: #1b1642; padding: 20px; display: flex; align-items: center; gap: 15px; color: #fff; }
+.status-online { font-size: 0.75rem; color: #a3a1c6; }
+.corpo-chat { padding: 20px; background: #f9f9f9; flex: 1; display: flex; flex-direction: column; gap: 15px; min-height: 300px; }
+.balao-chat { max-width: 80%; padding: 15px; border-radius: 8px; font-size: 0.9rem; line-height: 1.4; }
+.balao-chat.agente { background: #aeddf2; color: #1b1642; align-self: flex-start; border-bottom-left-radius: 0; }
+.balao-chat.cliente { background: #1b1642; color: #fff; align-self: flex-end; border-bottom-right-radius: 0; }
+.rodape-chat { padding: 15px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 10px; }
+.rodape-chat input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
+
+/* FAQ */
+.area-faq { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+.titulo-faq { color: #1b1642; font-size: 1.2rem; }
+.item-faq { background: #fff; padding: 15px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 0.9rem; color: #1b1642; cursor: pointer; }
+.icone-mais { color: #f35b3f; font-size: 1.2rem; }
+.cartao-horarios { background: #fff; padding: 20px; border-radius: 8px; margin-top: 10px; }
+.cartao-horarios strong { color: #1b1642; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+.cartao-horarios p { color: #666; font-size: 0.8rem; }
+
+/* =========================================
+   TELA DE ACOMPANHAMENTO
+========================================= */
+.cabecalho-acompanhamento { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 25px; }
+.input-busca-pequeno { padding: 12px; border: 1px solid #ddd; border-radius: 4px; width: 250px; outline: none; }
+
+.area-mapa { position: relative; background: #eef2f6; border-radius: 8px; overflow: hidden; margin-bottom: 20px; min-height: 300px; }
+.imagem-mapa { width: 100%; height: 100%; object-fit: cover; display: block; }
+.balao-flutuante { position: absolute; top: 20px; left: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.balao-flutuante small { display: block; color: #888; font-size: 0.75rem; }
+.balao-flutuante strong { display: block; color: #1b1642; font-size: 1.4rem; margin-top: 5px; }
+
+.secao-branca { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.secao-branca h3 { color: #1b1642; margin-bottom: 25px; font-size: 1.1rem; }
+
+/* Linha do Tempo */
+.linha-tempo { display: flex; flex-direction: column; position: relative; }
+.linha-tempo::before { content: ''; position: absolute; left: 7px; top: 10px; bottom: 30px; width: 2px; background: #eee; }
+.item-tempo { display: flex; gap: 20px; margin-bottom: 25px; position: relative; z-index: 1; }
+.ponto { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid; margin-top: 2px; }
+.ponto.verde { border-color: #1a7a38; background: #1a7a38; }
+.ponto.laranja { border-color: #f35b3f; background: #f35b3f; }
+.ponto.cinza { border-color: #ddd; background: #ddd; }
+.info-tempo strong { display: block; color: #333; font-size: 0.95rem; margin-bottom: 3px; }
+.info-tempo span { color: #888; font-size: 0.8rem; }
+.item-tempo.atual strong { color: #1b1642; }
+.item-tempo.futuro strong, .item-tempo.futuro span { color: #aaa; }
+.tag-situacao { margin-left: auto; background: #fdf2f0; color: #f35b3f; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; align-self: flex-start; }
+
+/* Cartões da Direita */
+.cartao-status-escuro { background: #1b1642; color: #fff; padding: 25px; border-radius: 8px; margin-bottom: 20px; }
+.cartao-status-escuro p { font-size: 0.85rem; color: #a3a1c6; }
+.cartao-status-escuro h2 { font-size: 2rem; margin: 10px 0 20px; }
+.barra-progresso-escura { height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; margin-bottom: 10px; }
+.barra-progresso-escura .preenchimento { height: 100%; background: #f35b3f; border-radius: 3px; }
+.rodape-progresso { font-size: 0.75rem !important; }
+
+.cartao-info-lateral { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.cartao-info-lateral strong { color: #1b1642; font-size: 1rem; display: block; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.mt-15 { margin-top: 15px; }
+.icone-avatar.com-letra { background: #e0f2fe; color: #0369a1; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 1.2rem; }
+.item-detalhe { margin-bottom: 15px; }
+.item-detalhe small { color: #888; font-size: 0.75rem; font-weight: bold; }
+.item-detalhe p { color: #333; font-size: 0.9rem; margin-top: 3px; }
+
+/* =========================================
+   TELA DE PATROCINADORES
+========================================= */
+
+/* Área Superior Escura */
+.hero-escuro { 
+    background-color: #1b1642; 
+    color: #ffffff; 
+    padding: 40px 20px; 
+}
+.migalhas-claras { 
+    font-size: 0.8rem; 
+    color: #a3a1c6; 
+    display: block; 
+    margin-bottom: 15px; 
+    font-weight: bold; 
+}
+.hero-escuro h1 { 
+    font-size: 2rem; 
+    margin-bottom: 10px; 
+}
+.hero-escuro p { 
+    font-size: 0.95rem; 
+    color: #a3a1c6; 
+    max-width: 600px; 
+}
+
+/* Títulos das Secções */
+.titulo-secao-patrocinador { 
+    color: #1b1642; 
+    font-size: 1.1rem; 
+    margin: 0 0 15px 0; 
+}
+.mt-40 { 
+    margin-top: 40px !important; 
+}
+
+/* Cartão Patrocinador Master */
+.cartao-master { 
+    background: #ffffff; 
+    border-radius: 8px; 
+    padding: 30px; 
+    display: flex; 
+    gap: 30px; 
+    align-items: center; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+}
+.img-placeholder-master { 
+    width: 300px; 
+    height: 180px; 
+    background-color: #f0f2f5; /* Fundo cinza enquanto a imagem não carrega */
+    object-fit: contain; 
+    border-radius: 4px; 
+}
+.info-master h3 { 
+    color: #1b1642; 
+    font-size: 1.4rem; 
+    margin-bottom: 10px; 
+}
+.info-master p { 
+    color: #666; 
+    font-size: 0.9rem; 
+    line-height: 1.5; 
+}
+
+/* Grelha de Outros Patrocinadores */
+.grid-patrocinadores { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+}
+.cartao-outro { 
+    background: #ffffff; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+}
+.img-placeholder-outro { 
+    width: 100%; 
+    height: 120px; 
+    background-color: #f0f2f5; 
+    object-fit: contain; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+}
+.cartao-outro h4 { 
+    color: #1b1642; 
+    font-size: 1rem; 
+    margin-bottom: 5px; 
+}
+.cartao-outro p { 
+    color: #666; 
+    font-size: 0.8rem; 
+}
+
+/* Banner Call to Action (Rodapé) */
+.banner-cta { 
+    background-color: #1b1642; 
+    color: #ffffff; 
+    border-radius: 8px; 
+    padding: 30px 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 40px; 
+}
+.banner-cta h3 { 
+    font-size: 1.4rem; 
+    margin-bottom: 5px; 
+}
+.banner-cta p { 
+    font-size: 0.9rem; 
+    color: #a3a1c6; 
+}
+.botoes-cta { 
+    display: flex; 
+    gap: 15px; 
+}
+.botao-branco { 
+    background-color: #ffffff; 
+    color: #1b1642; 
+    border: 1px solid #ffffff; 
+}

@@ -1,32 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrar | UrbanLink Flow</title>
-  <link rel="stylesheet" href="css/estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanLink Flow - Cadastro</title>
+    <!-- Liga este arquivo HTML ao arquivo CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="pagina-login">
- 
-  <div class="cartao caixa-login">
-    <div class="icone"> </div>
-    <h1>UrbanLink Flow - Login</h1>
-    <p class="subtitulo">Entre com seu e-mail e senha</p>
- 
-    <form id="form-login">
-      <label for="email">E-mail</label>
-      <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
- 
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" placeholder="Digite sua senha" required>
- 
-      <button type="submit" class="botao">Entrar</button>
+<body>
 
-      <p class="cadastro">Não possui conta? <a href="cadastro.html">Cadastre-se</a></p>
-    </form>
- 
-    <p id="mensagem" class="mensagem"></p>
-  </div>
- 
+    <!-- CABEÇALHO DA PÁGINA (Topo branco) -->
+    <header class="cabecalho">
+      <div class="logo">
+          <!-- Espaço para a imagem do logótipo -->
+          <img src="caminho-para-a-sua-imagem.png" alt="Logótipo UrbanLink" class="imagem-logo">
+      </div>
+      <div class="login">
+          Já tem conta? <a href="login.html">Entrar</a>
+      </div>
+  </header>
+
+    <!-- ÁREA PRINCIPAL (Fundo azul) -->
+    <main class="area-principal">
+        
+        <!-- Títulos da página -->
+        <div class="titulos">
+            <h1>Como você vai usar o UrbanLink Flow?</h1>
+            <p>Escolha o seu perfil. Os dados pedidos no cadastro e o tipo de acesso mudam conforme essa escolha.</p>
+        </div>
+
+        <!-- CONTAINER DOS CARTÕES (Onde ficam as 3 opções lado a lado) -->
+        <div class="container-cartoes">
+
+            <!-- CARTÃO 1: CLIENTE (Destacado) -->
+            <div class="cartao cartao-destaque">
+                <div class="icone icone-azul">👤</div>
+                <h2>Cliente</h2>
+                <p class="descricao">Peça e acompanhe entregas.</p>
+                
+                <p class="titulo-lista">O QUE VAMOS PEDIR</p>
+                <ul>
+                    <li>Nome, e-mail, senha e telefone</li>
+                    <li>CPF ou CNPJ</li>
+                    <li>Endereço de coleta e entrega</li>
+                </ul>
+
+                <div class="tag tag-verde">Ativação imediata após confirmação por e-mail ou SMS</div>
+                
+                <a href="cadastro-cliente.html"> <button class="botao botao-primario">Continuar como Cliente</button> </a>
+            </div>
+
+            <!-- CARTÃO 2: ENTREGADOR -->
+            <div class="cartao">
+                <div class="icone icone-azul">🚚</div>
+                <h2>Entregador</h2>
+                <p class="descricao">Faça entregas e siga as rotas do dia.</p>
+                
+                <p class="titulo-lista">O QUE VAMOS PEDIR</p>
+                <ul>
+                    <li>Dados pessoais, CPF e CNH com foto</li>
+                    <li>Dados do veículo e capacidade</li>
+                    <li>Confirmação de contatos</li>
+                </ul>
+
+                <div class="tag tag-amarela">Fica pendente até a aprovação do gestor</div>
+                
+                <a href="cadastro-entregador.html"> <button class="botao botao-secundario">Continuar como Entregador</button> </a>
+            </div>
+
+            <!-- CARTÃO 3: ADMINISTRADOR -->
+            <div class="cartao">
+                <div class="icone icone-azul">🏢</div>
+                <h2>Administrador</h2>
+                <p class="descricao">Controle a operação, a frota e os usuários.</p>
+                
+                <p class="titulo-lista">O QUE VAMOS PEDIR</p>
+                <ul class="lista-check">
+                    <li>Dados pessoais e e-mail corporativo</li>
+                    <li>CPF e CNPJ da empresa</li>
+                    <li>Código de convite da organização</li>
+                </ul>
+
+                <div class="tag tag-azul">Acesso após validar o código de convite</div>
+                
+                <a href="cadastro-adm.html"><button class="botao botao-secundario">Continuar como Administrador</button></a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA (Base branca) -->
+    <footer class="rodape">
+        <div class="copyright">
+            © 2026 UrbanLink Systems
+        </div>
+        <div class="links-rodape">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de uso</a>
+            <a href="#">Suporte</a>
+        </div>
+    </footer>
+
 </body>
 </html>

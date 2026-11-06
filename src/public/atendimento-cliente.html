@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atendimento - UrbanLink</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+    <!-- CABEÇALHO INTERNO -->
+    <header class="cabecalho-interno">
+        <div class="logo">
+            <span class="icone-menu">≡</span> 
+            <img src="caminho-logo.png" alt="Logótipo UrbanLink" class="imagem-logo">
+        </div>
+        <nav class="navegacao-topo">
+            <a href="dashboard-cliente.html">Início</a>
+            <a href="acompanhamento.html">Acompanhamento</a>
+            <a href="atendimento.html" class="ativo">Atendimento</a>
+            <a href="#">Patrocinadores</a>
+        </nav>
+        <div class="perfil-usuario">
+            <img src="caminho-icone-usuario.png" alt="Ícone" class="icone-img">
+            <span>Bem Vindo, Usuário</span>
+        </div>
+    </header>
+
+    <!-- ÁREA SUPERIOR (Branca) -->
+    <section class="hero-atendimento">
+        <div class="conteudo-centralizado">
+            <h1>Atendimento ao cliente</h1>
+            <p>Fale com a equipe ou consulte as perguntas frequentes antes de abrir um chamado.</p>
+            <input type="text" class="input-busca-grande" placeholder="Ex.: Atraso na entrega, perdi o código de rastreio">
+        </div>
+    </section>
+
+    <!-- ÁREA INFERIOR (Fundo Azul Claro) -->
+    <main class="area-azul-claro">
+        <div class="conteudo-centralizado">
+            
+            <!-- CARTÕES DE CONTACTO -->
+            <div class="grid-contatos">
+                <div class="cartao-contato ativo">
+                    <img src="caminho-icone-chat.png" alt="Chat" class="icone-img">
+                    <div>
+                        <strong>Chat ao vivo</strong>
+                        <p>Resposta em poucos minutos, direto aqui na plataforma.</p>
+                    </div>
+                </div>
+                <div class="cartao-contato">
+                    <img src="caminho-icone-tel.png" alt="Telefone" class="icone-img">
+                    <div>
+                        <strong>Telefone</strong>
+                        <p>0000 000 0000 • seg a sex, das 7h às 20h.</p>
+                    </div>
+                </div>
+                <div class="cartao-contato">
+                    <img src="caminho-icone-email.png" alt="Email" class="icone-img">
+                    <div>
+                        <strong>Email</strong>
+                        <p>suporte@urbanlink.com • respondemos assim que possível.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-duas-colunas-atendimento">
+                
+                <!-- COLUNA ESQUERDA: CHAT -->
+                <div class="janela-chat">
+                    <div class="cabecalho-chat">
+                        <img src="caminho-avatar-gerente.png" alt="Gerente" class="icone-avatar">
+                        <div>
+                            <strong>Gerente da UrbanLink • Atendimento</strong>
+                            <p class="status-online">Online agora</p>
+                        </div>
+                    </div>
+                    <div class="corpo-chat">
+                        <div class="balao-chat agente">
+                            Oi, Cliente! Eu sou o Gerente. Como posso ajudar você hoje?
+                        </div>
+                        <div class="balao-chat cliente">
+                            Oi, Gerente! Meu pedido AA-0000 vai chegar no horário?
+                        </div>
+                        <div class="balao-chat agente">
+                            Já vou olhar pra você. Ele está a caminho com o Motorista e a previsão é chegar até as 11:30. Quer que eu avise quando ele estiver perto?
+                        </div>
+                        <div class="balao-chat cliente">
+                            Quero sim, obrigada!
+                        </div>
+                    </div>
+                    <div class="rodape-chat">
+                        <input type="text" placeholder="Digite sua mensagem">
+                        <button class="botao botao-primario">Enviar</button>
+                    </div>
+                </div>
+
+                <!-- COLUNA DIREITA: FAQ -->
+                <div class="area-faq">
+                    <h2 class="titulo-faq">Perguntas frequentes</h2>
+                    <div class="lista-faq">
+                        <div class="item-faq"><span>Como faço para acompanhar a minha entrega?</span> <span class="icone-mais">+</span></div>
+                        <div class="item-faq"><span>Posso alterar o endereço depois de fazer o pedido?</span> <span class="icone-mais">+</span></div>
+                        <div class="item-faq"><span>O que fazer se não tiver alguém para receber?</span> <span class="icone-mais">+</span></div>
+                        <div class="item-faq"><span>Como funciona a política de devolução?</span> <span class="icone-mais">+</span></div>
+                        <div class="item-faq"><span>Esqueci minha senha. E agora?</span> <span class="icone-mais">+</span></div>
+                    </div>
+                    
+                    <div class="cartao-horarios">
+                        <strong>Horários de atendimento</strong>
+                        <p>Segunda a sexta, das 7h às 20h. Sábados, das 10h às 14h.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

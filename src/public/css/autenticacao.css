@@ -1,0 +1,146 @@
+/* =========================================
+   ESTRUTURA BASE E CARTÕES
+========================================= */
+.area-autenticacao {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    padding: 40px;
+    background-color: #eef2f6; /* Fundo cinza/azulado claro (cor do fundo do figma) */
+    min-height: 100vh;
+}
+
+.cartao-autenticacao {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima do cartão */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Borda azul exclusiva do ecrã de registo */
+.cartao-destaque-azul {
+    border: 3px solid #1a8bff; 
+}
+
+/* =========================================
+   TEXTOS E ETIQUETAS
+========================================= */
+.titulo-autenticacao {
+    color: #1b1642; /* Azul escuro da marca */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitulo-autenticacao {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.etiqueta-tipo-usuario {
+    background-color: #1b1642;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   FORMULÁRIOS E INPUTS
+========================================= */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço uniforme entre os campos */
+}
+
+/* Cria uma linha com dois inputs lado a lado (ex: CPF e CEP) */
+.linha-form {
+    display: flex;
+    gap: 15px;
+}
+.linha-form .grupo-form {
+    flex: 1; /* Faz as colunas dividirem o espaço 50/50 */
+}
+
+.grupo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupo-form label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.grupo-form input {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.grupo-form input:focus {
+    outline: none;
+    border-color: #1b1642; /* Fica escuro ao clicar no campo */
+}
+
+/* =========================================
+   CHECKBOX E LINKS
+========================================= */
+.grupo-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.texto-checkbox {
+    font-size: 0.75rem;
+    color: #555;
+}
+
+/* Alinha a checkbox na esquerda e o link na direita */
+.opcoes-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.link-esqueceu {
+    color: #f35b3f; /* Laranja da marca */
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =========================================
+   BOTÕES (Pode ser movido para o global.css mais tarde)
+========================================= */
+.botao {
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+}
+
+.botao-primario {
+    background-color: #f35b3f;
+    color: white;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Solicitação - UrbanLink</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body class="fundo-cinza">
+    <!-- O mesmo cabeçalho do ecrã inicial -->
+    <header class="cabecalho-interno">
+        <div class="logo">
+            <span class="icone-menu">≡</span> 
+            <img src="caminho-logo.png" alt="Logótipo" class="imagem-logo">
+        </div>
+        <nav class="navegacao-topo">
+            <a href="dashboard-cliente.html">Início</a>
+            <a href="#">Acompanhamento</a>
+            <a href="#">Atendimento</a>
+            <a href="#">Patrocinadores</a>
+        </nav>
+        <div class="perfil-usuario">
+            <img src="caminho-icone-usuario.png" alt="Ícone" class="icone-img">
+            <span>Bem Vindo, Usuário</span>
+        </div>
+    </header>
+
+    <main class="conteudo-dashboard">
+        <div class="cabecalho-pagina">
+            <span class="migalhas">Início / Nova solicitação</span>
+            <h2>Nova solicitação de entrega</h2>
+            <p class="subtitulo-pagina">Preencha os dados abaixo. Os campos mudam conforme o veículo escolhido.</p>
+        </div>
+
+        <div class="layout-duas-colunas">
+            
+            <!-- ESQUERDA: FORMULÁRIO -->
+            <div class="area-formulario">
+                
+                <!-- Passo 1 -->
+                <div class="bloco-form">
+                    <div class="cabecalho-passo">
+                        <span class="numero-passo">1</span>
+                        <div>
+                            <h3>Coleta</h3>
+                            <p>Endereço padrão cadastrado na sua conta.</p>
+                        </div>
+                    </div>
+                    <div class="opcoes-radio">
+                        <label class="caixa-radio selecionado">
+                            <input type="radio" name="coleta" checked>
+                            <div>
+                                <strong>Usar endereço padrão</strong>
+                                <p>Rua das Acácias, 120</p>
+                            </div>
+                            <span class="tag-padrao">Padrão</span>
+                        </label>
+                        <label class="caixa-radio">
+                            <input type="radio" name="coleta">
+                            <strong>Informar outro endereço de coleta</strong>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="bloco-form">
+                    <div class="cabecalho-passo">
+                        <span class="numero-passo">2</span>
+                        <div>
+                            <h3>Entrega</h3>
+                            <p>Para onde vai a encomenda.</p>
+                        </div>
+                    </div>
+                    <div class="grade-form">
+                        <div class="grupo-input"><label>Nome do cliente</label><input type="text" placeholder="Nome do cliente"></div>
+                        <div class="grupo-input"><label>Celular</label><input type="text" placeholder="(00) 00000-0000"></div>
+                        <div class="grupo-input"><label>CEP de entrega</label><input type="text" placeholder="00000-000"></div>
+                        <div class="grupo-input col-dupla"><label>Rua, número e complemento</label><input type="text" placeholder="Rua, número e complemento"></div>
+                        <div class="grupo-input"><label>Bairro</label><input type="text" placeholder="Bairro"></div>
+                        <div class="grupo-input"><label>Cidade</label><input type="text" placeholder="Cidade"></div>
+                    </div>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="bloco-form">
+                    <div class="cabecalho-passo">
+                        <span class="numero-passo">3</span>
+                        <div>
+                            <h3>Carga e veículo</h3>
+                            <p>Escolha o tipo de veículo.</p>
+                        </div>
+                    </div>
+                    <div class="opcoes-botoes">
+                        <button class="botao-seletor ativo">Moto</button>
+                        <button class="botao-seletor">Carro</button>
+                        <button class="botao-seletor">Van</button>
+                        <button class="botao-seletor">Caminhão</button>
+                        <button class="botao-seletor">Elétrico</button>
+                    </div>
+                    <div class="alerta-info">
+                        Para Van e Caminhão, informe o peso e o volume da carga. Para Moto e Carro, basta a quantidade de volumes.
+                    </div>
+                    <div class="grade-form">
+                        <div class="grupo-input"><label>Tipo de carga</label><select><option>Selecione</option></select></div>
+                        <div class="grupo-input"><label>Quantidade de volumes</label><input type="text" value="1"></div>
+                        <div class="grupo-input"><label>Peso total (kg)</label><input type="text" placeholder="0 kg"></div>
+                        <div class="grupo-input"><label>Volume total (m³)</label><input type="text" placeholder="0 m³"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- DIREITA: RESUMO -->
+            <div class="area-resumo">
+                <div class="cartao-resumo">
+                    <h3>Resumo da solicitação</h3>
+                    <div class="item-resumo"><small>Coleta</small><p>Rua das Acácias, 120</p></div>
+                    <div class="item-resumo"><small>Entrega</small><p>Av. Atlântica, 2400</p></div>
+                    <div class="item-resumo"><small>Veículo</small><p>Van</p></div>
+                    <div class="item-resumo"><small>Janela</small><p>00:00 - 00:00</p></div>
+                    
+                    <div class="estimativas">
+                        <div class="caixa-estimativa"><small>Distância</small><p>-- km</p></div>
+                        <div class="caixa-estimativa"><small>Prazo</small><p>-- min</p></div>
+                    </div>
+
+                    <button class="botao botao-primario total-largura">Solicitar entrega</button>
+                    <button class="botao botao-secundario total-largura">Cancelar</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

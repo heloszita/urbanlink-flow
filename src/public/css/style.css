@@ -1,209 +1,216 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box; /* Garante que padding não aumente o tamanho total dos elementos */
+  font-family: Arial, sans-serif; /* Fonte padrão do sistema */
 }
 
 body {
-  background-color: #0f172a;
-  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Faz o corpo ocupar no mínimo a altura toda da tela */
+}
+
+/* =========================================
+ CABEÇALHO E RODAPÉ
+========================================= */
+.cabecalho, .rodape {
+  display: flex; /* Coloca os itens internos lado a lado */
+  justify-content: space-between; /* Empurra um item para a esquerda e outro para a direita */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 20px 40px;
+  background-color: #ffffff;
+}
+.cabecalho .logo {
+  display: flex;
+  align-items: center;
+}
+
+.icone-menu {
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: #f35b3f; /* Laranja original do ícone */
+  cursor: pointer;
+}
+
+.imagem-logo {
+  height: 24px; /* Ajuste a altura consoante o tamanho da sua imagem */
+  width: auto;  /* Mantém as proporções da imagem originais */
+  display: block;
+}
+
+
+.cabecalho .login a {
+  color: #f35b3f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.rodape {
+  font-size: 0.8rem;
+  color: #666;
+}
+.rodape a {
+  color: #666;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+/* =========================================
+ ÁREA PRINCIPAL (Fundo Azul)
+========================================= */
+.area-principal {
+  flex-grow: 1; /* Faz esta área preencher todo o espaço restante entre cabeçalho e rodapé */
+  background-color: #cce6f6; /* Azul claro do fundo */
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulos {
+  margin-bottom: 40px;
+  color: #1b1642;
+}
+.titulos h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+.titulos p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* =========================================
+ SISTEMA DE CARTÕES
+========================================= */
+.container-cartoes {
+  display: flex; /* Coloca os 3 cartões lado a lado */
+  gap: 25px; /* Espaço entre os cartões */
+}
+
+.cartao {
+  background-color: #ffffff;
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 30px;
+  flex: 1; /* Faz todos os cartões terem a mesma largura */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Destaca o cartão selecionado (Cliente) */
+.cartao-destaque {
+  border: 2px solid #2e266d; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.icone-azul {
+  background-color: #1b1642;
+  color: white;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-.container {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 32px;
-  width: 100%;
-  max-width: 520px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-}
-
-/* Ocultar radio buttons de controle */
-input[type="radio"] {
-  display: none;
-}
-
-/* Ocultar elementos por padrão */
-.etapa-2,
-.titulo-cliente, .titulo-motorista, .titulo-gestor,
-.campos-cliente, .campos-motorista, .campos-gestor {
-  display: none;
-}
-
-/* --- REGRAS CSS DE ALTERNÂNCIA VIA :checked --- */
-
-/* Estado inicial: Exibe Etapa 1 */
-#radio-inicio:checked ~ .etapa-1 {
-  display: block;
-}
-
-/* Ao selecionar um perfil: Oculta Etapa 1 e Mostra Etapa 2 */
-#radio-cliente:checked ~ .etapa-1,
-#radio-motorista:checked ~ .etapa-1,
-#radio-gestor:checked ~ .etapa-1 {
-  display: none;
-}
-
-#radio-cliente:checked ~ .etapa-2,
-#radio-motorista:checked ~ .etapa-2,
-#radio-gestor:checked ~ .etapa-2 {
-  display: block;
-}
-
-/* Exibe títulos e campos específicos conforme o perfil selecionado */
-#radio-cliente:checked ~ .etapa-2 .titulo-cliente,
-#radio-cliente:checked ~ .etapa-2 .campos-cliente {
-  display: block;
-}
-
-#radio-motorista:checked ~ .etapa-2 .titulo-motorista,
-#radio-motorista:checked ~ .etapa-2 .campos-motorista {
-  display: block;
-}
-
-#radio-gestor:checked ~ .etapa-2 .titulo-gestor,
-#radio-gestor:checked ~ .etapa-2 .campos-gestor {
-  display: block;
-}
-
-/* --- ESTILOS VISUAIS DOS COMPONENTES --- */
-
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-  color: #ffffff;
-}
-
-p.subtitulo {
-  color: #94a3b8;
-  font-size: 0.9rem;
-  margin-bottom: 24px;
-}
-
-.card-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card-btn {
-  background-color: #0f172a;
-  border: 2px solid #334155;
-  border-radius: 12px;
-  padding: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: all 0.2s ease;
-}
-
-.card-btn:hover {
-  border-color: #3b82f6;
-  background-color: #1e293b;
-  transform: translateY(-2px);
-}
-
-.card-btn .icon {
-  font-size: 2rem;
-}
-
-.card-btn strong {
-  display: block;
-  color: #f8fafc;
-  font-size: 1rem;
-}
-
-.card-btn small {
-  color: #94a3b8;
-  font-size: 0.8rem;
-}
-
-.btn-voltar {
-  display: inline-block;
-  color: #60a5fa;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
+  border-radius: 6px;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
-.btn-voltar:hover {
-  text-decoration: underline;
+.cartao h2 {
+  color: #1b1642;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
 }
 
-.form-row {
-  display: flex;
-  gap: 12px;
-}
-
-.form-group {
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.form-group label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #cbd5e1;
-  margin-bottom: 6px;
-}
-
-.form-group input, .form-group select {
-  padding: 12px;
-  background-color: #0f172a;
-  border: 1px solid #334155;
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 0.9rem;
-  outline: none;
-}
-
-.form-group input[type="file"] {
-  padding: 8px;
-  font-size: 0.85rem;
-}
-
-.form-group input:focus, .form-group select:focus {
-  border-color: #3b82f6;
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid #334155;
-  margin: 20px 0;
-}
-
-.section-title {
+.cartao .descricao {
   font-size: 0.95rem;
-  color: #38bdf8;
-  margin-bottom: 12px;
-  font-weight: 600;
+  color: #555;
+  margin-bottom: 25px;
+  min-height: 40px; /* Garante que todos fiquem alinhados mesmo se o texto for menor */
 }
 
-.btn-submit {
+/* =========================================
+ LISTAS DENTRO DOS CARTÕES
+========================================= */
+.titulo-lista {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.cartao ul {
+  list-style-position: inside;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Empurra o botão e a tag para o final do cartão */
+}
+.cartao ul li {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Estilo específico para lista com "Check" no último cartão */
+.lista-check {
+  list-style-type: none; /* Remove bolinhas padrões */
+}
+.lista-check li::before {
+  content: '✓'; /* Adiciona o símbolo de check */
+  color: #1b73e8;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* =========================================
+ TAGS DE AVISO (Caixinhas coloridas)
+========================================= */
+.tag {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.tag-verde {
+  background-color: #dcf5e3;
+  color: #1a7a38;
+}
+.tag-amarela {
+  background-color: #fdf5d3;
+  color: #9c7300;
+}
+.tag-azul {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* =========================================
+ BOTÕES
+========================================= */
+.botao {
   width: 100%;
-  padding: 14px;
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 4px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  text-align: center;
 }
 
-.btn-submit:hover {
-  background-color: #1d4ed8;
+/* Botão Laranja (Selecionado) */
+.botao-primario {
+  background-color: #f35b3f;
+  color: white;
+  border: none;
 }
 
+/* Botões Brancos (Não selecionados) */
+.botao-secundario {
+  background-color: transparent;
+  color: #1b1642;
+  border: 1px solid #ccc;
+}
