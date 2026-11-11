@@ -780,3 +780,10 @@ body { background-color: #f5f7fa; color: #333; }
 .card-flutuante-proxima-parada small { color: #f35b3f; font-weight: bold; font-size: 0.75rem; }
 .card-flutuante-proxima-parada strong { display: block; font-size: 1rem; color: #1b1642; margin: 3px 0; }
 .card-flutuante-proxima-parada p { font-size: 0.8rem; color: #666; }
+
+/* Ajuste para o chat ocupar a largura total quando não há coluna de FAQ */
+.total-largura-chat {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}

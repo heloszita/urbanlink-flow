@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte ao Entregador - UrbanLink</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+    <!-- CABEÇALHO INTERNO -->
+    <header class="cabecalho-interno">
+        <div class="logo">
+            <span class="icone-menu">≡</span> 
+            <img src="caminho-logo.png" alt="Logótipo UrbanLink" class="imagem-logo">
+        </div>
+        <nav class="navegacao-topo">
+            <a href="inicial-motorista.html">Início</a>
+            <a href="inicial-motorista.html">Mapa e rotas</a>
+            <a href="atendimento-motorista.html" class="ativo">Atendimento</a>
+        </nav>
+        <div class="perfil-usuario">
+            <img src="caminho-icone-usuario.png" alt="Ícone de utilizador" class="icone-img">
+            <span>Bem Vindo, Administrador</span>
+        </div>
+    </header>
+
+    <!-- ÁREA SUPERIOR: PESQUISA -->
+    <section class="hero-atendimento">
+        <div class="conteudo-centralizado">
+            <h1>Suporte ao entregador</h1>
+            <p>Fale com a equipe ou consulte as perguntas frequentes antes de abrir um chamado.</p>
+            <input type="text" class="input-busca-grande" placeholder="Ex.: Atraso na entrega, perdi o código de rastreio">
+        </div>
+    </section>
+
+    <!-- ÁREA INFERIOR: CARTÕES DE CONTACTO E CHAT -->
+    <main class="area-azul-claro">
+        <div class="conteudo-centralizado">
+            
+            <!-- CARTÕES DE CONTACTO -->
+            <div class="grid-contatos">
+                <div class="cartao-contato ativo">
+                    <img src="caminho-icone-chat.png" alt="Chat" class="icone-img">
+                    <div>
+                        <strong>Chat ao vivo</strong>
+                        <p>Resposta em poucos minutos, direto aqui na plataforma.</p>
+                    </div>
+                </div>
+                <div class="cartao-contato">
+                    <img src="caminho-icone-telefone.png" alt="Telefone" class="icone-img">
+                    <div>
+                        <strong>Telefone</strong>
+                        <p>0000 000 0000 • seg a sex, das 7h às 20h.</p>
+                    </div>
+                </div>
+                <div class="cartao-contato">
+                    <img src="caminho-icone-email.png" alt="Email" class="icone-img">
+                    <div>
+                        <strong>Email</strong>
+                        <p>suporte@urbanlink.com • respondemos assim que possível.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAT AO VIVO LARGURA COMPLETA -->
+            <div class="janela-chat total-largura-chat">
+                <div class="cabecalho-chat">
+                    <img src="caminho-avatar-gerente.png" alt="Gerente" class="icone-avatar">
+                    <div>
+                        <strong>Gerente da UrbanLink • Atendimento</strong>
+                        <p class="status-online">Online Agora</p>
+                    </div>
+                </div>
+                <div class="corpo-chat">
+                    <div class="balao-chat agente">
+                        Oi, Motorista! Eu sou o Gerente. Como posso ajudar você hoje?
+                    </div>
+                    <div class="balao-chat cliente">
+                        Oi, Gerente! Já posso efetuar a entrega do pedido?
+                    </div>
+                    <div class="balao-chat agente">
+                        Não, quer que eu perca o meu emprego?
+                    </div>
+                    <div class="balao-chat cliente">
+                        Quero sim!
+                    </div>
+                </div>
+                <div class="rodape-chat">
+                    <input type="text" placeholder="Digite sua mensagem">
+                    <button class="botao botao-primario">Enviar</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

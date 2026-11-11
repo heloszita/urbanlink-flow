@@ -2,10 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Painel do Entregador - UrbanLink</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rota de Hoje - Motorista - UrbanLink</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
 </head>
-<body>
+<body class="fundo-cinza">
     <!-- CABEÇALHO INTERNO -->
     <header class="cabecalho-interno">
         <div class="logo">
@@ -13,259 +14,134 @@
             <img src="caminho-logo.png" alt="Logótipo UrbanLink" class="imagem-logo">
         </div>
         <nav class="navegacao-topo">
-            <a href="dashboard-entregador.html" class="ativo">Início</a>
-            <a href="#">Mapa e rotas</a>
-            <a href="acompanhamento.html">Acompanhamento</a>
-            <a href="atendimento.html">Atendimento</a>
+            <a href="inicial-motorista.html">Início</a>
+            <a href="inicial-motorista.html" class="ativo">Mapa e rotas</a>
+            <a href="atendimento-motorista.html">Atendimento</a>
         </nav>
         <div class="perfil-usuario">
             <img src="caminho-icone-usuario.png" alt="Ícone de utilizador" class="icone-img">
-            <span>Bem Vindo, Entregador</span>
+            <span>Bem Vinda, Administrador</span>
         </div>
     </header>
 
     <main class="conteudo-dashboard">
-        <!-- DATA SUPERIOR -->
-        <p class="texto-data">Quarta-feira, 21 de outubro de 2026</p>
-
-        <!-- SECÇÃO: VISÃO GERAL DA OPERAÇÃO -->
-        <section class="secao-dashboard">
-            <h2>Visão geral da operação</h2>
-            <div class="grid-4-colunas">
-                <div class="cartao-metricas">
-                    <p class="titulo-cartao">Entregas hoje</p>
-                    <p class="numero-metrica">000</p>
-                    <p class="subtexto-cartao"><span class="texto-destaque">00%</span> em relação a ontem</p>
-                </div>
-                <div class="cartao-metricas">
-                    <p class="titulo-cartao">Em rota agora</p>
-                    <p class="numero-metrica">00</p>
-                    <p class="subtexto-cartao"><span class="texto-alerta">0</span> com previsão de atraso</p>
-                </div>
-                <div class="cartao-metricas">
-                    <p class="titulo-cartao">Entregas no prazo</p>
-                    <p class="numero-metrica">00,0%</p>
-                    <p class="subtexto-cartao">meta do mês: 00%</p>
-                </div>
-                <div class="cartao-metricas">
-                    <p class="titulo-cartao">Estoque baixo</p>
-                    <p class="numero-metrica">0 <small>itens</small></p>
-                    <p class="subtexto-cartao"><span class="texto-alerta">0</span> esgotado</p>
-                </div>
+        
+        <!-- CABEÇALHO DA ROTA COM TOGGLE ONLINE -->
+        <div class="topo-rota-ativa">
+            <div>
+                <span class="migalhas">Início</span>
+                <h2>Rota de hoje</h2>
+                <p class="subtitulo-bloco">Siga a sequência de paradas e confirme cada entrega.</p>
             </div>
-        </section>
-
-        <!-- SECÇÃO: AÇÕES RÁPIDAS -->
-        <section class="secao-dashboard">
-            <h2>Ações rápidas</h2>
-            <div class="grid-3-colunas">
-                <button class="cartao-acao-rapida">
-                    <img src="caminho-icone-registrar.png" alt="Ícone" class="icone-img">
-                    <strong>Registrar entrega</strong>
-                </button>
-                <button class="cartao-acao-rapida">
-                    <img src="caminho-icone-estoque.png" alt="Ícone" class="icone-img">
-                    <strong>Gestão de estoque</strong>
-                </button>
-                <button class="cartao-acao-rapida">
-                    <img src="caminho-icone-mapa.png" alt="Ícone" class="icone-img">
-                    <strong>Ver mapa de rotas</strong>
-                </button>
+            <div class="toggle-status-online">
+                <span class="ponto-verde-indicador"></span>
+                <strong>Online / Disponível</strong>
             </div>
-        </section>
+        </div>
 
-        <!-- DUAS COLUNAS: GESTÃO DE ESTOQUE E REGISTAR ENTREGA -->
-        <div class="layout-duas-colunas-motorista">
+        <!-- CARDS DE MÉTRICAS RÁPIDAS -->
+        <div class="grid-3-colunas mt-20">
+            <div class="cartao-info">
+                <small>Entregas realizadas hoje</small>
+                <p class="numero-metrica">7 de 12</p>
+                <span class="subtexto-cartao">3 em andamento</span>
+            </div>
+            <div class="cartao-info">
+                <small>Previsão do término (ETA)</small>
+                <p class="numero-metrica">15:40</p>
+                <span class="subtexto-cartao">no horário previsto</span>
+            </div>
+            <div class="cartao-info">
+                <small>Próxima parada em</small>
+                <p class="numero-metrica">8 min</p>
+                <span class="subtexto-cartao">2,3 km de distância</span>
+            </div>
+        </div>
+
+        <!-- LAYOUT CENTRAL DA ROTA: MAPA + PAINEL DIREITO -->
+        <div class="layout-grid-dashboard mt-20">
             
-            <!-- ESQUERDA: GESTÃO DE ESTOQUE -->
-            <div class="bloco-conteudo">
-                <div class="topo-bloco">
-                    <div>
-                        <h3>Gestão de estoque</h3>
-                        <p class="subtitulo-bloco">A melhor forma de organizar as suas entregas</p>
+            <!-- MAPA DA ROTA -->
+            <div class="coluna-esq">
+                <div class="container-mapa-rota">
+                    <div class="topo-mapa-info">
+                        <strong>Rota do dia</strong>
+                        <small>Término previsto 15:40</small>
                     </div>
-                    <div class="botoes-topo">
-                        <button class="botao botao-secundario-pequeno">Filtrar</button>
-                        <button class="botao botao-secundario-pequeno">Exportar</button>
-                    </div>
-                </div>
-
-                <div class="barra-ferramentas-estoque">
-                    <div class="caixa-busca-estoque">
-                        <img src="caminho-icone-busca.png" alt="Busca" class="icone-img">
-                        <input type="text" placeholder="Buscar produto ou código">
-                    </div>
-                    <div class="info-resumo-estoque">
-                        <strong>Itens em estoque</strong>
-                        <p>0000</p>
-                    </div>
-                </div>
-
-                <div class="alerta-reposicao">
-                    <img src="caminho-icone-alerta.png" alt="Alerta" class="icone-img">
-                    <span>xx produtos precisam de reposição esta semana.</span>
-                </div>
-
-                <table class="tabela-pedidos">
-                    <thead>
-                        <tr>
-                            <th>Produto</th>
-                            <th>Código</th>
-                            <th>Quantidade</th>
-                            <th>Situação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Caixa de papelão Média</td>
-                            <td>AA-0000</td>
-                            <td>000 uni</td>
-                            <td><span class="badge badge-verde">Em estoque</span></td>
-                        </tr>
-                        <tr>
-                            <td>Fita adesiva reforçada</td>
-                            <td>AA-0000</td>
-                            <td>00 uni</td>
-                            <td><span class="badge badge-amarelo">Estoque baixo</span></td>
-                        </tr>
-                        <tr>
-                            <td>Embalagem bolha 1 metro</td>
-                            <td>AA-0000</td>
-                            <td>000 uni</td>
-                            <td><span class="badge badge-verde">Em estoque</span></td>
-                        </tr>
-                        <tr>
-                            <td>Etiqueta térmica</td>
-                            <td>AA-0000</td>
-                            <td>0 uni</td>
-                            <td><span class="badge badge-vermelho">Esgotado</span></td>
-                        </tr>
-                        <tr>
-                            <td>Saco plástico com lacre</td>
-                            <td>AA-0000</td>
-                            <td>00 uni</td>
-                            <td><span class="badge badge-amarelo">Estoque baixo</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="rodape-botoes-estoque">
-                    <button class="botao botao-primario">Adicionar produto</button>
-                    <button class="botao botao-secundario">Fazer inventário</button>
+                    <img src="caminho-mapa-rota-dia.png" alt="Mapa da Rota" class="imagem-mapa">
                 </div>
             </div>
 
-            <!-- DIREITA: REGISTAR ENTREGA -->
-            <div class="bloco-conteudo">
-                <h3>Registrar entrega</h3>
-                <p class="subtitulo-bloco">Preencha os dados: o cliente já pode acompanhar o pedido.</p>
-
-                <form class="formulario-internos">
-                    <div class="linha-form">
-                        <div class="grupo-input">
-                            <label>Código do pedido</label>
-                            <input type="text" placeholder="AA-0000">
-                        </div>
-                        <div class="grupo-input">
-                            <label>CEP de entrega</label>
-                            <input type="text" placeholder="00000-000">
-                        </div>
+            <!-- PAINEL DIREITO: PARADA ATUAL E SEQUÊNCIA -->
+            <div class="coluna-dir">
+                
+                <!-- CARD PARADA ATUAL -->
+                <div class="cartao-parada-atual">
+                    <div class="cabecalho-parada">
+                        <span class="tag-proxima">PRÓXIMA PARADA • 3 DE 12</span>
+                        <span class="badge badge-azul">Chega em 8 min</span>
                     </div>
-
-                    <div class="grupo-input mt-10">
-                        <label>Endereço completo</label>
-                        <input type="text" placeholder="Rua, número e complemento">
-                    </div>
-
-                    <div class="linha-form mt-10">
-                        <div class="grupo-input">
-                            <label>Nome do cliente</label>
-                            <input type="text" placeholder="Nome do cliente">
-                        </div>
-                        <div class="grupo-input">
-                            <label>Nome do remetente</label>
-                            <input type="text" placeholder="Nome do remetente">
-                        </div>
-                    </div>
-
-                    <div class="grupo-input mt-10">
-                        <label>Entregador responsável</label>
-                        <input type="text" placeholder="Nome do Entregador">
-                    </div>
-
-                    <div class="grupo-input mt-10">
-                        <label>Observações para o entregador</label>
-                        <textarea placeholder="Ex.: deixar com o porteiro seu Zé"></textarea>
-                    </div>
-
-                    <button type="submit" class="botao botao-primario total-largura mt-20">Registrar entrega</button>
-                </form>
-
-                <hr class="divisor mt-20">
-
-                <!-- Últimos registros -->
-                <h4 class="titulo-ultimos-registros">Últimas registros</h4>
-                <div class="lista-ultimos-registros">
-                    <div class="item-registro">
+                    <h2 class="endereco-parada">Av. Atlântica, 2400</h2>
+                    
+                    <div class="info-cliente-linha mt-10">
                         <div>
-                            <strong>Cliente 1</strong>
-                            <small>AA-0000</small>
+                            <small>Cliente</small>
+                            <p><strong>Nome do cliente</strong></p>
                         </div>
-                        <span class="badge badge-verde">Entregue</span>
+                        <img src="caminho-icone-telefone.png" alt="Ligar" class="icone-img btn-icone-chamada">
                     </div>
-                    <div class="item-registro">
-                        <div>
-                            <strong>Cliente 2</strong>
-                            <small>AA-0000</small>
-                        </div>
-                        <span class="badge badge-azul">Em rota</span>
+
+                    <div class="horario-limite mt-10">
+                        ⏱ Horário limite: 11:30
                     </div>
-                    <div class="item-registro">
-                        <div>
-                            <strong>Cliente 3</strong>
-                            <small># -0000</small>
+
+                    <button class="botao botao-secundario total-largura mt-15">Cheguei ao destino</button>
+                    <button class="botao botao-primario total-largura mt-10">Confirmar entrega</button>
+                </div>
+
+                <!-- CARD SEQUÊNCIA DE PARADAS -->
+                <div class="secao-branca mt-20">
+                    <h4 class="titulo-cartao mb-15">Sequência de paradas</h4>
+                    
+                    <div class="lista-sequencia-paradas">
+                        <div class="item-sequencia">
+                            <span class="num-circulo cinza">2</span>
+                            <div class="detalhe">
+                                <strong>Rua das Acácias, 120</strong>
+                            </div>
+                            <span class="badge badge-verde">Concluída</span>
                         </div>
-                        <span class="badge badge-amarelo">Aguardando</span>
+
+                        <div class="item-sequencia">
+                            <span class="num-circulo laranja">3</span>
+                            <div class="detalhe">
+                                <strong>Av. Atlântica, 2400</strong>
+                            </div>
+                            <span class="badge badge-azul">Próxima</span>
+                        </div>
+
+                        <div class="item-sequencia">
+                            <span class="num-circulo azul">4</span>
+                            <div class="detalhe">
+                                <strong>Rua Visconde de Pirajá, 55</strong>
+                            </div>
+                            <span class="badge badge-amarelo">Aguardando</span>
+                        </div>
+
+                        <div class="item-sequencia">
+                            <span class="num-circulo azul">5</span>
+                            <div class="detalhe">
+                                <strong>Praça Saens Peña, 8</strong>
+                            </div>
+                            <span class="badge badge-amarelo">Aguardando</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
 
-        <!-- BANNER INFORMATIVO: QUEM NÓS SOMOS? -->
-        <section class="banner-institucional mt-40">
-            <h2>Quem nós somos?</h2>
-            <p>A UrbanLink Systems é uma empresa brasileira de tecnologia para logística urbana, fundada em 20--. Desenvolvemos soluções para otimizar entregas, reduzir congestionamentos e conectar centros de distribuição, veículos e consumidores em tempo real.</p>
-            <p>O UrbanLink reúne essas soluções em uma plataforma: monitora o fluxo de entregas na cidade, simula rotas, apoia o treinamento de operadores e mostra os dados em painéis fáceis de ler. É usada por gestores de logística, condutores e clientes.</p>
-
-            <div class="grid-4-colunas mt-30">
-                <div class="item-recurso">
-                    <img src="caminho-icone-eficiencia.png" alt="Ícone" class="icone-img">
-                    <strong>Eficiência em primeiro lugar</strong>
-                    <p>Rotas mais curtas, entregas no horário e menos custo.</p>
-                </div>
-                <div class="item-recurso">
-                    <img src="caminho-icone-sustentavel.png" alt="Ícone" class="icone-img">
-                    <strong>Totalmente sustentável</strong>
-                    <p>Menos quilômetros rodados, menos emissões.</p>
-                </div>
-                <div class="item-recurso">
-                    <img src="caminho-icone-fundacao.png" alt="Ícone" class="icone-img">
-                    <strong>20--</strong>
-                    <p>ano de fundação</p>
-                </div>
-                <div class="item-recurso">
-                    <img src="caminho-icone-perfis.png" alt="Ícone" class="icone-img">
-                    <strong>3 perfis</strong>
-                    <p>cliente, condutor e administrador</p>
-                </div>
-            </div>
-
-            <div class="caixa-seguranca mt-30">
-                <strong>Segurança das Brabas</strong>
-                <p>Dados em tempo real para não te passarem pra trás.</p>
-            </div>
-        </section>
     </main>
 </body>
 </html>

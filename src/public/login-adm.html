@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrador - UrbanLink</title>
+    <link rel="stylesheet" href="./css/autenticacao.css">
+</head>
+<body>
+    <main class="area-autenticacao">
+        
+        <div class="cartao-autenticacao">
+            <h1 class="titulo-autenticacao">Entrar na plataforma</h1>
+            <p class="subtitulo-autenticacao">Use seu e-mail e senha para acessar o UrbanLink Flow.</p>
+            
+            <div class="etiqueta-tipo-usuario">Administrador</div>
+            
+            <form class="formulario" action="dashboard-admin.html">
+                <div class="grupo-form">
+                    <label for="email-login">E-mail</label>
+                    <input type="email" id="email-login" placeholder="voce@email.com">
+                </div>
+                
+                <div class="grupo-form">
+                    <label for="senha-login">Senha</label>
+                    <input type="password" id="senha-login" placeholder="Digite sua senha">
+                </div>
+                
+                <div class="opcoes-login">
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="lembrar">
+                        <label for="lembrar" class="texto-checkbox">Lembrar de mim</label>
+                    </div>
+                    <a href="#" class="link-esqueceu">Esqueci minha senha</a>
+                </div>
+                
+                <button type="submit" class="botao botao-primario">Entrar</button>
+            </form>
+        </div>
+
+    </main>
+</body>
+</html>
