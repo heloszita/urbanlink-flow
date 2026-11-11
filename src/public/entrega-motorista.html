@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Entregas - UrbanLink</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="fundo-azul-claro">
+    <!-- CABEÇALHO INTERNO -->
+    <header class="cabecalho-interno">
+        <div class="logo">
+            <span class="icone-menu">≡</span> 
+            <img src="caminho-logo.png" alt="Logótipo UrbanLink" class="imagem-logo">
+        </div>
+        <nav class="navegacao-topo">
+            <a href="dashboard-entregador.html">Início</a>
+            <a href="gestao-entregas.html" class="ativo">Gestão de entregas</a>
+            <a href="mapa-rotas.html">Mapa e rotas</a>
+        </nav>
+        <div class="perfil-usuario">
+            <img src="caminho-icone-usuario.png" alt="Ícone" class="icone-img">
+            <span>Bem Vindo, Entregador</span>
+        </div>
+    </header>
+
+    <main class="conteudo-dashboard">
+        <!-- TOPO DA PÁGINA -->
+        <div class="cabecalho-secao">
+            <div>
+                <span class="migalhas">Gestão</span>
+                <h2>Gestão de entregas</h2>
+                <p class="subtitulo-bloco">Controle todo o ciclo de vida dos pedidos da plataforma.</p>
+            </div>
+            <div class="botoes-topo">
+                <button class="botao botao-secundario"><img src="caminho-icone-exportar.png" alt="" class="icone-img-inline"> Exportar CSV</button>
+                <button class="botao botao-primario" onclick="abrirModal()">+ Nova entrega</button>
+            </div>
+        </div>
+
+        <!-- ABAS DE STATUS -->
+        <div class="abas-status">
+            <button class="aba ativa">Todas <span class="contador-aba">248</span></button>
+            <button class="aba">Pendentes <span class="contador-aba">31</span></button>
+            <button class="aba">Em trânsito <span class="contador-aba">34</span></button>
+            <button class="aba">Concluídas <span class="contador-aba">172</span></button>
+            <button class="aba">Canceladas <span class="contador-aba">11</span></button>
+        </div>
+
+        <!-- BARRA DE FILTROS -->
+        <div class="barra-filtros">
+            <div class="campo-filtro flex-2">
+                <label>Buscar</label>
+                <input type="text" placeholder="Código, cliente ou endereço">
+            </div>
+            <div class="campo-filtro">
+                <label>Status</label>
+                <select><option>Todos</option></select>
+            </div>
+            <div class="campo-filtro">
+                <label>Data</label>
+                <select><option>15 a 21 out</option></select>
+            </div>
+            <div class="campo-filtro">
+                <label>Motorista</label>
+                <select><option>Todos</option></select>
+            </div>
+            <button class="botao botao-secundario alinhar-fim">Filtrar</button>
+        </div>
+
+        <!-- CARD DA TABELA -->
+        <div class="cartao-tabela-gestao">
+            <div class="barra-acoes-massa">
+                <span><strong>2 entregas selecionadas</strong></span>
+                <div class="botoes-massa">
+                    <button class="botao botao-secundario-pequeno">Alterar status</button>
+                    <button class="botao botao-secundario-pequeno">Atribuir motorista</button>
+                    <button class="botao botao-link-vermelho">Cancelar entregas</button>
+                </div>
+            </div>
+
+            <table class="tabela-pedidos tabela-alinhada">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Código</th>
+                        <th>Cliente</th>
+                        <th>Origem e destino</th>
+                        <th>Janela</th>
+                        <th>Motorista</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" checked></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 1</td>
+                        <td>CD → Rua das Acácias, 120</td>
+                        <td>08:00 - 11:30</td>
+                        <td>Motorista</td>
+                        <td><span class="badge badge-azul">Em trânsito</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 2</td>
+                        <td>CD → Av. Atlântica, 2400</td>
+                        <td>08:00 - 13:00</td>
+                        <td>Motorista</td>
+                        <td><span class="badge badge-verde">Concluído</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" checked></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 3</td>
+                        <td>CD → Rua Visconde de Pirajá, 55</td>
+                        <td>09:00 - 12:00</td>
+                        <td>Sem motorista</td>
+                        <td><span class="badge badge-amarelo">Pendente</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 4</td>
+                        <td>CD → Praça Saens Peña, 8</td>
+                        <td>09:00 - 11:30</td>
+                        <td>Motorista</td>
+                        <td><span class="badge badge-azul">Em trânsito</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 5</td>
+                        <td>CD → Rua das Acácias, 120</td>
+                        <td>10:00 - 13:00</td>
+                        <td>Motorista</td>
+                        <td><span class="badge badge-azul">Em trânsito</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 6</td>
+                        <td>CD → Av. Atlântica, 2400</td>
+                        <td>10:00 - 12:00</td>
+                        <td>Sem motorista</td>
+                        <td><span class="badge badge-amarelo">Pendente</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>#AA-0000</td>
+                        <td>Cliente 7</td>
+                        <td>CD → Rua Visconde de Pirajá, 55</td>
+                        <td>08:00 - 12:00</td>
+                        <td>Motorista</td>
+                        <td><span class="badge badge-vermelho">Cancelado</span></td>
+                        <td><button class="botao-opcoes">•••</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PAGINAÇÃO -->
+            <div class="rodape-paginacao">
+                <span>Mostrando 1 a 7 de 248 entregas</span>
+                <div class="botoes-paginacao">
+                    <button class="pag-btn">&lt;</button>
+                    <button class="pag-btn ativo">1</button>
+                    <button class="pag-btn">2</button>
+                    <button class="pag-btn">3</button>
+                    <span>...</span>
+                    <button class="pag-btn">36</button>
+                    <button class="pag-btn">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL: NOVA ENTREGA (Frame 1) -->
+    <div class="overlay-modal" id="modalNovaEntrega">
+        <div class="janela-modal">
+            <div class="topo-modal">
+                <div>
+                    <h3>Nova entrega</h3>
+                    <p>Preencha os dados do pedido. Você pode atribuir o motorista depois.</p>
+                </div>
+                <button class="fechar-modal" onclick="fecharModal()">✕</button>
+            </div>
+
+            <form class="formulario-modal">
+                <div class="grupo-input">
+                    <label>Cliente</label>
+                    <select><option>Selecione um cliente</option></select>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Origem</label>
+                    <input type="text" value="Centro de distribuição - Praça do Porto, 1200" readonly class="input-desativado">
+                </div>
+
+                <div class="grupo-input">
+                    <label>Destino</label>
+                    <input type="text" placeholder="CEP, rua, número e bairro">
+                </div>
+
+                <div class="linha-form">
+                    <div class="grupo-input">
+                        <label>Janela - Início</label>
+                        <input type="text" value="09:00">
+                    </div>
+                    <div class="grupo-input">
+                        <label>Janela - Fim</label>
+                        <input type="text" value="11:30">
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Motorista</label>
+                    <select><option>Atribuir depois</option></select>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Observações para o motorista</label>
+                    <input type="text" placeholder="Ex.: deixar com o porteiro">
+                </div>
+
+                <div class="botoes-modal">
+                    <button type="button" class="botao botao-secundario" onclick="fecharModal()">Cancelar</button>
+                    <button type="submit" class="botao botao-primario">Salvar entrega</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function abrirModal() { document.getElementById('modalNovaEntrega').style.display = 'flex'; }
+        function fecharModal() { document.getElementById('modalNovaEntrega').style.display = 'none'; }
+    </script>
+</body>
+</html>

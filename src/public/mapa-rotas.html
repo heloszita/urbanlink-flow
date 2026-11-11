@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa e Rotas - UrbanLink</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="layout-sem-margin">
+    <!-- CABEÇALHO INTERNO -->
+    <header class="cabecalho-interno">
+        <div class="logo">
+            <span class="icone-menu">≡</span> 
+            <img src="caminho-logo.png" alt="Logótipo UrbanLink" class="imagem-logo">
+        </div>
+        <nav class="navegacao-topo">
+            <a href="dashboard-entregador.html">Início</a>
+            <a href="gestao-entregas.html">Gestão de entregas</a>
+            <a href="mapa-rotas.html" class="ativo">Mapa e rotas</a>
+        </nav>
+        <div class="perfil-usuario">
+            <img src="caminho-icone-usuario.png" alt="Ícone" class="icone-img">
+            <span>Bem Vindo, Entregador</span>
+        </div>
+    </header>
+
+    <main class="area-mapa-tela-cheia">
+        <!-- PAINEL LATERAL ESQUERDO -->
+        <aside class="painel-lateral-rotas">
+            <div class="cabecalho-rotas">
+                <h2>Rotas de hoje</h2>
+                <p>Quarta, 21 de outubro • 5 paradas planejadas</p>
+                
+                <div class="seletor-modo-rota">
+                    <button class="btn-modo ativo">Trânsito</button>
+                    <button class="btn-modo">Entregas</button>
+                </div>
+
+                <div class="busca-pequena mt-10">
+                    <input type="text" placeholder="Buscar endereço ou pedido">
+                </div>
+            </div>
+
+            <!-- ESTATÍSTICAS DA ROTA -->
+            <div class="metricas-rota">
+                <div class="item-metrica-rota">
+                    <small>Distância</small>
+                    <strong>00,0 km</strong>
+                </div>
+                <div class="item-metrica-rota">
+                    <small>Tempo</small>
+                    <strong>00 min</strong>
+                </div>
+                <div class="item-metrica-rota">
+                    <small>Paradas</small>
+                    <strong>0</strong>
+                </div>
+            </div>
+
+            <!-- LISTA DE PARADAS DA ROTA -->
+            <div class="lista-paradas-rota">
+                <div class="item-parada">
+                    <span class="numero-parada">1</span>
+                    <div class="info-parada">
+                        <strong>Centro de distribuição</strong>
+                        <small>Saída às 10:10</small>
+                    </div>
+                </div>
+                <div class="item-parada">
+                    <span class="numero-parada">2</span>
+                    <div class="info-parada">
+                        <strong>Rua das Acácias, 120</strong>
+                        <small>Chegada prevista 10:33</small>
+                    </div>
+                </div>
+                <div class="item-parada">
+                    <span class="numero-parada">3</span>
+                    <div class="info-parada">
+                        <strong>Av. Atlântica, 2400</strong>
+                        <small>Chegada prevista 11:10</small>
+                    </div>
+                </div>
+                <div class="item-parada">
+                    <span class="numero-parada">4</span>
+                    <div class="info-parada">
+                        <strong>Rua Visconde de Pirajá, 55</strong>
+                        <small>Chegada prevista 11:34</small>
+                    </div>
+                </div>
+                <div class="item-parada">
+                    <span class="numero-parada vermelho">5</span>
+                    <div class="info-parada">
+                        <strong>Praça Saens Peña, 8</strong>
+                        <small>Chegada prevista 11:50</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALERTA DA ROTA INTELIGENTE -->
+            <div class="alerta-rota-inteligente">
+                <span>Rota inteligente: você economiza 2,1 km e 13 minutos hoje.</span>
+            </div>
+
+            <div class="botoes-acao-rota">
+                <button class="botao botao-primario total-largura">Iniciar rota</button>
+                <button class="botao botao-secundario total-largura mt-10">Recalcular melhor rota</button>
+            </div>
+        </aside>
+
+        <!-- ÁREA CENTRAL DO MAPA -->
+        <section class="conteudo-mapa-interativo">
+            <img src="caminho-mapa-rotas-completo.png" alt="Mapa de rotas" class="imagem-mapa-cheio">
+
+            <!-- CONTROLES DO MAPA -->
+            <div class="controles-zoom">
+                <button>+</button>
+                <button>-</button>
+            </div>
+
+            <!-- CARD FLUTUANTE DA PRÓXIMA PARADA -->
+            <div class="card-flutuante-proxima-parada">
+                <small>Próxima parada</small>
+                <strong>Av. Atlântica, 2400</strong>
+                <p>Chegada em 8 minutos • 2,3 km</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

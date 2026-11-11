@@ -356,3 +356,427 @@ body { background-color: #f5f7fa; color: #333; }
     color: #1b1642; 
     border: 1px solid #ffffff; 
 }
+
+/* =========================================
+   TELA INICIAL MOTORISTA / ENTREGADOR
+========================================= */
+.texto-data {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.secao-dashboard {
+    margin-bottom: 30px;
+}
+.secao-dashboard h2 {
+    color: #1b1642;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* Grelhas */
+.grid-4-colunas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.grid-3-colunas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Cartões de Métricas */
+.cartao-metricas {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.numero-metrica {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1b1642;
+    margin: 5px 0;
+}
+.texto-destaque {
+    color: #1a7a38;
+    font-weight: bold;
+}
+.texto-alerta {
+    color: #b91c1c;
+    font-weight: bold;
+}
+
+/* Botões de Ações Rápidas */
+.cartao-acao-rapida {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+}
+.cartao-acao-rapida:hover {
+    background: #f8f9fa;
+}
+.cartao-acao-rapida strong {
+    color: #1b1642;
+    font-size: 1rem;
+}
+
+/* Layout em 2 Colunas (Estoque + Registar) */
+.layout-duas-colunas-motorista {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+.bloco-conteudo {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.topo-bloco {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.subtitulo-bloco {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 3px;
+}
+.botoes-topo {
+    display: flex;
+    gap: 8px;
+}
+.botao-secundario-pequeno {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Barra de Estoque */
+.barra-ferramentas-estoque {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.caixa-busca-estoque {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.caixa-busca-estoque input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.info-resumo-estoque {
+    text-align: right;
+}
+.info-resumo-estoque strong {
+    font-size: 0.75rem;
+    color: #888;
+}
+.info-resumo-estoque p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1b1642;
+}
+
+.alerta-reposicao {
+    background: #fff3cd;
+    color: #856404;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rodape-botoes-estoque {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Formulário Interno do Motorista */
+.formulario-internos textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 60px;
+}
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+
+/* Lista de Últimos Registos */
+.titulo-ultimos-registros {
+    color: #1b1642;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+.lista-ultimos-registros {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.item-registro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.item-registro strong {
+    display: block;
+    font-size: 0.85rem;
+    color: #333;
+}
+.item-registro small {
+    color: #888;
+    font-size: 0.75rem;
+}
+
+/* Banner "Quem nós somos?" */
+.banner-institucional {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.banner-institucional h2 {
+    color: #1b1642;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.banner-institucional p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.item-recurso {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+}
+.item-recurso strong {
+    color: #1b1642;
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 0.95rem;
+}
+.item-recurso p {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0;
+}
+
+.caixa-seguranca {
+    background: #1b1642;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+}
+.caixa-seguranca strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+.caixa-seguranca p {
+    color: #a3a1c6;
+    margin: 0;
+}
+
+/* =========================================
+   TELA GESTÃO DE ENTREGAS & MODAL
+========================================= */
+.fundo-azul-claro {
+    background-color: #cce6f6;
+}
+
+/* Abas de Status */
+.abas-status {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.aba {
+    background: transparent;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.aba.ativa {
+    background: #ffffff;
+    color: #1b1642;
+}
+.contador-aba {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    margin-left: 5px;
+}
+
+/* Barra de Filtros */
+.barra-filtros {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+.campo-filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+.campo-filtro.flex-2 { flex: 2; }
+.campo-filtro label { font-size: 0.75rem; font-weight: bold; color: #666; }
+.campo-filtro input, .campo-filtro select { padding: 9px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
+.alinhar-fim { align-self: flex-end; }
+
+/* Tabela e Ações em Massa */
+.cartao-tabela-gestao {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.barra-acoes-massa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+.botoes-massa { display: flex; gap: 10px; align-items: center; }
+.botao-link-vermelho { background: none; border: none; color: #b91c1c; font-weight: bold; cursor: pointer; font-size: 0.8rem; }
+.tabela-alinhada th, .tabela-alinhada td { padding: 12px 10px; }
+.botao-opcoes { background: none; border: none; cursor: pointer; color: #888; font-size: 1.1rem; }
+
+/* Paginação */
+.rodape-paginacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #666;
+}
+.botoes-paginacao { display: flex; gap: 5px; align-items: center; }
+.pag-btn { background: #fff; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+.pag-btn.ativo { background: #1b1642; color: #fff; border-color: #1b1642; }
+
+/* Styles do Modal */
+.overlay-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.janela-modal {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 480px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.topo-modal { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.topo-modal h3 { color: #1b1642; font-size: 1.2rem; }
+.topo-modal p { color: #666; font-size: 0.8rem; margin-top: 3px; }
+.fechar-modal { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #888; }
+.formulario-modal { display: flex; flex-direction: column; gap: 12px; }
+.input-desativado { background-color: #f5f5f5; color: #666; cursor: not-allowed; }
+.botoes-modal { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
+.icone-img-inline { width: 14px; height: auto; display: inline-block; vertical-align: middle; }
+
+/* =========================================
+   TELA MAPA E ROTAS (LAYOUT TELA CHEIA)
+========================================= */
+.layout-sem-margin { margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; }
+.area-mapa-tela-cheia { display: flex; flex: 1; height: calc(100vh - 65px); overflow: hidden; }
+
+.painel-lateral-rotas {
+    width: 360px;
+    background: #aeddf2; /* Azul claro do painel lateral */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.cabecalho-rotas h2 { color: #1b1642; font-size: 1.4rem; }
+.cabecalho-rotas p { color: #444; font-size: 0.8rem; margin-top: 4px; margin-bottom: 15px; }
+
+.seletor-modo-rota { display: flex; background: rgba(0,0,0,0.05); border-radius: 4px; padding: 3px; }
+.btn-modo { flex: 1; border: none; background: transparent; padding: 6px; font-weight: bold; font-size: 0.8rem; cursor: pointer; border-radius: 3px; }
+.btn-modo.ativo { background: #1b1642; color: #fff; }
+
+.busca-pequena input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; outline: none; }
+
+.metricas-rota { display: flex; gap: 10px; margin: 20px 0; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 6px; }
+.item-metrica-rota { flex: 1; text-align: center; }
+.item-metrica-rota small { font-size: 0.7rem; color: #666; display: block; }
+.item-metrica-rota strong { color: #1b1642; font-size: 0.95rem; }
+
+.lista-paradas-rota { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.item-parada { display: flex; align-items: center; gap: 12px; }
+.numero-parada { background: #1b1642; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.75rem; font-weight: bold; }
+.numero-parada.vermelho { background: #f35b3f; }
+.info-parada strong { display: block; font-size: 0.85rem; color: #1b1642; }
+.info-parada small { font-size: 0.75rem; color: #555; }
+
+.alerta-rota-inteligente { background: #dcf5e3; color: #1a7a38; padding: 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; margin-bottom: 20px; line-height: 1.3; }
+
+.conteudo-mapa-interativo { flex: 1; position: relative; background: #e0e0e0; }
+.imagem-mapa-cheio { width: 100%; height: 100%; object-fit: cover; }
+
+.controles-zoom { position: absolute; top: 20px; right: 20px; display: flex; flex-direction: column; gap: 5px; }
+.controles-zoom button { width: 30px; height: 30px; background: #fff; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; cursor: pointer; }
+
+.card-flutuante-proxima-parada { position: absolute; bottom: 30px; left: 30px; background: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+.card-flutuante-proxima-parada small { color: #f35b3f; font-weight: bold; font-size: 0.75rem; }
+.card-flutuante-proxima-parada strong { display: block; font-size: 1rem; color: #1b1642; margin: 3px 0; }
+.card-flutuante-proxima-parada p { font-size: 0.8rem; color: #666; }

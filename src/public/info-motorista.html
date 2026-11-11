@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Informações Adicionais Entregador - UrbanLink</title>
+    <link rel="stylesheet" href="autenticacao.css">
+</head>
+<body>
+    <main class="area-autenticacao">
+        
+        <div class="cartao-autenticacao">
+            <h1 class="titulo-autenticacao">Informações Adicionais</h1>
+            
+            <div class="etiqueta-tipo-usuario">Entregador</div>
+            
+            <form class="formulario">
+                
+                <!-- Área de Upload -->
+                <div class="area-upload">
+                    <p class="titulo-upload">Upload da foto/documento da CNH</p>
+                    <label for="upload-cnh" class="botao-upload">
+                        <img src="caminho-icone-camera.png" alt="Câmera" class="icone-camera">
+                        <span>Adicionar Foto +</span>
+                    </label>
+                    <input type="file" id="upload-cnh" class="input-escondido">
+                </div>
+
+                <div class="linha-form">
+                    <div class="grupo-form">
+                        <label for="modelo">Modelo do Veículo</label>
+                        <input type="text" id="modelo" placeholder="EX:Camaro Amarelo">
+                    </div>
+                    <div class="grupo-form">
+                        <label for="placa">Placa</label>
+                        <input type="text" id="placa" placeholder="ZZZ0Z00">
+                    </div>
+                </div>
+
+                <div class="linha-form">
+                    <div class="grupo-form">
+                        <label for="cor">Cor do Veículo</label>
+                        <input type="text" id="cor" placeholder="EX:Camaro Amarelo">
+                    </div>
+                    <div class="grupo-form">
+                        <label for="ano">Ano de Fabricação</label>
+                        <input type="text" id="ano" placeholder="00/00/0000">
+                    </div>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="tipo-veiculo">Tipo de Veículo</label>
+                    <input type="text" id="tipo-veiculo" placeholder="EX: Moto,Carro,Van,Caminhão">
+                </div>
+
+                <div class="linha-form">
+                    <div class="grupo-form">
+                        <label for="capacidade">Capacidade de Carga</label>
+                        <input type="text" id="capacidade" placeholder="kg/m³">
+                    </div>
+                    <div class="grupo-form">
+                        <label for="tanque">Litragem do Tanque de Combustível</label>
+                        <input type="text" id="tanque" placeholder="EX:40Litros">
+                    </div>
+                </div>
+
+                <!-- Botão de submissão do formulário -->
+                <button type="submit" class="botao botao-primario">Criar minha conta</button>
+            </form>
+        </div>
+
+    </main>
+</body>
+</html>

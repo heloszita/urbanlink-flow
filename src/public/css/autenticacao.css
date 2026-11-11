@@ -144,3 +144,38 @@
     background-color: #f35b3f;
     color: white;
 }
+
+/* =========================================
+   ÁREA DE UPLOAD (Entregador)
+========================================= */
+.area-upload {
+    margin-bottom: 10px;
+}
+.titulo-upload {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+.botao-upload {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+}
+.icone-camera {
+    width: 20px;
+    height: auto;
+    margin-bottom: 5px;
+}
+.botao-upload span {
+    font-size: 0.85rem;
+    color: #333;
+}
+.botao-upload:hover span {
+    text-decoration: underline;
+}
+/* Esconde o input file original que é feio, deixando apenas o botão clicável */
+.input-escondido {
+    display: none;
+}
