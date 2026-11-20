@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>
+   Gestão de Entregas - UrbanLink Flow
+  </title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/visual.css?v=3.6.0" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body class="fundo-azul-claro" data-page="manage-deliveries" data-role="Administrador,Gestor,Motorista">
+<!-- CABEÇALHO INTERNO -->
+<header class="cabecalho-interno">
+<div class="logo">
+<img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/>
+</div>
+<nav aria-label="Navegação principal" class="navegacao-topo">
+<a href="inicial-admin.html">Início</a>
+<a href="entrega-motorista.html">Gestão de entregas</a>
+<a href="mapa-rotas.html">Mapa e rotas</a>
+<a href="simulacoes.html">Simulações</a>
+</nav>
+<div class="perfil-usuario">
+<img alt="Ícone" class="icone-img" src="./assets/avatar.svg"/>
+<span>
+     Carregando perfil…
+    </span>
+</div>
+</header>
+<main class="conteudo-dashboard">
+<!-- TOPO DA PÁGINA -->
+<div class="cabecalho-secao">
+<div>
+<span class="migalhas">
+      Gestão
+     </span>
+<h2>
+      Gestão de entregas
+     </h2>
+<p class="subtitulo-bloco">
+      Receba os pedidos dos clientes, atribua motoristas e acompanhe cada entrega.
+     </p>
+</div>
+<div class="botoes-topo">
+<button class="botao botao-secundario" id="exportar-csv" type="button">
+<img alt="" class="icone-img-inline" src="./assets/avatar.svg"/>
+      Exportar CSV
+     </button>
+<button class="botao botao-primario" id="abrir-nova-entrega" type="button">
+      + Nova entrega
+     </button>
+<a class="botao botao-secundario" href="simulacoes.html">
+      Simular cenários
+     </a>
+</div>
+</div>
+<!-- ABAS DE STATUS -->
+<div class="abas-status">
+<button class="aba ativa" data-filtro="todos" type="button">
+     Todas
+     <span class="contador-aba">
+</span>
+</button>
+<button aria-pressed="false" class="aba" data-filtro="sem-motorista" type="button">
+     Sem motorista
+     <span class="contador-aba"></span>
+</button>
+<button class="aba" data-filtro="Pendente" type="button">
+     Pendentes
+     <span class="contador-aba">
+</span>
+</button>
+<button class="aba" data-filtro="Em trânsito" type="button">
+     Em trânsito
+     <span class="contador-aba">
+</span>
+</button>
+<button class="aba" data-filtro="Entregue" type="button">
+     Concluídas
+     <span class="contador-aba">
+</span>
+</button>
+<button class="aba" data-filtro="Cancelada" type="button">
+     Canceladas
+     <span class="contador-aba">
+</span>
+</button>
+</div>
+<!-- BARRA DE FILTROS -->
+<div class="barra-filtros">
+<div class="campo-filtro flex-2">
+<label>
+      Buscar
+     </label>
+<input id="filtro-entregas" placeholder="Código, cliente ou endereço" type="text"/>
+</div>
+<div class="campo-filtro">
+<label>
+      Status
+     </label>
+<select id="filtro-status">
+<option value="">
+       Todos os status
+      </option>
+<option value="Pendente">
+       Pendente
+      </option>
+<option value="Aguardando coleta">
+       Aguardando coleta
+      </option>
+<option value="Em trânsito">
+       Em trânsito
+      </option>
+<option value="Saiu para entrega">
+       Saiu para entrega
+      </option>
+<option value="Entregue">
+       Entregue
+      </option>
+<option value="Problema">
+       Problema
+      </option>
+<option value="Cancelada">
+       Cancelada
+      </option>
+</select>
+</div>
+<div class="campo-filtro">
+<label>
+      Data
+     </label>
+<select>
+<option value="">
+       Qualquer data
+      </option>
+</select>
+</div>
+<div class="campo-filtro">
+<label>
+      Motorista
+     </label>
+<select id="filtro-motorista">
+<option value="">
+       Todos os motoristas
+      </option>
+</select>
+</div>
+<button class="botao botao-secundario alinhar-fim" id="aplicar-filtros" type="button">
+     Filtrar
+    </button>
+</div>
+<!-- CARD DA TABELA -->
+<div class="cartao-tabela-gestao">
+<div class="gestao-entregas-orientacao">
+<div>
+<strong>Pedidos dos clientes</strong>
+<p>Pedidos sem motorista ficam aguardando atribuição. Escolha um motorista aprovado e um veículo disponível antes de iniciar a entrega.</p>
+</div>
+<span aria-live="polite" class="gestao-entregas-pendentes" id="contador-sem-motorista">0 aguardando</span>
+</div>
+<table class="tabela-pedidos tabela-alinhada">
+<thead>
+<tr>
+<th>
+<input type="checkbox"/>
+</th>
+<th>
+        Código
+       </th>
+<th>
+        Cliente
+       </th>
+<th>
+        Origem e destino
+       </th>
+<th>
+        Janela
+       </th>
+<th>
+        Motorista
+       </th>
+<th>
+        Status
+       </th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody id="entregas-admin-body">
+</tbody>
+</table>
+<!-- PAGINAÇÃO -->
+</div>
+</main>
+<!-- MODAL: ATRIBUIR MOTORISTA A ENTREGA EXISTENTE -->
+<div aria-hidden="true" aria-labelledby="titulo-modal-atribuicao" aria-modal="true" class="overlay-modal" id="modalAtribuirEntrega" role="dialog">
+<div class="janela-modal janela-modal-atribuicao">
+<div class="topo-modal">
+<div>
+<span class="atribuir-etiqueta">Distribuição de pedidos</span>
+<h3 id="titulo-modal-atribuicao">Atribuir motorista</h3>
+<p>Selecione quem realizará o pedido e o veículo compatível.</p>
+</div>
+<button aria-label="Fechar janela de atribuição" class="fechar-modal" id="fechar-atribuicao" type="button">✕</button>
+</div>
+<div class="resumo-pedido-atribuicao">
+<span>Pedido <strong id="atribuir-codigo">—</strong></span>
+<span class="badge-status" id="atribuir-tipo">—</span>
+<p id="atribuir-destino">—</p>
+<small id="atribuir-carga">—</small>
+</div>
+<form class="formulario-modal" id="form-atribuir-entrega">
+<div class="grupo-input">
+<label for="atribuir-motorista">Motorista aprovado</label>
+<select id="atribuir-motorista" required=""><option value="">Selecione um motorista</option></select>
+</div>
+<div class="grupo-input">
+<label for="atribuir-veiculo">Veículo disponível</label>
+<select disabled="" id="atribuir-veiculo" required=""><option value="">Selecione primeiro um motorista</option></select>
+</div>
+<p aria-live="polite" class="atribuicao-ajuda" id="atribuir-ajuda" role="status">O veículo precisa estar disponível, ser compatível com a carga e não pertencer a outro motorista.</p>
+<div class="mensagem-app erro" hidden="" id="atribuir-mensagem" role="alert"></div>
+<div class="botoes-modal">
+<button class="botao botao-secundario" id="cancelar-atribuicao" type="button">Cancelar</button>
+<button class="botao botao-primario" id="confirmar-atribuicao" type="submit">Confirmar atribuição</button>
+</div>
+</form>
+</div>
+</div>
+<!-- MODAL: NOVA ENTREGA (Frame 1) -->
+<div class="overlay-modal" id="modalNovaEntrega">
+<div class="janela-modal">
+<div class="topo-modal">
+<div>
+<h3>
+       Nova entrega
+      </h3>
+<p>
+       Preencha os dados do pedido. Você pode atribuir o motorista depois.
+      </p>
+</div>
+<button class="fechar-modal">
+      ✕
+     </button>
+</div>
+<form class="formulario-modal" id="form-admin-entrega">
+<div class="grupo-input">
+<label>
+       Cliente
+      </label>
+<select id="admin-cliente" name="cliente_id" required="">
+<option>
+        Selecione um cliente
+       </option>
+</select>
+</div>
+<div class="grupo-input">
+<label>
+       Origem
+      </label>
+<input class="input-desativado" name="origem" readonly="" type="text" value="Centro de distribuição cadastrado pela operação"/>
+</div>
+<div class="grupo-input">
+<label>
+       Destino
+      </label>
+<input id="admin-destino" name="destino" placeholder="Rua, número, bairro, cidade e UF" required="" type="text"/>
+</div>
+<div class="linha-form">
+<div class="grupo-input">
+<label for="admin-cidade">Cidade</label>
+<input id="admin-cidade" name="cidade" placeholder="Ex.: Rio de Janeiro" type="text"/>
+</div>
+<div class="grupo-input">
+<label for="admin-uf">Estado (UF)</label>
+<input id="admin-uf" maxlength="2" name="uf" placeholder="RJ" type="text"/>
+</div>
+</div>
+<div class="grupo-input">
+<label for="admin-cep">CEP de entrega (opcional)</label>
+<input id="admin-cep" name="cep_entrega" placeholder="00000-000" type="text"/>
+</div>
+<div class="grupo-input geo-endereco">
+<div class="geo-endereco-topo"><strong>Localização automática</strong><span class="geo-tag">Sem coordenadas obrigatórias</span></div>
+<p>Informe o endereço completo: o destino será localizado automaticamente ao registrar. Você pode conferir o ponto antes de enviar.</p>
+<button class="botao botao-secundario geo-verificar" id="admin-verificar-endereco" type="button">Localizar endereço</button>
+<div aria-live="polite" class="geo-feedback" id="admin-geo-feedback" role="status">O destino será localizado ao registrar a entrega.</div>
+<a class="geo-preview" hidden="" id="admin-geo-preview" rel="noopener noreferrer" target="_blank">Conferir ponto no OpenStreetMap ↗</a>
+<small class="geo-credito">A consulta usa um serviço externo de geocodificação. Dados © contribuidores do OpenStreetMap.</small>
+<details class="geo-detalhes">
+<summary>Ajustar coordenadas manualmente (opcional)</summary>
+<div class="geo-coordenadas">
+<div class="grupo-input"><label for="admin-latitude">Latitude</label><input id="admin-latitude" max="90" min="-90" placeholder="-22.9068" step="0.0000001" type="number"/></div>
+<div class="grupo-input"><label for="admin-longitude">Longitude</label><input id="admin-longitude" max="180" min="-180" placeholder="-43.1729" step="0.0000001" type="number"/></div>
+</div>
+</details>
+</div>
+<div class="linha-form">
+<div class="grupo-input">
+<label>
+        Janela - Início
+       </label>
+<input id="admin-janela-inicio" name="janela_inicio" type="text" value="09:00"/>
+</div>
+<div class="grupo-input">
+<label>
+        Janela - Fim
+       </label>
+<input id="admin-janela-fim" name="janela_fim" type="text" value="11:30"/>
+</div>
+</div>
+<div class="grupo-input">
+<label>
+       Motorista
+      </label>
+<select id="admin-motorista" name="motorista_id">
+<option>
+        Atribuir depois
+       </option>
+</select>
+</div>
+<div class="grupo-input">
+<label>
+       Observações para o motorista
+      </label>
+<input id="admin-observacoes" name="observacoes" placeholder="Ex.: deixar com o porteiro" type="text"/>
+</div>
+<div class="grupo-input">
+<label for="admin-tipo-veiculo">
+       Tipo de veículo
+      </label>
+<select id="admin-tipo-veiculo" name="tipo_veiculo">
+<option value="Moto">
+        Moto
+       </option>
+<option value="Carro">
+        Carro
+       </option>
+<option value="Van">
+        Van
+       </option>
+<option value="Caminhão">
+        Caminhão
+       </option>
+<option value="Elétrico">
+        Elétrico
+       </option>
+</select>
+</div>
+<div class="grupo-input">
+<label for="admin-veiculo">
+       Veículo (opcional)
+      </label>
+<select id="admin-veiculo" name="veiculo_id">
+<option value="">
+        Atribuir depois
+       </option>
+</select>
+</div>
+<div class="botoes-modal">
+<button class="botao botao-secundario" type="button">
+       Cancelar
+      </button>
+<button class="botao botao-primario" type="submit">
+       Salvar entrega
+      </button>
+</div>
+</form>
+</div>
+</div>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script>
+   function abrirModal() { document.getElementById('modalNovaEntrega').style.display = 'flex'; }
+        function fecharModal() { document.getElementById('modalNovaEntrega').style.display = 'none'; }
+  </script>
+<script defer="True" src="./js/app.js?v=3.10.2">
+</script>
+</body>
+</html>

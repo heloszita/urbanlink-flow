@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>
+   Nova Solicitação - UrbanLink
+  </title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/visual.css?v=3.6.0" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body class="fundo-cinza" data-page="customer-delivery" data-role="Cliente">
+<!-- O mesmo cabeçalho do ecrã inicial -->
+<header class="cabecalho-interno">
+<div class="logo">
+<img alt="Logótipo" class="imagem-logo" src="./assets/logo.png"/>
+</div>
+<nav class="navegacao-topo">
+<a href="inicial-cliente.html">
+     Início
+    </a>
+<a href="acompanhamento.html">
+     Acompanhamento
+    </a>
+<a href="atendimento-cliente.html">
+     Atendimento
+    </a>
+<a href="patrocinadores.html">
+     Patrocinadores
+    </a>
+</nav>
+<div class="perfil-usuario">
+<img alt="Ícone" class="icone-img" src="./assets/avatar.svg"/>
+<span>
+     Carregando perfil…
+    </span>
+</div>
+</header>
+<main class="conteudo-dashboard">
+<div class="cabecalho-pagina">
+<span class="migalhas">
+     Início / Nova solicitação
+    </span>
+<h2>
+     Nova solicitação de entrega
+    </h2>
+<p class="subtitulo-pagina">
+     Preencha os dados abaixo. Os campos mudam conforme o veículo escolhido.
+    </p>
+</div>
+<form class="layout-duas-colunas" id="form-nova-entrega">
+<div class="layout-duas-colunas">
+<!-- ESQUERDA: FORMULÁRIO -->
+<div class="area-formulario">
+<!-- Passo 1 -->
+<div class="bloco-form">
+<div class="cabecalho-passo">
+<span class="numero-passo">
+         1
+        </span>
+<div>
+<h3>
+          Coleta
+         </h3>
+<p>
+          Endereço padrão cadastrado na sua conta.
+         </p>
+</div>
+</div>
+<div class="opcoes-radio">
+<label class="caixa-radio selecionado">
+<input checked="" id="coleta-padrao" name="coleta" type="radio" value="padrao"/>
+<div>
+<strong>
+           Usar endereço padrão
+          </strong>
+<p>
+           Endereço padrão da conta
+          </p>
+</div>
+<span class="tag-padrao">
+          Padrão
+         </span>
+</label>
+<label class="caixa-radio">
+<input id="coleta-outro" name="coleta" type="radio" value="outro"/>
+<strong>
+          Informar outro endereço de coleta
+         </strong>
+</label>
+</div>
+<div class="grupo-input campo-api" hidden="True" id="coleta-outro-campo">
+<label for="origem">
+         Endereço alternativo de coleta
+        </label>
+<input id="origem" name="origem" placeholder="Rua, número, bairro e cidade" type="text"/>
+</div>
+</div>
+<!-- Passo 2 -->
+<div class="bloco-form">
+<div class="cabecalho-passo">
+<span class="numero-passo">
+         2
+        </span>
+<div>
+<h3>
+          Entrega
+         </h3>
+<p>
+          Para onde vai a encomenda.
+         </p>
+</div>
+</div>
+<div class="grade-form">
+<div class="grupo-input">
+<label>
+          Nome do cliente
+         </label>
+<input id="destinatario_nome" name="destinatario_nome" placeholder="Nome do cliente" required="" type="text"/>
+</div>
+<div class="grupo-input">
+<label>
+          Celular
+         </label>
+<input id="destinatario_telefone" name="destinatario_telefone" placeholder="(00) 00000-0000" type="text"/>
+</div>
+<div class="grupo-input">
+<label>
+          CEP de entrega
+         </label>
+<input id="cep_entrega" name="cep_entrega" placeholder="00000-000" type="text"/>
+</div>
+<div class="grupo-input col-dupla">
+<label>
+          Rua, número e complemento
+         </label>
+<input id="destino" name="destino" placeholder="Rua, número, complemento (inclua cidade e UF se não informar nos campos abaixo)" required="" type="text"/>
+</div>
+<div class="grupo-input">
+<label>
+          Bairro
+         </label>
+<input id="bairro" name="bairro" placeholder="Bairro" type="text"/>
+</div>
+<div class="grupo-input">
+<label>
+          Cidade
+         </label>
+<input id="cidade" name="cidade" placeholder="Cidade" type="text"/>
+</div>
+<div class="grupo-input">
+<label for="uf">Estado (UF)</label>
+<input autocomplete="address-level1" id="uf" maxlength="2" name="uf" placeholder="Ex.: RJ"/>
+</div>
+<div class="grupo-input col-dupla geo-endereco">
+<div class="geo-endereco-topo">
+<strong>Localização automática</strong>
+<span class="geo-tag">Sem coordenadas obrigatórias</span>
+</div>
+<p>Digite rua, número e cidade/UF ou CEP. Ao solicitar, buscaremos o ponto no mapa automaticamente. Você também pode conferir a localização antes de enviar.</p>
+<button class="botao botao-secundario geo-verificar" id="cliente-verificar-endereco" type="button">Localizar endereço</button>
+<div aria-live="polite" class="geo-feedback" id="cliente-geo-feedback" role="status">A localização será pesquisada ao solicitar a entrega.</div>
+<a class="geo-preview" hidden="" id="cliente-geo-preview" rel="noopener noreferrer" target="_blank">Conferir ponto no OpenStreetMap ↗</a>
+<small class="geo-credito">Endereço enviado ao serviço externo de geocodificação. Dados © contribuidores do OpenStreetMap.</small>
+<details class="geo-detalhes">
+<summary>Ajustar coordenadas manualmente (opcional)</summary>
+<div class="geo-coordenadas">
+<div class="grupo-input">
+<label for="destino-latitude">Latitude</label>
+<input id="destino-latitude" max="90" min="-90" name="destino_latitude" placeholder="Ex.: -22.9068" step="0.0000001" type="number"/>
+</div>
+<div class="grupo-input">
+<label for="destino-longitude">Longitude</label>
+<input id="destino-longitude" max="180" min="-180" name="destino_longitude" placeholder="Ex.: -43.1729" step="0.0000001" type="number"/>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<!-- Passo 3 -->
+<div class="bloco-form">
+<div class="cabecalho-passo">
+<span class="numero-passo">
+         3
+        </span>
+<div>
+<h3>
+          Carga e veículo
+         </h3>
+<p>
+          Escolha o tipo de veículo.
+         </p>
+</div>
+</div>
+<div class="opcoes-botoes">
+<button class="botao-seletor ativo" data-veiculo="Moto" type="button">
+         Moto
+        </button>
+<button class="botao-seletor" data-veiculo="Carro" type="button">
+         Carro
+        </button>
+<button class="botao-seletor" data-veiculo="Van" type="button">
+         Van
+        </button>
+<button class="botao-seletor" data-veiculo="Caminhão" type="button">
+         Caminhão
+        </button>
+<button class="botao-seletor" data-veiculo="Elétrico" type="button">
+         Elétrico
+        </button>
+</div>
+<div class="alerta-info">
+        Para Moto e Caminhão, informe o peso e o volume da carga. Para Moto e Carro, basta a quantidade de volumes.
+       </div>
+<div class="grade-form">
+<div class="grupo-input">
+<label>
+          Tipo de carga
+         </label>
+<select id="tipo-carga" name="tipo_carga">
+<option value="">
+           Selecione
+          </option>
+<option value="Documentos">
+           Documentos
+          </option>
+<option value="Pacotes">
+           Pacotes
+          </option>
+<option value="Alimentos">
+           Alimentos
+          </option>
+<option value="Eletrônicos">
+           Eletrônicos
+          </option>
+<option value="Móveis">
+           Móveis
+          </option>
+<option value="Outros">
+           Outros
+          </option>
+</select>
+</div>
+<div class="grupo-input">
+<label>
+          Quantidade de volumes
+         </label>
+<input id="quantidade-volumes" min="1" name="quantidade_volumes" required="" type="number" value="1"/>
+</div>
+<div class="grupo-input">
+<label>
+          Peso total (kg)
+         </label>
+<input id="peso-kg" min="0" name="peso_kg" placeholder="0 kg" step="0.01" type="number"/>
+</div>
+<div class="grupo-input">
+<label>
+          Volume total (m³)
+         </label>
+<input id="volume-m3" min="0" name="volume_m3" placeholder="0 m³" step="0.001" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- DIREITA: RESUMO -->
+<div class="area-resumo">
+<div class="cartao-resumo">
+<h3>
+        Resumo da solicitação
+       </h3>
+<div class="item-resumo">
+<small>
+         Coleta
+        </small>
+<p>
+         Endereço padrão da conta
+        </p>
+</div>
+<div class="item-resumo">
+<small>
+         Entrega
+        </small>
+<p>
+         Endereço de entrega
+        </p>
+</div>
+<div class="item-resumo">
+<small>
+         Veículo
+        </small>
+<p>
+         Moto
+        </p>
+</div>
+<div class="item-resumo">
+<small>
+         Janela
+        </small>
+<p>
+         A definir
+        </p>
+</div>
+<div class="estimativas">
+<div class="caixa-estimativa">
+<small>
+          Distância
+         </small>
+<p>
+          -- km
+         </p>
+</div>
+<div class="caixa-estimativa">
+<small>
+          Prazo
+         </small>
+<p>
+          -- min
+         </p>
+</div>
+</div>
+<button class="botao botao-primario total-largura" type="submit">
+        Solicitar entrega
+       </button>
+<button class="botao botao-secundario total-largura" data-action="cancelar" type="button">
+        Cancelar
+       </button>
+</div>
+</div>
+</div>
+</form>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script defer="True" src="./js/app.js?v=3.10.2">
+</script>
+</body>
+</html>

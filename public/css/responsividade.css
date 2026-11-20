@@ -1,0 +1,230 @@
+/* UrbanLink Flow V3.10.2 — layouts fluidos sem dependência de rolagem horizontal.
+   Compatível com o modo claro permanente e com os componentes da V3.9. */
+html { width:100%; max-width:100%; }
+body { width:100%; max-width:100%; min-width:0; }
+main, header, footer, section, article, aside, form, nav { min-width:0; }
+main { flex:1 1 auto; }
+.conteudo-dashboard,.simulacoes-page,.conteudo-centralizado,.mapa-layout,.mapa-sidebar,.mapa-main { width:100%; min-width:0; max-width:100%; }
+img, video, canvas, svg { max-width:100%; }
+pre, code, .mapa-feedback, .mapa-disclaimer, .mensagem-app, .geo-feedback, .aviso-aprovacao-motorista { overflow-wrap:anywhere; }
+input, select, textarea { max-width:100%; min-width:0; }
+.cartao, .bloco-conteudo, .cartao-tabela-gestao, .secao-tabela, .admin-table-panel, .admin-review-panel,
+.cartao-contato, .janela-chat, .sim-history-panel, .sim-form-panel, .sim-layout, .layout-grid-dashboard,
+.layout-duas-colunas, .layout-duas-colunas-atendimento, .barra-filtros, .botoes-topo, .abas-status,
+.cartoes-resumo, .grid-contatos, .area-formulario, .area-resumo { min-width:0; max-width:100%; }
+.cartao, .cartao-info, .admin-shortcut, .admin-panel-section, .sim-panel { overflow-wrap:anywhere; }
+
+@media (max-width: 1000px) {
+  /* Painéis e formulários deixam de usar largura mínima imposta pelos conteúdos. */
+  .conteudo-dashboard { width:100%; padding-inline:clamp(12px,3.5vw,24px); }
+  .layout-grid-dashboard, .layout-duas-colunas, .layout-duas-colunas-atendimento { display:flex; flex-direction:column; align-items:stretch; gap:18px; width:100%; }
+  .layout-grid-dashboard > *, .layout-duas-colunas > *, .layout-duas-colunas-atendimento > *,
+  .coluna-esq,.coluna-dir,.area-formulario,.area-resumo { min-width:0; max-width:100%; width:100%; flex:1 1 auto; }
+  .cartoes-resumo { flex-wrap:wrap; width:100%; }
+  .cartoes-resumo > * { flex:1 1 220px; min-width:0; }
+  .grid-contatos { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:100%; }
+  .grid-contatos > .cartao-contato { min-width:0; width:100%; }
+  .cabecalho-secao,.cabecalho-pagina,.cabecalho-acompanhamento { width:100%; min-width:0; }
+  .cabecalho-secao { flex-wrap:wrap; }
+  .botoes-topo { min-width:0; max-width:100%; flex-wrap:wrap; justify-content:flex-start; }
+  .botoes-topo > * { max-width:100%; }
+  .barra-filtros { width:100%; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .barra-filtros .campo-filtro, .barra-filtros .campo-filtro.flex-2 { width:100%;min-width:0; }
+  .area-azul-claro .conteudo-centralizado,.hero-atendimento .conteudo-centralizado { width:100%;max-width:100%; }
+}
+
+@media (max-width: 850px) {
+  /* Navegação quebra linhas em vez de exigir arrastar para o lado. */
+  .cabecalho-interno { display:flex;flex-wrap:wrap;gap:10px 12px; padding:12px 16px; }
+  .cabecalho-interno .logo { min-width:0; }
+  .navegacao-topo { order:3;flex:1 0 100%;display:flex;flex-wrap:wrap!important;white-space:normal!important;overflow:visible!important;justify-content:flex-start;gap:4px 6px;min-width:0; }
+  .navegacao-topo a { flex:0 1 auto!important;max-width:100%;white-space:normal!important;overflow-wrap:anywhere;line-height:1.3;margin:0!important;padding:9px 10px; }
+  .perfil-conta,.perfil-usuario { min-width:0;max-width:min(60vw,270px); }
+  .mapa-layout { display:flex;flex-direction:column;min-width:0; }
+  .mapa-sidebar,.mapa-main { width:100%; min-width:0;max-width:100%; }
+  .mapa-main { min-height:440px; }
+  .mapa-toolbar { display:flex;flex-wrap:wrap;align-items:flex-start; }
+  .mapa-toolbar-actions { display:flex;flex-wrap:wrap;width:100%;gap:8px; }
+  .mapa-toolbar-actions > * { flex:1 1 110px;min-width:0; }
+  .mapa-stepper { display:flex;flex-wrap:wrap; }
+  .mapa-panel,.mapa-group-card,.mapa-workflow-card { min-width:0; max-width:100%; }
+  .mapa-resumo {grid-template-columns:repeat(3,minmax(0,1fr));min-width:0;}
+  .mapa-delivery-list { width:100%; max-width:100%; }
+  .mapa-delivery-item { min-width:0; }
+  /* Os controles do mapa do motorista não deslizam horizontalmente. */
+  body[data-page="driver-dashboard"] .motorista-mapa-card .topo-mapa-info > .driver-map-controls,
+  .motorista-mapa-card .topo-mapa-info > .driver-map-controls {
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;
+    overflow:visible!important;flex-wrap:wrap!important;white-space:normal!important;padding:0;width:100%;
+  }
+  .driver-map-controls .driver-map-control,.driver-map-controls .driver-map-link {
+    display:flex!important;align-items:center;justify-content:center;width:100%;min-width:0;max-width:100%;
+    text-align:center;white-space:normal;padding:11px 8px;line-height:1.35;
+  }
+  .sim-history-panel .table-responsive,.admin-table-scroll,.cartao-tabela-gestao { overflow:visible!important;max-width:100%; }
+  /* Dados em cartões, sem tabela mais larga que a viewport.
+     Preserva todas as células, inclusive controles e ações. */
+  table.tabela-pedidos, table.sim-history-table { display:block; width:100%; max-width:100%; min-width:0!important; border:0; }
+  table.tabela-pedidos thead, table.sim-history-table thead { display:none; }
+  table.tabela-pedidos tbody, table.sim-history-table tbody { display:grid;grid-template-columns:minmax(0,1fr);gap:12px;width:100%; }
+  table.tabela-pedidos tbody tr, table.sim-history-table tbody tr {
+    display:grid;grid-template-columns:minmax(0,1fr);width:100%;min-width:0;gap:0;
+    border:1px solid #dde6f1;border-radius:13px;background:#fff;padding:8px 12px;
+    box-shadow:0 5px 15px rgba(25,38,62,.04);
+  }
+  table.tabela-pedidos tbody td, table.sim-history-table tbody td {
+    width:100%;min-width:0;max-width:100%;border:0;border-bottom:1px solid #edf1f7!important;
+    padding:10px 0;display:grid;grid-template-columns:minmax(88px,35%) minmax(0,1fr);gap:10px;
+    align-items:start;white-space:normal!important;text-align:left!important;overflow-wrap:anywhere;word-break:normal;
+  }
+  table.tabela-pedidos tbody td:last-child,table.sim-history-table tbody td:last-child {border-bottom:0!important;}
+  table.tabela-pedidos tbody td::before, table.sim-history-table tbody td::before {
+    content:attr(data-label);color:#596981;font-size:.73rem;font-weight:800;line-height:1.4;
+  }
+  table.tabela-pedidos tbody td[colspan],table.sim-history-table tbody td[colspan] { display:block!important;grid-template-columns:none;text-align:center!important; }
+  table.tabela-pedidos tbody td[colspan]::before,table.sim-history-table tbody td[colspan]::before { display:none; }
+  table.tabela-pedidos tbody td > * { max-width:100%; }
+  table.tabela-pedidos .acoes-tabela,table.tabela-pedidos .acoes-status-entrega { width:100%;max-width:100%;min-width:0;flex-wrap:wrap; }
+  table.tabela-pedidos .acoes-status-entrega > * { flex:1 1 105px;min-width:0;max-width:100%; }
+  table.tabela-pedidos select {width:100%;max-width:100%;}
+  .admin-table-scroll { width:100%; }
+}
+
+@media (max-width: 610px) {
+  .conteudo-dashboard { padding-inline:14px; }
+  .cabecalho-secao,.cabecalho-pagina,.cabecalho-acompanhamento {display:flex;flex-direction:column;align-items:stretch;gap:14px;}
+  .botoes-topo {display:grid;grid-template-columns:minmax(0,1fr);width:100%;gap:9px;}
+  .botoes-topo > *, .botoes-topo .botao {width:100%;max-width:100%;min-width:0;flex:none;white-space:normal;text-align:center;}
+  .barra-filtros,.sim-fields-grid,.geo-coordenadas {display:grid;grid-template-columns:minmax(0,1fr);gap:14px;}
+  .barra-filtros > * {width:100%;min-width:0;}
+  .abas-status {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:7px;padding:8px;}
+  .abas-status .aba {min-width:0;max-width:100%;width:100%;justify-content:space-between;text-align:left;padding:11px 10px;font-size:.81rem;gap:6px;white-space:normal;}
+  .abas-status .aba .contador-aba {flex:none;min-width:23px;height:23px;}
+  .grid-contatos {grid-template-columns:minmax(0,1fr);}
+  .cartao-contato {width:100%;min-width:0;align-items:center;gap:12px;}
+  .cartao-contato > div {min-width:0;flex:1;overflow-wrap:anywhere;}
+  .cartoes-resumo,.layout-grid-dashboard {width:100%;}
+  .cartoes-resumo > * {width:100%;min-width:0;flex:1 1 100%;}
+  .admin-metrics-grid,.admin-shortcuts {grid-template-columns:minmax(0,1fr)!important;}
+  .admin-hero-actions {display:grid!important;grid-template-columns:minmax(0,1fr);width:100%;min-width:0;}
+  .admin-hero-actions a {width:100%;min-width:0!important;white-space:normal;text-align:center;}
+  .admin-table-toolbar,.admin-table-buttons {flex-wrap:wrap;width:100%;gap:8px;}
+  .admin-table-toolbar .caixa-busca-estoque {max-width:100%;min-width:0;width:100%;}
+  .admin-table-buttons > * {flex:1 1 135px;}
+  .admin-outro-passo,.urbanlink-footer-inner {max-width:100%;min-width:0;}
+  .urbanlink-footer .footer-brand,.urbanlink-footer .footer-navigation {max-width:100%;min-width:0;flex-wrap:wrap;}
+  .urbanlink-footer .footer-navigation {justify-content:flex-start;}
+  .urbanlink-footer .footer-bottom {max-width:calc(100% - 28px);margin-inline:14px;}
+  .sponsor-featured,.sponsor-grid,.sponsor-section {max-width:100%;min-width:0;}
+  .botoes-cta {display:flex;flex-direction:column;width:100%;max-width:100%;gap:9px;}
+  .botoes-cta a,.botoes-cta button {width:100%;max-width:100%;min-width:0;white-space:normal;}
+  .linha-form {flex-direction:column;align-items:stretch;gap:13px;}
+  .linha-form > * {width:100%;min-width:0;}
+  .janela-modal,.janela-modal-atribuicao {width:calc(100vw - 24px);max-width:calc(100vw - 24px);min-width:0;padding:18px;}
+  .formulario-modal,.grupo-input,.grupo-form,.auth-topbar {min-width:0;max-width:100%;}
+}
+@media (max-width: 360px) {
+  .conteudo-dashboard { padding-inline:12px; }
+  .cabecalho-interno { padding-inline:12px; }
+  .navegacao-topo a {font-size:.72rem;padding:8px 7px;}
+  .abas-status {grid-template-columns:minmax(0,1fr);}
+  .driver-map-controls .driver-map-control,.driver-map-controls .driver-map-link {font-size:.75rem;padding-inline:5px;}
+  .admin-hero {padding:18px;}
+  table.tabela-pedidos tbody td, table.sim-history-table tbody td {grid-template-columns:minmax(75px,34%) minmax(0,1fr);gap:7px;}
+}
+
+/* Correções específicas identificadas na medição das larguras 320–768px. */
+body { margin:0; }
+@media(max-width:850px) {
+  .opcoes-botoes {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;width:100%;max-width:100%;}
+  .opcoes-botoes .botao-seletor {display:flex;align-items:center;justify-content:center;width:100%;min-width:0;white-space:normal;min-height:43px;padding:9px 7px;text-align:center;}
+  .bloco-form,.bloco-conteudo,.cartao-resumo,.janela-chat {min-width:0;max-width:100%;}
+}
+@media(min-width:500px) and (max-width:850px){.opcoes-botoes{grid-template-columns:repeat(3,minmax(0,1fr));}}
+
+
+/* V3.12 — Cabeçalho completo nas telas de acesso, baseado no index.html.
+   Restauramos o fluxo de layout normal do cabeçalho, evitando sobreposição ao cartão.
+   Ícones dos perfis permanecem somente na seleção de perfis (index.html). */
+.auth-topbar.auth-header {
+  position:relative;
+  inset:auto;
+  width:100%;
+  min-height:76px;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px 24px;
+  padding:16px clamp(18px,4vw,48px);
+  border-bottom:1px solid #e5eaf1;
+  background:#fff;
+  box-shadow:0 1px 7px rgba(22,29,63,.025);
+  font-size:.89rem;
+  color:#697487;
+}
+.auth-header .auth-header-brand,
+.auth-header .auth-header-brand:hover {
+  display:inline-flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex:0 0 auto;
+  margin:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  padding:0;
+  box-shadow:none;
+  text-decoration:none;
+  transform:none;
+}
+.auth-header .auth-header-brand img {
+  display:block;
+  height:28px;
+  width:auto;
+  max-width:min(50vw,190px);
+  object-fit:contain;
+}
+.auth-header .auth-header-account {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+  min-width:0;
+  text-align:right;
+}
+.auth-header .auth-header-account a {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  margin:0;
+  padding:8px 14px;
+  border:1px solid #f2cfca;
+  border-radius:10px;
+  background:#fff;
+  color:#d7533b;
+  font-weight:800;
+  text-decoration:none;
+}
+.auth-header .auth-header-account a:hover {background:#fff0eb;color:#ba432e;}
+.auth-header + .area-autenticacao {
+  padding-top:clamp(66px,7vw,100px);
+  padding-bottom:80px;
+  min-height:calc(100vh - 76px);
+}
+body[data-page="cadastro"] .etiqueta-tipo-usuario img {display:none;}
+@media (max-width:610px){
+  .auth-topbar.auth-header{padding:16px;min-height:66px;gap:10px;}
+  .auth-header .auth-header-brand img{height:25px;max-width:min(48vw,160px);}
+  .auth-header .auth-header-account{font-size:.76rem;gap:5px;}
+  .auth-header .auth-header-account a{font-size:.76rem;padding:8px 10px;}
+  .auth-header + .area-autenticacao{padding:52px 14px 62px;min-height:calc(100vh - 66px);}
+}
+@media (max-width:365px){
+  .auth-topbar.auth-header{gap:10px;}
+  .auth-header .auth-header-brand img{max-width:145px;height:23px;}
+  .auth-header .auth-header-account{font-size:.72rem;}
+  .auth-header .auth-header-account a{padding:7px 8px;}
+}

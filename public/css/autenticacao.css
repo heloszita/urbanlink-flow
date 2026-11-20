@@ -1,0 +1,230 @@
+/* =========================================
+   ESTRUTURA BASE E CARTÕES
+========================================= */
+.area-autenticacao {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    padding: 40px;
+    background-color: #eef2f6; /* Fundo cinza/azulado claro (cor do fundo do figma) */
+    min-height: 100vh;
+}
+
+.cartao-autenticacao {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima do cartão */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Borda azul exclusiva do ecrã de registo */
+.cartao-destaque-azul {
+    border: 3px solid #1a8bff; 
+}
+
+/* =========================================
+   TEXTOS E ETIQUETAS
+========================================= */
+.titulo-autenticacao {
+    color: #1b1642; /* Azul escuro da marca */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitulo-autenticacao {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.etiqueta-tipo-usuario {
+    background-color: #1b1642;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   FORMULÁRIOS E INPUTS
+========================================= */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço uniforme entre os campos */
+}
+
+/* Cria uma linha com dois inputs lado a lado (ex: CPF e CEP) */
+.linha-form {
+    display: flex;
+    gap: 15px;
+}
+.linha-form .grupo-form {
+    flex: 1; /* Faz as colunas dividirem o espaço 50/50 */
+}
+
+.grupo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupo-form label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.grupo-form input {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.grupo-form input:focus {
+    outline: none;
+    border-color: #1b1642; /* Fica escuro ao clicar no campo */
+}
+
+/* =========================================
+   CHECKBOX E LINKS
+========================================= */
+.grupo-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.texto-checkbox {
+    font-size: 0.75rem;
+    color: #555;
+}
+
+/* Alinha a checkbox na esquerda e o link na direita */
+.opcoes-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.link-esqueceu {
+    color: #f35b3f; /* Laranja da marca */
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =========================================
+   BOTÕES (Pode ser movido para o global.css mais tarde)
+========================================= */
+.botao {
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+}
+
+.botao-primario {
+    background-color: #f35b3f;
+    color: white;
+}
+
+/* =========================================
+   ÁREA DE UPLOAD (Entregador)
+========================================= */
+.area-upload {
+    margin-bottom: 10px;
+}
+.titulo-upload {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+.botao-upload {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+}
+.icone-camera {
+    width: 20px;
+    height: auto;
+    margin-bottom: 5px;
+}
+.botao-upload span {
+    font-size: 0.85rem;
+    color: #333;
+}
+.botao-upload:hover span {
+    text-decoration: underline;
+}
+/* Esconde o input file original que é feio, deixando apenas o botão clicável */
+.input-escondido {
+    display: none;
+}
+.link-cadastro-login {
+    margin-top: 18px;
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+}
+.link-cadastro-login a {
+    color: #f35b3f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.nome-arquivo-cnh {
+    display: block;
+    margin-top: 8px;
+    color: #666;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+}
+
+/* Ajustes para cadastro e login em celular/tablet */
+.botao-upload{padding:10px 12px;border:1px dashed #cbd2df;border-radius:8px;background:#fafbfc;transition:border-color .2s ease,background .2s ease}
+.botao-upload:hover{border-color:#f35b3f;background:#fff7f4}
+.cadastro-cnh-upload{padding:13px;border:1px solid #edf0f4;border-radius:9px;background:#fcfcfd}
+.cadastro-cnh-upload .titulo-upload span{color:#f35b3f}
+@media(max-width:640px){.area-autenticacao{padding:18px 12px;align-items:flex-start}.cartao-autenticacao{padding:25px 18px;margin:auto 0}.titulo-autenticacao{font-size:1.5rem}.linha-form{flex-direction:column;gap:13px}.opcoes-login{align-items:flex-start;gap:8px;flex-wrap:wrap}.botao{padding:13px;font-size:.94rem}}
+
+
+/* Transição suave entre páginas */
+body{animation:urbanlink-page-enter .32s ease both}
+body.page-exit{opacity:0;transform:translateY(4px);transition:opacity .17s ease,transform .17s ease}
+@keyframes urbanlink-page-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){body{animation:none}body.page-exit{transition:none}}
+
+
+/* Aproximação visual ao protótipo de cadastro */
+.auth-topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-end;padding:18px 28px;background:#fff;color:#697487;font-size:.95rem;border-bottom:1px solid #edf1f6}
+.auth-topbar a{color:#f35b3f;font-weight:800;text-decoration:none;margin-left:6px}
+.area-autenticacao{padding:56px 20px 72px;align-items:flex-start}
+.cartao-autenticacao{max-width:840px;border-radius:24px;padding:34px 34px 30px;box-shadow:0 22px 55px rgba(27,22,66,.08);border:1px solid #edf1f6}
+.cabecalho-cadastro-ilustrado{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+.icone-cadastro-topo{width:88px;height:88px;flex:0 0 88px;border-radius:22px;background:#eef4fb;display:flex;align-items:center;justify-content:center}
+.icone-cadastro-img{width:64px;height:64px;object-fit:contain;border-radius:16px}
+.titulo-autenticacao{text-align:left;font-size:3rem;line-height:1.08;margin:0 0 8px;color:#1a1970}
+.subtitulo-autenticacao{text-align:left;font-size:1rem;color:#6f7d90;line-height:1.65;margin:0}
+.etiqueta-tipo-usuario{padding:16px 18px;border-radius:14px;font-size:1.35rem;font-weight:800;margin:0 0 26px;background:#1b1a7c}
+.formulario{gap:18px}.linha-form{gap:18px}.grupo-form{gap:9px}.grupo-form label,.titulo-upload{font-size:1rem;color:#2a2b57}.grupo-form input{min-height:60px;padding:16px 18px;border:1px solid #d9e0ef;border-radius:16px;font-size:1.05rem;color:#313759;background:#fff}.grupo-form input::placeholder{color:#97a1ba}.grupo-form input:focus{border-color:#ec654a;box-shadow:0 0 0 4px rgba(243,90,63,.12)}
+.grupo-checkbox{margin-top:4px;gap:12px}.grupo-checkbox input{width:20px;height:20px;accent-color:#18a84b}.texto-checkbox{font-size:1rem;color:#46526a}.botao{border-radius:16px;min-height:62px;font-size:1.15rem;font-weight:800}.botao-primario{background:#ff5a2c}.botao-primario:hover{background:#f24d1d}
+.area-upload{padding:18px;border:1px solid #e6ebf5;border-radius:18px;background:#fbfcfe}.botao-upload{width:100%;padding:16px;border-radius:14px}.botao-upload span{font-size:.98rem}.nome-arquivo-cnh{font-size:.9rem;color:#6e7b91}
+@media(max-width:760px){.auth-topbar{padding:16px 18px}.cartao-autenticacao{padding:24px 18px;border-radius:20px}.cabecalho-cadastro-ilustrado{align-items:flex-start;flex-direction:column;gap:14px}.titulo-autenticacao{font-size:2rem}.etiqueta-tipo-usuario{font-size:1.1rem;padding:13px 14px}.grupo-form input{min-height:54px;font-size:1rem}.texto-checkbox{font-size:.92rem}}

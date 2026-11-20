@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>
+   Acompanhamento - UrbanLink
+  </title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<link href="./css/mapa-cliente.css" rel="stylesheet"/>
+<link href="./css/visual.css" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body class="fundo-cinza" data-page="tracking" data-role="Cliente">
+<!-- CABEÇALHO INTERNO -->
+<header class="cabecalho-interno">
+<div class="logo">
+<img alt="Logotipo" class="imagem-logo" src="./assets/logo.png"/>
+</div>
+<nav class="navegacao-topo">
+<a href="inicial-cliente.html">
+     Início
+    </a>
+<a class="ativo" href="acompanhamento.html">
+     Acompanhamento
+    </a>
+<a href="atendimento-cliente.html">
+     Atendimento
+    </a>
+<a href="patrocinadores.html">
+     Patrocinadores
+    </a>
+</nav>
+<div class="perfil-usuario">
+<img alt="Ícone" class="icone-img" src="./assets/avatar.svg"/>
+<span>
+     Carregando perfil…
+    </span>
+</div>
+</header>
+<main class="conteudo-dashboard">
+<!-- CABEÇALHO DA PÁGINA -->
+<form class="cabecalho-acompanhamento campo-api" id="form-rastreamento">
+<div>
+<h2>
+      Acompanhe sua entrega
+     </h2>
+<p class="subtitulo-pagina">
+      —
+     </p>
+</div>
+<input class="input-busca-pequeno" id="codigo-rastreamento" name="codigo" placeholder="Digite o código do pedido" type="text"/>
+<button class="botao botao-primario" type="submit">
+     Rastrear entrega
+    </button>
+</form>
+<div class="layout-grid-dashboard">
+<!-- COLUNA ESQUERDA: MAPA E LINHA DO TEMPO -->
+<div class="coluna-esq">
+<!-- Área do Mapa -->
+<section aria-label="Mapa de localização da entrega" class="area-mapa area-mapa-cliente">
+<div class="mapa-cliente-cabecalho">
+<div><small>ACOMPANHAMENTO GEOGRÁFICO</small><h3>Mapa da entrega</h3><p class="mapa-cliente-ajuda">Origem, destino e última posição informada pelo motorista.</p></div>
+<div class="mapa-cliente-acoes">
+<button class="botao botao-secundario" disabled="" id="cliente-mapa-ajustar" type="button">Ver trajeto</button>
+<a class="botao botao-secundario" hidden="" href="#" id="cliente-mapa-navegar" rel="noopener noreferrer" target="_blank">Ver destino no Maps ↗</a>
+<button class="botao botao-secundario" disabled="" id="cliente-mapa-atualizar" type="button">↻ Atualizar</button>
+</div>
+</div>
+<div aria-label="Mapa interativo com origem, última posição compartilhada e destino da entrega" id="mapa-cliente" role="application" tabindex="0"></div>
+<div class="mapa-cliente-legenda">
+<span><i class="ponto-mapa-cliente ponto-origem"></i> Origem</span>
+<span><i class="ponto-mapa-cliente ponto-motorista"></i> Última posição compartilhada</span>
+<span><i class="ponto-mapa-cliente ponto-destino"></i> Destino</span>
+</div>
+<p class="cliente-mapa-status" id="cliente-mapa-status" role="status">Informe o código para localizar sua entrega no mapa.</p>
+<div class="balao-flutuante"><small>Status da entrega</small><strong>Aguardando código</strong></div>
+</section>
+<!-- Linha do Tempo -->
+<div class="secao-branca">
+<h3>
+       Por onde seu pedido já passou
+      </h3>
+<div class="linha-tempo" id="eventos-rastreamento">
+</div>
+</div>
+</div>
+<!-- COLUNA DIREITA: CARTÕES DE ESTADO -->
+<div class="coluna-dir">
+<!-- Cartão Escuro -->
+<div class="cartao-status-escuro">
+<p>
+       Situação atual
+      </p>
+<h2>
+       —
+      </h2>
+<div class="barra-progresso-escura">
+<div class="preenchimento" style="width:0%;">
+</div>
+</div>
+<p class="rodape-progresso">
+       As atualizações serão exibidas quando o código for consultado.
+      </p>
+</div>
+<!-- Cartão Motorista -->
+<div class="cartao-info-lateral">
+<strong>
+       Quem está com o seu pedido
+      </strong>
+<div class="perfil-motorista mt-15">
+<div class="icone-avatar com-letra">
+        M
+       </div>
+<div>
+<p class="nome-motorista">
+         Motorista não atribuído
+        </p>
+<p class="veiculo-motorista">
+         Motorista não atribuído
+        </p>
+</div>
+</div>
+<div class="botoes-acao mt-15">
+<button class="botao botao-primario" disabled="" id="rastrear-ligar" type="button">
+        Ligar
+       </button>
+<button class="botao botao-secundario" disabled="" id="rastrear-mensagem" type="button">
+        Mensagem
+       </button>
+</div>
+</div>
+<!-- Cartão Detalhes -->
+<div class="cartao-info-lateral">
+<strong>
+       Detalhes da entrega
+      </strong>
+<div class="item-detalhe mt-15">
+<small>
+        Endereço
+       </small>
+<p>
+        —
+       </p>
+</div>
+<div class="item-detalhe">
+<small>
+        Quem recebe
+       </small>
+<p>
+        —
+       </p>
+</div>
+<div class="item-detalhe">
+<small>
+        Itens
+       </small>
+<p>
+        —
+       </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script crossorigin="" defer="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer="True" src="./js/app.js?v=3.10.2">
+</script>
+</body>
+</html>

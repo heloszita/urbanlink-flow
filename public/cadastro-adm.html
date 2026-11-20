@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Cadastro Administrador - UrbanLink
+  </title>
+<link href="./css/autenticacao.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/visual.css" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.12"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body data-page="cadastro" data-role="Administrador">
+<header class="auth-topbar auth-header" aria-label="Cabeçalho UrbanLink">
+  <a class="auth-header-brand" href="index.html" aria-label="UrbanLink Flow — página inicial"><img src="./assets/logo.png" alt="UrbanLink Flow" width="174"></a>
+  <div class="auth-header-account">Já tem uma conta? <a href="login.html">Entrar</a></div>
+</header>
+<main class="area-autenticacao">
+<div class="cartao-autenticacao">
+<h1 class="titulo-autenticacao">
+     Crie a sua conta para começar
+    </h1>
+<div class="etiqueta-tipo-usuario">
+     Administrador
+    </div>
+<form class="formulario" id="form-cadastro">
+<div class="grupo-form">
+<label for="nome">
+       Nome completo
+      </label>
+<input id="nome" name="nome" placeholder="Como devemos te chamar?" required="" type="text"/>
+</div>
+<div class="linha-form">
+<div class="grupo-form">
+<label for="cpf">
+        CPF
+       </label>
+<input id="cpf" name="cpf" placeholder="000.000.000-00" type="text"/>
+</div>
+<div class="grupo-form">
+<label for="cnpj">
+        CNPJ da Empresa
+       </label>
+<input id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" type="text"/>
+</div>
+</div>
+<div class="grupo-form">
+<label for="email">
+       E-mail
+      </label>
+<input id="email" name="email" placeholder="voce@email.com" required="" type="email"/>
+</div>
+<div class="grupo-form">
+<label for="celular">
+       Número de celular
+      </label>
+<input id="celular" name="telefone" placeholder="(21) 90000-0000" type="tel"/>
+</div>
+<div class="linha-form">
+<div class="grupo-form">
+<label for="senha">
+        Nova senha
+       </label>
+<input id="senha" name="senha" placeholder="Mínimo de 8 caracteres" required="" type="password"/>
+</div>
+<div class="grupo-form">
+<label for="confirmar-senha">
+        Confirmar senha
+       </label>
+<input id="confirmar-senha" name="confirmar_senha" placeholder="Repita a senha" required="" type="password"/>
+</div>
+</div>
+<div class="grupo-form">
+<label for="codigo-convite">
+       Código de convite de administrador
+      </label>
+<input autocomplete="off" id="codigo-convite" minlength="12" name="codigo_convite" placeholder="Código privado configurado no servidor" required="True" type="password"/>
+<p class="texto-secundario" style="font-size:.85rem;margin:.4rem 0 0">O código deve ter pelo menos 12 caracteres. O valor do arquivo .env.example é apenas ilustrativo e não funciona no cadastro.</p>
+</div>
+<div class="grupo-checkbox">
+<input checked="" id="termos" required="" type="checkbox"/>
+<label class="texto-checkbox" for="termos">
+       Li e aceito os termos de uso e a política de privacidade
+      </label>
+</div>
+<button class="botao botao-primario" type="submit">
+      Criar minha conta
+     </button>
+</form>
+</div>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script defer="True" src="./js/app.js?v=3.10.2">
+</script>
+</body>
+</html>

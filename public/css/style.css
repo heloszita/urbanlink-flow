@@ -1,0 +1,238 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding não aumente o tamanho total dos elementos */
+  font-family: Arial, sans-serif; /* Fonte padrão do sistema */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Faz o corpo ocupar no mínimo a altura toda da tela */
+}
+
+/* =========================================
+ CABEÇALHO E RODAPÉ
+========================================= */
+.cabecalho, .rodape {
+  display: flex; /* Coloca os itens internos lado a lado */
+  justify-content: space-between; /* Empurra um item para a esquerda e outro para a direita */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 20px 40px;
+  background-color: #ffffff;
+}
+.cabecalho .logo {
+  display: flex;
+  align-items: center;
+}
+
+
+.imagem-logo {
+  height: 24px; /* Ajuste a altura consoante o tamanho da sua imagem */
+  width: auto;  /* Mantém as proporções da imagem originais */
+  display: block;
+}
+
+
+.cabecalho .login a {
+  color: #f35b3f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.rodape {
+  font-size: 0.8rem;
+  color: #666;
+}
+.rodape a {
+  color: #666;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+/* =========================================
+ ÁREA PRINCIPAL (Fundo Azul)
+========================================= */
+.area-principal {
+  flex-grow: 1; /* Faz esta área preencher todo o espaço restante entre cabeçalho e rodapé */
+  background-color: #71c8f17e; /* Azul claro do fundo */
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulos {
+  margin-bottom: 40px;
+  color: #16146A;
+}
+.titulos h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+.titulos p {
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+/* =========================================
+ SISTEMA DE CARTÕES
+========================================= */
+.container-cartoes {
+  display: flex; /* Coloca os 3 cartões lado a lado */
+  gap: 25px; /* Espaço entre os cartões */
+}
+
+.cartao {
+  background-color: #ffffff;
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 30px;
+  flex: 1; /* Faz todos os cartões terem a mesma largura */
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+}
+
+/* Destaca o cartão selecionado (Cliente) ao passar o mouse*/
+.cartao:hover {
+  border: 2px solid #16146A; 
+  box-shadow: 0 4px 10px rgb(0, 71, 177);
+    transform: translateY(-5px);
+}
+
+.icone-azul {
+  background-color: #16146A;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cartao h2 {
+  color: #16146A;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.cartao .descricao {
+  font-size: 0.95rem;
+  color: #000000;
+  margin-bottom: 25px;
+  min-height: 40px; /* Garante que todos fiquem alinhados mesmo se o texto for menor */
+}
+
+/* =========================================
+ LISTAS DENTRO DOS CARTÕES
+========================================= */
+.titulo-lista {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.cartao ul {
+  list-style-position: inside;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Empurra o botão e a tag para o final do cartão */
+}
+.cartao ul li {
+  font-size: 0.9rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+/* Estilo específico para lista com "Check" no último cartão */
+.lista-check {
+  list-style-type: none; /* Remove bolinhas padrões */
+}
+.lista-check li::before {
+  content: '✓'; /* Adiciona o símbolo de check */
+  color: #1F7A48;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* =========================================
+ TAGS DE AVISO (Caixinhas coloridas)
+========================================= */
+.tag {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.tag-verde {
+  background-color: #dcf5e3;
+  color: #1a7a38;
+}
+.tag-amarela {
+  background-color: #fdf5d3;
+  color: #9c7300;
+}
+.tag-azul {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* =========================================
+ BOTÕES
+========================================= */
+.botao {
+  width: 100%;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.botao{
+  background-color: #f35a3f00;
+  color: #16146A;
+  border: solid 1px #C5CAE0;
+  transition: 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #FF5324;
+  color: #ffffff;
+  border: 1px solid #16146A;
+}
+
+/* Navegação e layout responsivo da página inicial */
+.cabecalho .login a{display:inline-block;padding:7px 10px;border-radius:6px;transition:color .22s ease,background-color .22s ease,transform .22s ease}
+.cabecalho .login a:hover,.cabecalho .login a:focus-visible{color:#d9472c;background:#fff1ed;transform:translateY(-1px);outline:none}
+.rodape a{transition:color .2s ease}
+.rodape a:hover{color:#f35b3f}
+@media(max-width:900px){.area-principal{padding:42px 26px}.container-cartoes{flex-wrap:wrap}.cartao{flex:1 1 calc(50% - 14px);min-width:260px}}
+@media(max-width:600px){.cabecalho,.rodape{padding:15px 18px;gap:12px;flex-wrap:wrap}.cabecalho .imagem-logo{max-width:170px;height:auto}.area-principal{padding:32px 16px}.titulos{margin-bottom:26px}.titulos h1{font-size:1.7rem;line-height:1.2}.titulos p{font-size:.95rem;line-height:1.5}.container-cartoes{flex-direction:column;gap:16px}.cartao{min-width:0;width:100%;padding:23px}.cartao .descricao{min-height:0}.rodape{align-items:flex-start;flex-direction:column}.links-rodape{display:flex;gap:13px;flex-wrap:wrap}.rodape a{margin-left:0}}
+
+
+/* Transição suave entre páginas */
+body{animation:urbanlink-page-enter .32s ease both}
+body.page-exit{opacity:0;transform:translateY(4px);transition:opacity .17s ease,transform .17s ease}
+@keyframes urbanlink-page-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){body{animation:none}body.page-exit{transition:none}}
+
+
+/* Ajustes de apresentação da marca e acessibilidade do layout inicial */
+.cabecalho .marca-urbanlink{display:inline-flex;align-items:center;text-decoration:none;max-width:100%}
+.cabecalho .imagem-logo{height:28px;width:auto;max-width:min(72vw,310px);object-fit:contain}
+@media(max-width:600px){.cabecalho .imagem-logo{height:25px;max-width:min(66vw,240px)}}
+
+
+.icone-perfil{display:block;width:44px;height:44px;object-fit:contain}
+.icone-azul{width:52px;height:52px;padding:0;background:transparent;border-radius:12px}
+.cartao .tag{border-radius:10px}

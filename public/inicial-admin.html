@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#f4f6fb" name="theme-color"/>
+<title>Painel de gestão — UrbanLink Flow</title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/visual.css" rel="stylesheet"/>
+<link href="./css/admin-painel.css" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body class="admin-panel-page" data-page="admin-dashboard" data-role="Administrador,Gestor">
+<header class="cabecalho-interno">
+<div class="logo"><a aria-label="Painel UrbanLink" href="inicial-admin.html"><img alt="UrbanLink Flow" class="imagem-logo" src="./assets/logo.png"/></a></div>
+<nav aria-label="Navegação principal" class="navegacao-topo">
+<a aria-current="page" class="ativo" href="inicial-admin.html">Início</a>
+<a href="entrega-motorista.html">Gestão de entregas</a>
+<a href="mapa-rotas.html">Mapa e rotas</a>
+<a href="simulacoes.html">Simulações</a>
+<a href="admin-mensagens.html">Mensagens</a>
+</nav>
+<div class="perfil-usuario"><img alt="" class="icone-img" src="./assets/avatar.svg"/><span>Carregando perfil…</span></div>
+</header>
+<main class="conteudo-dashboard admin-panel-main">
+<div class="admin-hero">
+<div class="admin-hero-copy">
+<span class="admin-overline"><span aria-hidden="true" class="admin-pulse"></span> CENTRAL DE CONTROLE</span>
+<h1>Visão geral da operação<span class="admin-period">.</span></h1>
+<p>Entregas, equipe e rotas em um único lugar. Acompanhe os indicadores e tome decisões com mais agilidade.</p>
+<span class="admin-date" id="data-painel-admin">Atualizando indicadores…</span>
+</div>
+<div class="admin-hero-actions">
+<a class="admin-hero-primary" href="entrega-motorista.html"><span aria-hidden="true">＋</span> Nova entrega</a>
+<a class="admin-hero-secondary" href="mapa-rotas.html"><span aria-hidden="true">⌖</span> Explorar mapa</a>
+</div>
+<div aria-hidden="true" class="admin-hero-decoration"><span></span><span></span><span></span></div>
+</div>
+<section aria-labelledby="admin-metric-heading" class="admin-panel-section">
+<div class="admin-section-heading"><div><span class="admin-kicker">INDICADORES</span><h2 id="admin-metric-heading">Resumo em tempo real</h2></div><span class="admin-section-note">Dados atualizados diretamente do sistema</span></div>
+<div class="grid-4-colunas admin-metrics-grid">
+<article class="cartao-metricas admin-metric-card">
+<div class="admin-card-head"><span>Entregas cadastradas</span><span aria-hidden="true" class="admin-metric-icon orange">▣</span></div>
+<p class="numero-metrica">—</p><p class="subtexto-cartao">Total de pedidos registrados</p><div class="admin-metric-line orange"></div>
+</article>
+<article class="cartao-metricas admin-metric-card">
+<div class="admin-card-head"><span>Em andamento</span><span aria-hidden="true" class="admin-metric-icon blue">↗</span></div>
+<p class="numero-metrica">—</p><p class="subtexto-cartao">Em coleta ou transporte</p><div class="admin-metric-line blue"></div>
+</article>
+<article class="cartao-metricas admin-metric-card">
+<div class="admin-card-head"><span>Entregas concluídas</span><span aria-hidden="true" class="admin-metric-icon green">✓</span></div>
+<p class="numero-metrica">—</p><p class="subtexto-cartao">Pedidos entregues</p><div class="admin-metric-line green"></div>
+</article>
+<article class="cartao-metricas admin-metric-card">
+<div class="admin-card-head"><span>Veículos disponíveis</span><span aria-hidden="true" class="admin-metric-icon violet">▱</span></div>
+<p class="numero-metrica">—</p><p class="subtexto-cartao">Prontos para novas rotas</p><div class="admin-metric-line violet"></div>
+</article>
+</div>
+</section>
+<section aria-labelledby="admin-quick-heading" class="admin-panel-section">
+<div class="admin-section-heading"><div><span class="admin-kicker">ATALHOS</span><h2 id="admin-quick-heading">Ações rápidas</h2></div><p class="admin-section-note">Acesse o que precisa em um clique</p></div>
+<div class="admin-shortcuts" id="admin-acoes-rapidas">
+<button class="cartao-acao-rapida admin-shortcut" data-action="nova-entrega" type="button"><span aria-hidden="true" class="admin-shortcut-icon orange">＋</span><span><strong>Registrar entrega</strong><small>Cadastre um novo pedido</small></span><span aria-hidden="true" class="admin-arrow">↗</span></button>
+<button class="cartao-acao-rapida admin-shortcut" data-action="gestao-entregas" type="button"><span aria-hidden="true" class="admin-shortcut-icon blue">▤</span><span><strong>Gestão de entregas</strong><small>Atualize e atribua pedidos</small></span><span aria-hidden="true" class="admin-arrow">↗</span></button>
+<button class="cartao-acao-rapida admin-shortcut" data-action="mapa" type="button"><span aria-hidden="true" class="admin-shortcut-icon green">⌖</span><span><strong>Mapa e rotas</strong><small>Visualize a operação no mapa</small></span><span aria-hidden="true" class="admin-arrow">↗</span></button>
+<button class="cartao-acao-rapida admin-shortcut" data-action="admin-messages" type="button"><span aria-hidden="true" class="admin-shortcut-icon violet">✉</span><span><strong>Mensagens</strong><small>Responda os atendimentos</small></span><span aria-hidden="true" class="admin-arrow">↗</span></button>
+</div>
+</section>
+<section aria-label="Movimentação recente e gestão de equipe" class="admin-panel-section admin-content-grid">
+<article class="bloco-conteudo admin-table-panel">
+<div class="admin-section-heading admin-table-title"><div><span class="admin-kicker">ACOMPANHAMENTO</span><h2>Entregas recentes</h2><p class="admin-section-note">Monitore os pedidos mais recentes da operação</p></div><a class="admin-view-all" href="entrega-motorista.html">Ver todas ↗</a></div>
+<div class="admin-table-toolbar">
+<div class="caixa-busca-estoque"><span aria-hidden="true" class="admin-search-icon">⌕</span><input aria-label="Filtrar entregas" id="admin-filtro-entregas" placeholder="Código, cliente ou endereço" type="search"/></div>
+<div class="admin-table-buttons"><button class="botao botao-secundario-pequeno" id="admin-aplicar-filtro" type="button">Buscar</button><button class="botao botao-secundario-pequeno" id="exportar-csv-admin" type="button">Exportar CSV</button></div>
+</div>
+<div class="admin-table-scroll"><table class="tabela-pedidos"><thead><tr><th>Código</th><th>Cliente</th><th>Destino</th><th>Motorista</th><th>Status</th></tr></thead><tbody id="admin-entregas-recentes"><tr><td colspan="5">Carregando entregas…</td></tr></tbody></table></div>
+<div class="admin-table-footer"><span>Total cadastrado</span><div class="info-resumo-estoque"><p>—</p></div><a href="entrega-motorista.html">Gerenciar entregas ↗</a></div>
+</article>
+<aside class="admin-aside">
+<div class="admin-team-highlight"><span class="admin-kicker">EQUIPE</span><h2>Aprovações pendentes</h2><div class="admin-pending-total"><strong id="admin-pendentes-count">—</strong><span>motoristas aguardando revisão</span></div><a href="#lista-motoristas-pendentes">Revisar cadastros ↗</a></div>
+<div class="admin-help-card"><span aria-hidden="true" class="admin-help-icon">⌖</span><h3>Sua operação no mapa</h3><p>Encontre veículos, otimize os trajetos e navegue até cada parada.</p><a href="mapa-rotas.html">Abrir mapa interativo <span aria-hidden="true">↗</span></a></div>
+</aside>
+</section>
+<section aria-labelledby="admin-review-heading" class="admin-panel-section admin-review-panel" id="lista-motoristas-pendentes"><div class="admin-section-heading"><div><span class="admin-kicker">APROVAÇÕES</span><h2 id="admin-review-heading">Motoristas aguardando aprovação</h2><p class="admin-section-note">Verifique a CNH e os dados antes de aprovar o cadastro.</p></div></div><div class="admin-driver-list" id="motoristas-pendentes-itens"><p>Carregando cadastros…</p></div></section>
+<section aria-labelledby="admin-docs-heading" class="admin-panel-section admin-review-panel"><div class="admin-section-heading"><div><span class="admin-kicker">DOCUMENTAÇÃO</span><h2 id="admin-docs-heading">CNH dos motoristas</h2><p class="admin-section-note">Consulta protegida dos documentos enviados pelos motoristas cadastrados.</p></div></div><div class="admin-driver-list" id="admin-motoristas-documentos"><p>Carregando documentos…</p></div></section>
+<section aria-labelledby="admin-encerramento-title" class="admin-outro-passo" id="admin-encerramento">
+<div class="admin-outro-passo-copy"><span class="admin-outro-passo-kicker">CONTROLE EM SUAS MÃOS</span>
+<h2 id="admin-encerramento-title">Tudo pronto para o próximo movimento.</h2>
+<p>Organize as solicitações dos clientes, acompanhe veículos e avalie cenários em um único fluxo.</p>
+</div>
+<div class="admin-outro-passo-actions">
+<a class="admin-outro-passo-primary" href="entrega-motorista.html">Gerenciar entregas <span aria-hidden="true">↗</span></a>
+<a class="admin-outro-passo-secondary" href="mapa-rotas.html">Visualizar mapa <span aria-hidden="true">↗</span></a>
+<a class="admin-outro-passo-secondary" href="simulacoes.html">Abrir simulações <span aria-hidden="true">↗</span></a>
+</div>
+</section></main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script defer="" src="./js/app.js?v=3.10.2"></script>
+</body>
+</html>

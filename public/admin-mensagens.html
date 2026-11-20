@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#1b1642" name="theme-color"/>
+<title>Mensagens dos clientes - UrbanLink Flow</title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/admin-mensagens.css" rel="stylesheet"/>
+<link href="./css/visual.css" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body data-page="admin-messages" data-role="Administrador,Gestor">
+<header class="cabecalho-interno">
+<div class="logo">
+<a aria-label="UrbanLink Flow - painel administrativo" href="inicial-admin.html">
+<img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/>
+</a>
+</div>
+<nav aria-label="Navegação principal" class="navegacao-topo">
+<a href="inicial-admin.html">Início</a>
+<a href="entrega-motorista.html">Gestão de entregas</a>
+<a href="mapa-rotas.html">Mapa e rotas</a>
+<a href="simulacoes.html">Simulações</a>
+</nav>
+<div class="perfil-usuario">
+<img alt="Ícone de utilizador" class="icone-img" src="./assets/avatar.svg"/>
+<span>Carregando perfil…</span>
+</div>
+</header>
+<main class="conteudo-dashboard admin-messages-page">
+<div class="admin-messages-heading">
+<div>
+<a class="admin-back-link" href="inicial-admin.html">← Voltar ao painel</a>
+<p class="migalhas">CENTRAL DE COMUNICAÇÃO</p>
+<h1>Mensagens dos clientes</h1>
+<p class="admin-messages-intro">Consulte as solicitações recebidas, responda aos clientes e acompanhe o andamento de cada chamado.</p>
+</div>
+<button class="botao botao-secundario admin-refresh" id="admin-atualizar-mensagens" type="button">Atualizar mensagens</button>
+</div>
+<section aria-label="Resumo das mensagens" class="admin-message-stats">
+<article class="admin-message-stat">
+<span>Total de mensagens</span>
+<strong id="mensagens-total">—</strong>
+</article>
+<article class="admin-message-stat is-open">
+<span>Abertas</span>
+<strong id="mensagens-abertas">—</strong>
+</article>
+<article class="admin-message-stat is-progress">
+<span>Em atendimento</span>
+<strong id="mensagens-andamento">—</strong>
+</article>
+<article class="admin-message-stat is-done">
+<span>Resolvidas</span>
+<strong id="mensagens-resolvidas">—</strong>
+</article>
+</section>
+<section aria-labelledby="admin-inbox-title" class="admin-message-inbox">
+<div class="admin-inbox-heading">
+<div>
+<h2 id="admin-inbox-title">Caixa de entrada</h2>
+<p>As mensagens mais recentes aparecem primeiro.</p>
+</div>
+<div class="admin-message-filters">
+<label>
+<span class="sr-only">Buscar mensagens</span>
+<input id="admin-busca-mensagens" placeholder="Buscar cliente, assunto ou mensagem" type="search"/>
+</label>
+<label>
+<span class="sr-only">Filtrar por status</span>
+<select id="admin-filtro-status-mensagem">
+<option value="Todos">Todos os status</option>
+<option value="Aberto">Abertas</option>
+<option value="Em atendimento">Em atendimento</option>
+<option value="Resolvido">Resolvidas</option>
+</select>
+</label>
+</div>
+</div>
+<div aria-live="polite" class="admin-messages-list" id="admin-chamados-lista">
+<div class="admin-messages-empty">Carregando mensagens…</div>
+</div>
+</section>
+<p class="admin-messages-footnote">As respostas enviadas aqui ficam disponíveis para o cliente na página de Atendimento. O status pode ser atualizado a cada resposta.</p>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script defer="" src="./js/app.js?v=3.10.2"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+const Usuario = require('./Usuario');
+const Veiculo = require('./Veiculo');
+const PosicaoVeiculo = require('./PosicaoVeiculo');
+const Entrega = require('./Entrega');
+const EventoEntrega = require('./EventoEntrega');
+const Rota = require('./Rota');
+const Chamado = require('./Chamado');
+const Simulacao = require('./Simulacao');
+
+Usuario.hasMany(Entrega, { as: 'entregasComoCliente', foreignKey: 'cliente_id', onDelete: 'RESTRICT' });
+Entrega.belongsTo(Usuario, { as: 'cliente', foreignKey: 'cliente_id' });
+Usuario.hasMany(Entrega, { as: 'entregasComoMotorista', foreignKey: 'motorista_id' });
+Entrega.belongsTo(Usuario, { as: 'motorista', foreignKey: 'motorista_id' });
+Usuario.hasMany(Entrega, { as: 'entregasCriadas', foreignKey: 'criada_por' });
+Entrega.belongsTo(Usuario, { as: 'criador', foreignKey: 'criada_por' });
+Usuario.hasOne(Veiculo, { as: 'veiculo', foreignKey: 'motorista_id' });
+Veiculo.belongsTo(Usuario, { as: 'motorista', foreignKey: 'motorista_id' });
+Veiculo.hasMany(PosicaoVeiculo, { as: 'posicoes', foreignKey: 'veiculo_id', onDelete: 'CASCADE' });
+PosicaoVeiculo.belongsTo(Veiculo, { as: 'veiculo', foreignKey: 'veiculo_id' });
+Veiculo.hasMany(Entrega, { as: 'entregas', foreignKey: 'veiculo_id' });
+Entrega.belongsTo(Veiculo, { as: 'veiculo', foreignKey: 'veiculo_id' });
+Entrega.hasMany(EventoEntrega, { as: 'eventos', foreignKey: 'entrega_id', onDelete: 'CASCADE' });
+EventoEntrega.belongsTo(Entrega, { as: 'entrega', foreignKey: 'entrega_id' });
+Usuario.hasMany(EventoEntrega, { as: 'eventosRegistrados', foreignKey: 'usuario_id' });
+EventoEntrega.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuario_id' });
+Usuario.hasMany(Rota, { as: 'rotasComoMotorista', foreignKey: 'motorista_id' });
+Rota.belongsTo(Usuario, { as: 'motorista', foreignKey: 'motorista_id' });
+Usuario.hasMany(Rota, { as: 'rotasCriadas', foreignKey: 'criada_por' });
+Rota.belongsTo(Usuario, { as: 'criador', foreignKey: 'criada_por' });
+Usuario.hasMany(Chamado, { as: 'chamados', foreignKey: 'usuario_id' });
+Usuario.hasMany(Simulacao, { as: 'simulacoes', foreignKey: 'usuario_id' });
+Simulacao.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuario_id' });
+Chamado.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuario_id' });
+
+module.exports = { Usuario, Veiculo, PosicaoVeiculo, Entrega, EventoEntrega, Rota, Chamado, Simulacao };

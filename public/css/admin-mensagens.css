@@ -1,0 +1,74 @@
+/* Área de mensagens exclusiva da administração */
+#admin-acoes-rapidas { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.admin-message-action-icon { width: 42px; height: 42px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 11px; background: #fff0eb; color: #e94d32; font-size: 1.35rem; }
+.admin-message-action-copy { display: flex; flex-direction: column; gap: 4px; }
+.admin-message-action-copy small { color: #7d8491; font-size: .72rem; }
+
+.admin-messages-page { max-width: 1220px; }
+.admin-messages-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; margin: 8px 0 25px; }
+.admin-back-link { display: inline-block; margin-bottom: 17px; color: #e94d32; font-size: .8rem; font-weight: 800; text-decoration: none; }
+.admin-back-link:hover { text-decoration: underline; }
+.admin-messages-heading h1 { margin: 5px 0 8px; color: #1b1642; font-size: clamp(1.55rem, 3vw, 2.05rem); }
+.admin-messages-intro { max-width: 680px; color: #727b89; font-size: .9rem; line-height: 1.55; }
+.admin-refresh { width: auto; flex: 0 0 auto; }
+.admin-message-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 22px; }
+.admin-message-stat { padding: 18px 20px; border: 1px solid #e8eaf0; border-radius: 12px; background: #fff; box-shadow: 0 3px 12px rgba(25, 31, 50, .035); }
+.admin-message-stat span { display: block; color: #788191; font-size: .75rem; font-weight: 700; }
+.admin-message-stat strong { display: block; margin-top: 7px; color: #1b1642; font-size: 1.8rem; }
+.admin-message-stat.is-open { border-top: 3px solid #e3a13a; }
+.admin-message-stat.is-progress { border-top: 3px solid #4d8dbf; }
+.admin-message-stat.is-done { border-top: 3px solid #39936b; }
+.admin-message-inbox { padding: 23px; border: 1px solid #e8eaf0; border-radius: 14px; background: #fff; box-shadow: 0 4px 18px rgba(26, 29, 52, .045); }
+.admin-inbox-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; margin-bottom: 18px; }
+.admin-inbox-heading h2 { color: #1b1642; font-size: 1.12rem; margin-bottom: 4px; }
+.admin-inbox-heading p { color: #828b99; font-size: .76rem; }
+.admin-message-filters { display: flex; gap: 9px; }
+.admin-message-filters input, .admin-message-filters select { min-width: 170px; padding: 10px 12px; border: 1px solid #dfe3eb; border-radius: 8px; background: #fff; color: #303047; font: inherit; font-size: .78rem; }
+.admin-message-filters input { min-width: min(280px, 34vw); }
+.admin-messages-list { display: grid; gap: 14px; }
+.admin-message-card { min-width: 0; padding: 19px; border: 1px solid #e9ebf1; border-radius: 11px; background: #fbfcfe; }
+.admin-message-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+.admin-message-sender { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.admin-message-sender strong { color: #252344; font-size: .9rem; }
+.admin-message-sender small { color: #858d9a; font-size: .72rem; overflow-wrap: anywhere; }
+.admin-message-status { display: inline-flex; align-items: center; flex: 0 0 auto; padding: 5px 9px; border-radius: 30px; background: #fff4dc; color: #936313; font-size: .68rem; font-weight: 800; }
+.admin-message-status.status-em-atendimento { background: #e8f2fb; color: #28628f; }
+.admin-message-status.status-resolvido { background: #e5f5eb; color: #247448; }
+.admin-message-subject { margin: 14px 0 4px; color: #1b1642; font-size: .98rem; }
+.admin-message-date { color: #939aa6; font-size: .68rem; }
+.admin-message-body { margin-top: 12px; padding: 13px 15px; border-left: 3px solid #f1a18e; border-radius: 0 8px 8px 0; background: #fff; }
+.admin-message-body p, .admin-message-previous-reply p { color: #424457; font-size: .82rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
+.admin-message-previous-reply { margin-top: 11px; padding: 12px 14px; border-radius: 8px; background: #edf7f0; }
+.admin-message-previous-reply strong { display: block; margin-bottom: 5px; color: #247448; font-size: .72rem; }
+.admin-message-reply-form { display: flex; flex-direction: column; gap: 11px; margin-top: 15px; }
+.admin-message-reply-form>label { display: flex; flex-direction: column; gap: 7px; color: #45445b; font-size: .76rem; font-weight: 800; }
+.admin-message-reply-form textarea { width: 100%; min-height: 82px; resize: vertical; padding: 11px 12px; border: 1px solid #dfe3eb; border-radius: 8px; background: #fff; color: #303047; font: inherit; font-size: .82rem; line-height: 1.5; }
+.admin-message-reply-form textarea:focus, .admin-message-filters input:focus, .admin-message-filters select:focus, .admin-message-status-field select:focus { outline: none; border-color: #f35b3f; box-shadow: 0 0 0 3px rgba(243, 91, 63, .1); }
+.admin-message-reply-controls { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.admin-message-status-field { display: flex; flex-direction: column; gap: 6px; color: #727b89; font-size: .7rem; font-weight: 700; }
+.admin-message-status-field select { min-width: 190px; padding: 9px 10px; border: 1px solid #dfe3eb; border-radius: 7px; background: #fff; color: #303047; font: inherit; font-size: .75rem; }
+.admin-message-send { width: auto; min-width: 145px; }
+.admin-messages-empty { padding: 34px 20px; border: 1px dashed #d9dee8; border-radius: 10px; color: #828b99; text-align: center; font-size: .84rem; line-height: 1.5; }
+.admin-messages-error { color: #b91c1c; border-color: #efb4b4; }
+.admin-messages-footnote { margin: 14px 2px 0; color: #858d9a; font-size: .72rem; line-height: 1.5; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 900px) {
+  .admin-message-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-inbox-heading { align-items: stretch; flex-direction: column; }
+  .admin-message-filters input { min-width: 0; }
+}
+@media (max-width: 620px) {
+  .admin-messages-heading { align-items: stretch; flex-direction: column; }
+  .admin-refresh { width: 100%; }
+  .admin-message-stats { gap: 9px; }
+  .admin-message-stat { padding: 14px; }
+  .admin-message-stat strong { font-size: 1.45rem; }
+  .admin-message-inbox { padding: 14px; }
+  .admin-message-filters { flex-direction: column; }
+  .admin-message-filters input, .admin-message-filters select { width: 100%; }
+  .admin-message-card { padding: 14px; }
+  .admin-message-top { flex-direction: column; }
+  .admin-message-reply-controls { align-items: stretch; flex-direction: column; }
+  .admin-message-status-field select, .admin-message-send { width: 100%; }
+}

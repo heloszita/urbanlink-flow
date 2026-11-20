@@ -1,0 +1,51 @@
+/* Complementos funcionais: mantém a identidade visual original e apenas acrescenta estados da aplicação. */
+.mensagem-app{margin:12px 0;padding:10px 14px;border-radius:8px;font-size:.94rem;line-height:1.45}
+.mensagem-app.sucesso{background:#e5f4ef;color:#245a4c;border:1px solid #b8ded2}
+.mensagem-app.erro{background:#fff0ed;color:#8d2f22;border:1px solid #f2c6bd}
+.mensagem-app.info{background:#edf3f8;color:#294a64;border:1px solid #c8d9e7}
+.badge-status{display:inline-flex;align-items:center;padding:4px 9px;border-radius:20px;background:#edf3f8;color:#294a64;font-size:.82rem}
+.badge-status[data-status="Entregue"],.badge-status[data-status="Resolvido"]{background:#e5f4ef;color:#245a4c}
+.badge-status[data-status="Cancelada"],.badge-status[data-status="Problema"]{background:#fff0ed;color:#8d2f22}
+.badge-status[data-status="Pendente"],.badge-status[data-status="Aberto"]{background:#fff5df;color:#76541b}
+.estado-vazio{padding:22px;text-align:center;color:#66737d}
+.acoes-tabela{display:flex;gap:8px;flex-wrap:wrap}
+.botao-pequeno{padding:7px 10px;border:0;border-radius:6px;cursor:pointer}
+.lista-eventos{list-style:none;padding:0;margin:16px 0}
+.lista-eventos li{border-left:3px solid #7bb0a8;padding:7px 0 7px 14px;margin-left:6px}
+.lista-eventos small{display:block;color:#687780}
+.campo-api{margin:12px 0}
+.campo-api input,.campo-api select,.campo-api textarea{width:100%;box-sizing:border-box}
+#lista-motoristas-pendentes{margin-top:24px}
+#lista-motoristas-pendentes .motorista-pendente{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid #e6e9eb}
+#mapa-funcional{width:100%;min-height:300px;display:block;border-radius:12px;object-fit:cover}
+.texto-secundario{color:#677780;font-size:.9rem}
+
+
+/* Regras comuns de fluidez, adaptação e foco por teclado */
+html{scroll-behavior:smooth}
+img,svg,video{max-width:100%}
+button,a,input,select,textarea{touch-action:manipulation}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #f35b3f;outline-offset:2px}
+@media(max-width:640px){.mensagem-app{font-size:.86rem;padding:10px 12px}#lista-motoristas-pendentes .motorista-pendente{align-items:flex-start;flex-direction:column}.acoes-tabela{align-items:stretch}.acoes-tabela>*{flex:1 1 auto}}
+@media(prefers-reduced-motion:no-preference){body{animation:urbanlink-page-enter .32s ease both}body.page-exit{opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .18s ease}}
+@keyframes urbanlink-page-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,body.page-exit{animation:none;transition:none}.navegacao-topo a,.driver-map-control{transition:none}}
+
+@media (max-width: 700px) {
+  .tabela-pedidos { min-width: 680px; }
+  .cartao-tabela-gestao { max-width: 100%; overflow-x: auto; }
+  .grupo-input, .campo-filtro { min-width: 0; width: 100%; }
+  .formulario-modal { grid-template-columns: minmax(0,1fr); }
+}
+
+/* Área de entregas do motorista: somente pedidos atribuídos à conta. */
+.lista-entregas-motorista{margin-top:18px;padding:22px;border-radius:12px;background:#fff;box-shadow:0 5px 20px rgba(27,22,66,.06)}
+.topo-entregas-motorista{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
+.topo-entregas-motorista h3{color:#1b1642;margin-bottom:5px}.topo-entregas-motorista p{font-size:.82rem;color:#758094}
+.grade-entregas-motorista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cartao-entrega-motorista{min-width:0;border:1px solid #e7eaf0;border-radius:10px;padding:16px;background:#fff}
+.topo-cartao-entrega-motorista{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.codigo-entrega-motorista{color:#1b1642;font-size:.95rem}
+.rota-entrega-motorista{border-left:3px solid #f35b3f;padding-left:12px;margin:10px 0}.rota-entrega-motorista p{font-size:.82rem;color:#454b59;line-height:1.5;overflow-wrap:anywhere}
+.detalhes-entrega-motorista{display:grid;gap:5px;color:#758094;font-size:.75rem}.acoes-entrega-motorista{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.acoes-entrega-motorista .botao{font-size:.75rem;padding:9px 12px;text-decoration:none}
+.aviso-aprovacao-motorista{margin:0 0 14px;padding:12px 14px;border-radius:8px;background:#fff4e6;color:#89551a;font-size:.82rem;line-height:1.5}
+@media(max-width:760px){.grade-entregas-motorista{grid-template-columns:1fr}.topo-entregas-motorista{align-items:flex-start;flex-direction:column}.topo-entregas-motorista button{width:100%}.lista-entregas-motorista{padding:15px}}

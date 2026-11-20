@@ -1,0 +1,93 @@
+/* Identidade visual UrbanLink Flow V3.10: tema claro permanente. */
+:root{--theme-surface:#fff;--theme-text:#23304a;--theme-muted:#6b788f;--theme-line:#e0e7f1;--theme-page:#f4f7fc;--theme-accent:#f35b3f}
+html{color-scheme:light}
+/* Menu suspenso de perfil: apenas logout */
+.perfil-conta .menu-perfil{min-width:228px;padding:8px;box-shadow:0 14px 34px #14204024}
+.perfil-conta .menu-perfil button{min-height:43px;display:flex;align-items:center;gap:11px;padding:10px 12px;font-size:.87rem;line-height:1.35;border-radius:9px}
+.perfil-conta .menu-perfil .menu-logout{color:#b74430}
+.perfil-conta .menu-perfil button:focus-visible{outline:2px solid #f35b3f;outline-offset:1px}
+
+/* Patrocinadores: cartões de quatro marcas conceituais */
+.sponsor-demo-notice{margin:2px 0 32px;padding:14px 18px;border:1px solid #bbd3f4;background:#ecf5ff;color:#315579;border-radius:12px;font-size:.86rem;line-height:1.58}
+.sponsor-demo-notice strong{color:#173963}
+.sponsor-section{margin:0 0 38px}
+.sponsor-section-heading{margin-bottom:19px}
+.sponsor-section-heading>span{color:#eb6248;font-size:.73rem;letter-spacing:.11em;font-weight:800}
+.sponsor-section-heading h2{color:#19166a;font-size:clamp(1.3rem,2.4vw,1.85rem);margin:6px 0}
+.sponsor-section-heading p{font-size:.88rem;color:#6c7a90;line-height:1.6}
+.sponsor-featured{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:27px;background:#fff;border:1px solid #dfe5f1;border-radius:18px;padding:clamp(20px,3vw,33px);box-shadow:0 13px 35px #16183b0c}
+.sponsor-featured-content h3{font-size:1.65rem;color:#19166a;letter-spacing:-.025em;margin:8px 0}
+.sponsor-featured-content p{color:#65718a;font-size:.93rem;line-height:1.7;margin:10px 0 16px}
+.sponsor-pill{display:inline-block;border-radius:50px;background:#fff0e8;color:#c94e37;font-size:.74rem;font-weight:800;padding:7px 11px}
+.sponsor-logo{width:118px;height:118px;border-radius:27px;display:grid;place-items:center;font-weight:800;font-size:2rem;letter-spacing:-.075em;border:1px solid #ddd;box-shadow:0 11px 25px #16183b13;user-select:none}
+.sponsor-logo--master{color:#fff;background:linear-gradient(140deg,#19166a 0%,#3b51ac 100%);border-color:#34398a}
+.sponsor-logo--green{color:#156b47;background:#e2f7ea;border-color:#b6e5c9}
+.sponsor-logo--blue{color:#1e5baf;background:#e8f0ff;border-color:#c7dafb}
+.sponsor-logo--purple{color:#7044a7;background:#f1e9fc;border-color:#dbc7f3}
+.sponsor-tags{display:flex;flex-wrap:wrap;gap:7px}
+.sponsor-tags span{padding:6px 9px;background:#f2f5fa;border-radius:8px;font-size:.72rem;color:#66758a;font-weight:700}
+.sponsor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.sponsor-company{padding:26px 24px;background:#fff;border:1px solid #dfe5f1;border-radius:17px;box-shadow:0 8px 22px #16183b0b;transition:transform .2s ease,box-shadow .2s ease}
+.sponsor-company:hover{transform:translateY(-3px);box-shadow:0 14px 30px #16183b17}
+.sponsor-company .sponsor-logo{width:70px;height:70px;border-radius:18px;font-size:1.24rem;margin-bottom:19px}
+.sponsor-category{color:#ed5f44;font-size:.71rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.sponsor-company h3{margin:8px 0;color:#19166a;font-size:1.21rem;letter-spacing:-.01em}
+.sponsor-company p{font-size:.85rem;line-height:1.65;color:#64718a}
+@media(max-width:750px){.sponsor-featured{grid-template-columns:1fr;gap:12px}.sponsor-grid{grid-template-columns:1fr}.sponsor-company{padding:22px}}
+
+
+/* Rodapé único. A composição é idêntica em todas as páginas, mesmo sem login. */
+.urbanlink-footer{flex:none;position:relative;z-index:4;width:100%;margin-top:auto;background:#fff;border-top:1px solid #dfe5ee;color:#59677d}
+.urbanlink-footer-inner{max-width:1440px;min-height:125px;margin:auto;padding:26px clamp(20px,4vw,58px);display:flex;align-items:center;justify-content:space-between;gap:28px}
+.urbanlink-footer .footer-brand{display:flex;align-items:center;gap:20px;max-width:520px}
+.urbanlink-footer .footer-brand img{width:148px;height:auto;max-height:42px;object-fit:contain}
+.urbanlink-footer .footer-brand p{font-size:.83rem;line-height:1.5;color:#64738b;margin:0}
+.urbanlink-footer .footer-navigation{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px 23px}
+.urbanlink-footer .footer-navigation a{color:#334763;font-size:.86rem;font-weight:800;text-decoration:none;padding:10px 0}
+.urbanlink-footer .footer-navigation a:hover{color:#ca4d37;text-decoration:underline;text-underline-offset:4px}
+.urbanlink-footer .footer-bottom{max-width:1324px;margin:auto;padding:15px 0;border-top:1px solid #e6eaf0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:#7d889a;font-size:.73rem}
+@media(max-width:1000px){.urbanlink-footer-inner{flex-direction:column;align-items:flex-start;gap:15px}.urbanlink-footer .footer-navigation{justify-content:flex-start}.urbanlink-footer .footer-bottom{margin:0 20px}}
+@media(max-width:500px){.urbanlink-footer .footer-brand{flex-direction:column;align-items:flex-start;gap:6px}.urbanlink-footer .footer-navigation{gap:4px 17px}}
+
+/* Novo encerramento do painel administrativo: links úteis, sem conteúdo decorativo falso. */
+.admin-outro-passo{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:12px 0 35px;padding:clamp(25px,4vw,43px);border-radius:22px;background:linear-gradient(115deg,#22244e,#303b71);box-shadow:0 16px 36px rgba(27,28,72,.13);color:#f1f4ff}
+.admin-outro-passo-copy{max-width:530px}
+.admin-outro-passo-kicker{color:#ffc4b3;font-size:.68rem;font-weight:800;letter-spacing:.16em}
+.admin-outro-passo h2{color:#fff;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.25;margin:12px 0}
+.admin-outro-passo p{font-size:.87rem;line-height:1.65;color:#e0e5fd}
+.admin-outro-passo-actions{display:flex;flex-direction:column;gap:9px;min-width:205px}
+.admin-outro-passo-actions a{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:44px;padding:10px 15px;border-radius:10px;text-decoration:none;font-size:.82rem;font-weight:800}
+.admin-outro-passo-primary{background:#bf4e39;color:#fff;border:1px solid #ce6450}
+.admin-outro-passo-primary:hover{background:#a63b27;color:#fff}
+.admin-outro-passo-secondary{color:#fff;border:1px solid #ffffff64;background:#ffffff18}
+.admin-outro-passo-secondary:hover{background:#ffffff2b;color:#fff}
+@media(max-width:760px){.admin-outro-passo{flex-direction:column;align-items:stretch}.admin-outro-passo-actions{min-width:0}}
+
+/* Ícones do protótipo preservados nos formulários V3.6. */
+body[data-page="cadastro"] .etiqueta-tipo-usuario{display:flex;align-items:center;justify-content:center;gap:10px}
+body[data-page="cadastro"] .etiqueta-tipo-usuario img{width:32px;height:32px;object-fit:cover;border-radius:7px;flex:none}
+
+/* Seleção do perfil: os três CTAs começam neutros; laranja apenas no hover.
+   Substitui a regra antiga que deixava 'Cliente' laranja permanentemente. */
+.container-cartoes .cartao .profile-cta,
+.container-cartoes .cartao-destaque .profile-cta {
+  background-color: #fff;
+  color: #19166a;
+  border: 1px solid #c5cee0;
+  box-shadow: none;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.container-cartoes .cartao .profile-cta:hover,
+.container-cartoes .cartao-destaque .profile-cta:hover {
+  background-color: #f35b3f;
+  color: #fff;
+  border-color: #f35b3f;
+  box-shadow: 0 9px 18px rgba(243, 91, 63, .18);
+}
+.container-cartoes .cartao .profile-cta:focus-visible {
+  outline: 3px solid #f4aa97;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .container-cartoes .cartao .profile-cta { transition: none; }
+}

@@ -1,0 +1,52 @@
+.mapa-layout{display:grid;grid-template-columns:350px minmax(0,1fr);min-height:calc(100vh - 65px);background:#f4f6fa}.mapa-sidebar{background:#fff;border-right:1px solid #e5e8ef;padding:24px;display:flex;flex-direction:column;z-index:400}.mapa-sidebar h1{font-size:1.55rem;color:#1b1642;margin:7px 0}.mapa-sidebar p,.mapa-disclaimer{font-size:.82rem;line-height:1.5;color:#748091}.mapa-eyebrow{font-size:.68rem;letter-spacing:.12em;font-weight:800;color:#f35b3f}.mapa-resumo{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0;padding:13px 8px;background:#f7f8fb;border-radius:10px}.mapa-resumo div{display:flex;flex-direction:column;gap:5px;text-align:center}.mapa-resumo span{font-size:.65rem;color:#788294}.mapa-resumo strong{font-size:1.25rem;color:#1b1642}.mapa-label{font-size:.78rem;font-weight:700;color:#34304f;margin:12px 0 6px}.mapa-input{width:100%;padding:11px 12px;border:1px solid #dfe3eb;border-radius:8px;background:#fff;color:#25243a;font:inherit;font-size:.86rem}.mapa-legenda{display:flex;gap:13px;flex-wrap:wrap;margin:16px 0;color:#687386;font-size:.72rem}.mapa-legenda span{display:flex;align-items:center;gap:6px}.dot{width:9px;height:9px;border-radius:50%;display:inline-block}.dot-delivery{background:#f35b3f}.dot-vehicle{background:#2878d0}.dot-origin{background:#20a477}.mapa-list-heading{display:flex;align-items:center;justify-content:space-between;margin:7px 0 9px}.mapa-list-heading h2{font-size:.95rem;color:#1b1642}.mapa-link-button{border:0;background:none;color:#f35b3f;font-weight:700;cursor:pointer}.mapa-delivery-list{overflow:auto;max-height:28vh;min-height:80px;border-top:1px solid #edf0f4}.mapa-delivery-item{display:flex;align-items:flex-start;gap:10px;padding:11px 5px;border-bottom:1px solid #edf0f4;cursor:pointer}.mapa-delivery-item:hover,.mapa-delivery-item.selected{background:#fff5f2}.mapa-delivery-item input{margin-top:4px;accent-color:#f35b3f}.mapa-delivery-item div{min-width:0;flex:1}.mapa-delivery-item strong{display:block;font-size:.78rem;color:#282642;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mapa-delivery-item small{display:block;color:#7c8492;font-size:.68rem;margin-top:4px}.mapa-delivery-item .mapa-status{color:#f35b3f}.mapa-empty{padding:18px 5px;color:#818b99;font-size:.8rem}.mapa-actions{display:grid;gap:8px;margin-top:15px}.mapa-button{border:0;border-radius:8px;padding:12px;font-weight:700;cursor:pointer;font-size:.82rem}.mapa-button:disabled{opacity:.45;cursor:not-allowed}.mapa-button-primary{background:#f35b3f;color:#fff}.mapa-button-light{background:#f0f2f7;color:#35334e}.mapa-button-outline{background:#fff;border:1px solid #dfe3eb;color:#35334e}.mapa-disclaimer{font-size:.68rem;margin-top:13px}.mapa-main{position:relative;min-width:0;min-height:560px;display:flex;flex-direction:column;padding:16px;gap:12px}.mapa-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #e7eaf0;border-radius:10px;padding:12px 16px}.mapa-toolbar strong{display:block;color:#1b1642;font-size:.9rem}.mapa-toolbar small{display:block;color:#7a8492;font-size:.72rem;margin-top:4px}.mapa-toolbar-actions{display:flex;gap:7px}.mapa-tool-button{background:#f5f6f9;border:1px solid #e5e8ef;color:#48465e;border-radius:7px;padding:8px 11px;font-size:.72rem;font-weight:700;cursor:pointer}#urbanlink-map{flex:1;min-height:480px;border-radius:12px;overflow:hidden;box-shadow:0 5px 20px #1a1c3614;z-index:1}.mapa-feedback{font-size:.75rem;color:#667184;padding:0 3px;min-height:18px}.urbanlink-pin{width:31px;height:31px;border:3px solid white;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 2px 8px #18213b55;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12px}.urbanlink-pin span{transform:rotate(45deg)}.pin-delivery{background:#f35b3f}.pin-vehicle{background:#2878d0}.pin-origin{background:#20a477}.leaflet-popup-content{font:13px Arial,sans-serif;line-height:1.5}.leaflet-popup-content strong{color:#1b1642}@media(max-width:850px){.mapa-layout{grid-template-columns:1fr}.mapa-sidebar{border-right:0;border-bottom:1px solid #e5e8ef}.mapa-delivery-list{max-height:220px}.mapa-main{min-height:560px}.cabecalho-interno{padding:12px 16px;flex-wrap:wrap;gap:10px}.navegacao-topo{order:3;width:100%;overflow:auto;white-space:nowrap}.navegacao-topo a{margin:0 10px 0 0}}@media(max-width:520px){.mapa-sidebar{padding:17px}.mapa-main{padding:10px;min-height:520px}.mapa-toolbar{align-items:flex-start;flex-direction:column}.mapa-toolbar-actions{width:100%}.mapa-tool-button{flex:1}#urbanlink-map{min-height:430px}.perfil-usuario{font-size:.75rem}}
+
+/* Melhorias de usabilidade do mapa e da área do motorista */
+.mapa-position-status{margin:0 0 10px;padding:10px 11px;border-radius:8px;background:#fff5f1;color:#8f3b2b;font-size:.72rem;line-height:1.45}
+.mapa-delivery-row{border-bottom:1px solid #edf0f4;padding:2px 0 8px}
+.mapa-delivery-row .mapa-delivery-item{border:0;padding:9px 5px 5px}
+.mapa-navigate-link{display:inline-flex;margin:2px 0 0 31px;padding:5px 8px;border-radius:5px;background:#fff1ed;color:#d84e34;text-decoration:none;font-size:.68rem;font-weight:800;transition:background .2s ease,color .2s ease}
+.mapa-navigate-link:hover{background:#f35b3f;color:#fff}
+.pin-current{background:#1b1642;box-shadow:0 0 0 5px rgba(27,22,66,.15),0 2px 8px #18213b55}
+.mapa-button,.mapa-tool-button,.mapa-link-button{transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.mapa-button-primary:hover{background:#df4c32;transform:translateY(-1px)}
+.mapa-button-light:hover,.mapa-button-outline:hover,.mapa-tool-button:hover{background:#fff1ed;color:#e94d32}
+.mapa-sidebar{min-height:0}
+.mapa-main{min-height:0}
+@media(max-width:850px){.mapa-layout{min-height:calc(100vh - 110px)}.mapa-sidebar{padding:20px;max-height:none}.mapa-delivery-list{max-height:260px}.mapa-main{min-height:520px;padding:12px}.mapa-toolbar{padding:12px}.mapa-toolbar-actions{flex-wrap:wrap}.mapa-tool-button{flex:1}.cabecalho-interno{padding:12px 15px}.navegacao-topo{order:3}}
+@media(max-width:520px){.mapa-sidebar{padding:16px}.mapa-resumo{gap:5px;padding:11px 5px}.mapa-resumo span{font-size:.62rem}.mapa-resumo strong{font-size:1.05rem}.mapa-main{min-height:480px;padding:9px}.mapa-toolbar-actions{width:100%}#urbanlink-map{min-height:390px}.mapa-delivery-item strong{white-space:normal}.mapa-position-status{font-size:.7rem}}
+
+@media (max-width: 900px) {
+  .mapa-layout { grid-template-columns: minmax(260px, 34%) minmax(0,1fr); }
+  #urbanlink-map { min-height: 620px; }
+}
+@media (max-width: 700px) {
+  .mapa-layout { display: flex; flex-direction: column; }
+  .mapa-sidebar { width: 100%; max-height: none; overflow: visible; }
+  .mapa-main { min-width: 0; min-height: 55vh; }
+  #urbanlink-map { height: 55vh; min-height: 360px; }
+}
+
+/* V3: seleção persistente e controles mais legíveis */
+.mapa-help{font-size:.7rem!important;margin:6px 1px 3px;color:#798396;line-height:1.5!important}
+.mapa-delivery-row.is-selected{background:#fff4ef;border-radius:10px;border-color:#f5c3b9}
+.mapa-delivery-row{padding-left:6px;padding-right:6px;transition:background .2s ease}
+.mapa-delivery-row:focus-within{outline:2px solid #f5c3b9;outline-offset:-2px;border-radius:10px}
+.mapa-delivery-list{scrollbar-color:#c5cdd9 transparent}
+.mapa-input:focus-visible{border-color:#ec654a!important;outline:3px solid #f6b9ab!important;outline-offset:1px}
+#urbanlink-map:fullscreen{width:100vw;height:100vh;min-height:100vh;border-radius:0}
+#urbanlink-map .leaflet-control-layers,#urbanlink-map .leaflet-control-scale{font-size:.75rem}
+#urbanlink-map .leaflet-popup-content{max-width:250px;min-width:150px}
+.mapa-button,.mapa-tool-button{min-height:37px}
+.mapa-feedback{padding:9px 12px;border-radius:9px;background:#eff2fa;color:#5b6980;line-height:1.5}
+
+
+/* Otimização de leitura da operação logística */
+.mapa-sidebar{gap:16px;overflow:auto}
+.mapa-introducao{padding:4px 2px 0}
+.mapa-introducao h1{font-size:1.8rem;margin-bottom:10px}
+.mapa-group-card,.mapa-workflow-card{background:#fff;border:1px solid #e2e8f1;border-radius:18px;padding:18px;box-shadow:0 10px 22px rgba(24,38,63,.04)}
+.mapa-group-header{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}.mapa-group-header h2,.mapa-workflow-card h2{font-size:1rem;color:#1d255e;margin:0}.mapa-group-header span,.mapa-workflow-card p{font-size:.78rem;color:#728095;line-height:1.6}
+.mapa-steps{display:flex;flex-direction:column;gap:10px;padding-left:18px;margin-top:10px}.mapa-steps li{color:#516074;line-height:1.55}.mapa-steps strong{display:block;color:#1d255e;margin-bottom:2px}.mapa-steps span{display:block;font-size:.8rem;color:#728095}
+.mapa-resumo{margin:0;padding:14px 12px;border:1px solid #e6ecf4;background:#f8fbff;border-radius:18px}
+.mapa-legenda{margin:14px 0 0}.mapa-delivery-list{max-height:26vh;border-top:0}.mapa-list-heading{margin:0 0 10px}.mapa-actions{margin-top:0}.mapa-toolbar{padding:14px 18px;border-radius:16px}.mapa-toolbar-actions{flex-wrap:wrap}.mapa-tool-button{min-height:40px;padding:9px 13px;border-radius:10px}
+@media(max-width:850px){.mapa-sidebar{gap:14px}.mapa-group-card,.mapa-workflow-card{padding:16px}.mapa-delivery-list{max-height:220px}}

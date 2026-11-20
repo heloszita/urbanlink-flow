@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Painel do Motorista - UrbanLink Flow
+  </title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<link href="./css/visual.css?v=3.6.0" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body class="fundo-cinza" data-page="driver-dashboard" data-role="Motorista">
+<!-- CABEÇALHO INTERNO -->
+<header class="cabecalho-interno">
+<div class="logo">
+<img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/>
+</div>
+<nav class="navegacao-topo">
+<a href="inicial-motorista.html">
+     Início
+    </a>
+<a href="mapa-rotas.html">
+     Mapa e rotas
+    </a>
+<a href="atendimento-motorista.html">
+     Atendimento
+    </a>
+</nav>
+<div class="perfil-usuario">
+<img alt="Ícone de utilizador" class="icone-img" src="./assets/avatar.svg"/>
+<span>
+     Carregando perfil…
+    </span>
+</div>
+</header>
+<main class="conteudo-dashboard">
+<!-- CABEÇALHO DA ROTA COM TOGGLE ONLINE -->
+<div class="topo-rota-ativa">
+<div>
+<span class="migalhas">
+      Início
+     </span>
+<h2>
+      Rota de hoje
+     </h2>
+<p class="subtitulo-bloco">
+      Siga a sequência de paradas e confirme cada entrega.
+     </p>
+</div>
+<div class="toggle-status-online">
+<span class="ponto-verde-indicador">
+</span>
+<strong>
+      Status de atividade
+     </strong>
+</div>
+</div>
+<!-- CARDS DE MÉTRICAS RÁPIDAS -->
+<div class="grid-3-colunas mt-20">
+<div class="cartao-info">
+<small>
+      Entregas concluídas
+     </small>
+<p class="numero-metrica">
+      0
+     </p>
+<span class="subtexto-cartao">
+      no total
+     </span>
+</div>
+<div class="cartao-info">
+<small>
+      Previsão do término (ETA)
+     </small>
+<p class="numero-metrica">
+      —
+     </p>
+<span class="subtexto-cartao">
+      no horário previsto
+     </span>
+</div>
+<div class="cartao-info">
+<small>
+      Próxima parada em
+     </small>
+<p class="numero-metrica">
+      —
+     </p>
+<span class="subtexto-cartao">
+      de distância
+     </span>
+</div>
+</div>
+<!-- LAYOUT CENTRAL DA ROTA: MAPA + PAINEL DIREITO -->
+<div class="layout-grid-dashboard mt-20">
+<!-- MAPA DA ROTA -->
+<div class="coluna-esq">
+<div class="container-mapa-rota motorista-mapa-card">
+<div class="topo-mapa-info">
+<div><strong>Mapa das suas entregas</strong><small aria-live="polite" id="driver-map-status" role="status">Carregando entregas atribuídas…</small></div>
+<div class="driver-map-controls">
+<button class="driver-map-control" id="driver-map-fit" type="button">Ver todos</button>
+<button class="driver-map-control" id="driver-map-refresh" type="button">Atualizar mapa</button>
+<button class="driver-map-control driver-map-control-primary" id="driver-map-share" type="button">Compartilhar posição</button>
+<a class="driver-map-link" href="mapa-rotas.html">Mapa completo</a>
+</div>
+</div>
+<div aria-label="Mapa interativo com os destinos das entregas atribuídas ao motorista" class="driver-dashboard-map" id="driver-dashboard-map" role="application"></div>
+<div class="driver-map-footer"><span><i class="driver-map-dot"></i> Entregas atribuídas <i class="driver-map-current-dot"></i> Última posição compartilhada</span><span id="driver-map-footnote">Toque em um marcador para ver o destino e abrir a navegação</span></div>
+</div>
+</div>
+<!-- PAINEL DIREITO: PARADA ATUAL E SEQUÊNCIA -->
+<div class="coluna-dir">
+<!-- CARD PARADA ATUAL -->
+<div class="cartao-parada-atual"><div class="driver-operation-intro"><span>ETAPA ATUAL</span><p>Os botões ficam disponíveis quando houver uma entrega atribuída e o cadastro estiver aprovado.</p></div>
+<div class="cabecalho-parada">
+<span class="tag-proxima">
+        PRÓXIMA PARADA
+       </span>
+<span class="badge badge-azul">
+        Chega em —
+       </span>
+</div>
+<h2 class="endereco-parada">
+       Aguardando entrega atribuída
+      </h2>
+<div class="info-cliente-linha mt-10">
+<div>
+<small>
+         Cliente
+        </small>
+<p>
+<strong>
+          —
+         </strong>
+</p>
+</div>
+</div>
+<div class="horario-limite mt-10">
+       Janela de entrega: não informada
+      </div>
+<div class="acoes-parada-motorista">
+<button class="botao botao-secundario" id="driver-arrival" type="button">
+        Cheguei ao destino
+       </button>
+<button class="botao botao-primario" id="driver-confirm" type="button">
+        Confirmar entrega
+       </button>
+</div>
+</div>
+<!-- CARD SEQUÊNCIA DE PARADAS -->
+<div class="secao-branca mt-20">
+<h4 class="titulo-cartao mb-15">
+       Sequência de paradas
+      </h4><p class="driver-sequence-description">Siga a ordem apresentada. Para visualizar todos os destinos, abra Mapa e rotas.</p>
+<div class="lista-sequencia-paradas">
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script crossorigin="" defer="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer="" src="./js/app.js?v=3.10.2"></script>
+<script defer="" src="./js/motorista-mapa.js?v=3.7"></script>
+</body>
+</html>

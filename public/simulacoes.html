@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#1b1642" name="theme-color"/>
+<title>Simulação de cenários — UrbanLink Flow</title>
+<link href="./css/dashboard.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/simulacoes.css" rel="stylesheet"/>
+<link href="./css/visual.css" rel="stylesheet"/>
+<link href="./css/refino-v37.css?v=3.7" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.10.2"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body class="fundo-cinza" data-page="simulations" data-role="Administrador,Gestor">
+<header class="cabecalho-interno">
+<div class="logo"><img alt="Logótipo UrbanLink" class="imagem-logo" src="./assets/logo.png"/></div>
+<nav aria-label="Navegação principal" class="navegacao-topo">
+<a href="inicial-admin.html">Início</a>
+<a href="entrega-motorista.html">Gestão de entregas</a>
+<a href="mapa-rotas.html">Mapa e rotas</a>
+<a href="simulacoes.html">Simulações</a>
+</nav>
+<div class="perfil-usuario"><img alt="Ícone de utilizador" class="icone-img" src="./assets/avatar.svg"/><span>Carregando perfil…</span></div>
+</header>
+<main class="conteudo-dashboard simulacoes-page">
+<section class="sim-hero">
+<div>
+<span class="sim-eyebrow">PLANEJAMENTO OPERACIONAL</span>
+<h1>Simulação de cenários</h1>
+<p>Compare como o congestionamento pode alterar o tempo estimado das suas entregas e planeje a operação com mais clareza.</p>
+</div>
+<span class="sim-hero-tag">Ferramenta de planejamento</span>
+</section>
+<div class="sim-layout">
+<section class="sim-panel sim-form-panel">
+<div class="sim-panel-heading">
+<span class="sim-step-number">01</span>
+<div><h2>Monte seu cenário</h2><p>Preencha os dados abaixo para calcular a estimativa.</p></div>
+</div>
+<form class="sim-form" id="form-simulacao">
+<div class="sim-form-section">
+<div class="sim-section-title"><span>1</span><div><h3>Identificação</h3><p>Dê um nome para encontrar a simulação depois.</p></div></div>
+<div class="grupo-form">
+<label for="simulacao-nome">Nome do cenário</label>
+<input id="simulacao-nome" maxlength="120" name="nome" placeholder="Ex.: Entregas de segunda-feira" type="text"/>
+</div>
+</div>
+<div class="sim-form-section">
+<div class="sim-section-title"><span>2</span><div><h3>Entregas da rota</h3><p>Escolha de 1 a 50 entregas ainda não concluídas.</p></div></div>
+<p class="sim-location-alert" hidden="" id="sim-location-alert" role="status"></p>
+<a class="sim-map-shortcut" href="mapa-rotas.html">Corrigir coordenadas de entregas no mapa</a>
+<label class="sim-field-label" for="simulacao-entregas">Entregas disponíveis</label>
+<select aria-describedby="sim-entregas-ajuda" id="simulacao-entregas" multiple="" name="entrega_ids" required="" size="7"></select>
+<div class="sim-selection-tools">
+<small id="sim-selecao-contador">Nenhuma entrega selecionada</small>
+<div><button class="sim-text-button" id="sim-selecionar-todas" type="button">Selecionar todas</button><button class="sim-text-button" id="sim-limpar-selecao" type="button">Limpar</button></div>
+</div>
+<p class="sim-help-text" id="sim-entregas-ajuda">Somente entregas com latitude e longitude cadastradas podem ser incluídas. Use Ctrl (Windows) ou Command (Mac) para selecionar várias opções. O limite é de 50 entregas por cenário.</p>
+</div>
+<div class="sim-form-section">
+<div class="sim-section-title"><span>3</span><div><h3>Ponto de partida</h3><p>Informe as coordenadas de onde o veículo começa.</p></div></div>
+<div class="sim-location-top"><span>Coordenadas de partida</span><button class="sim-text-button" id="sim-usar-localizacao" type="button">Usar minha localização</button></div>
+<div class="sim-fields-grid">
+<div class="grupo-form"><label for="simulacao-lat">Latitude</label><input id="simulacao-lat" placeholder="-22.9068" required="" step="any" type="number"/></div>
+<div class="grupo-form"><label for="simulacao-lon">Longitude</label><input id="simulacao-lon" placeholder="-43.1729" required="" step="any" type="number"/></div>
+</div>
+</div>
+<div class="sim-form-section">
+<div class="sim-section-title"><span>4</span><div><h3>Condições de trânsito</h3><p>Defina a velocidade média e o nível de congestionamento.</p></div></div>
+<div class="sim-fields-grid">
+<div class="grupo-form"><label for="simulacao-velocidade">Velocidade média (km/h)</label><input id="simulacao-velocidade" max="120" min="5" required="" type="number" value="30"/></div>
+<div class="grupo-form"><label for="simulacao-congestionamento">Congestionamento</label><select id="simulacao-congestionamento"><option value="1">Baixo — 1,0×</option><option selected="" value="1.5">Moderado — 1,5×</option><option value="2">Alto — 2,0×</option><option value="3">Crítico — 3,0×</option></select></div>
+</div>
+</div>
+<button class="sim-submit-button" type="submit"><span>Calcular e salvar cenário</span><span aria-hidden="true">→</span></button>
+</form>
+</section>
+<aside class="sim-side-column">
+<section class="sim-explainer-card">
+<span aria-hidden="true" class="sim-side-icon">↗</span>
+<h2>Como funciona?</h2>
+<p>A plataforma organiza as paradas pelo método do vizinho mais próximo e calcula a distância aproximada entre as coordenadas.</p>
+<div class="sim-rule"><strong>Tempo-base</strong><span>Distância ÷ velocidade média</span></div>
+<div class="sim-rule"><strong>Tempo simulado</strong><span>Tempo-base × fator de congestionamento</span></div>
+<p class="sim-disclaimer">A estimativa é matemática: não consulta trânsito ao vivo nem considera ruas, pedágios ou restrições de circulação.</p>
+</section>
+<section aria-live="polite" class="sim-result-card" id="resultado-simulacao">
+<span class="sim-result-eyebrow">RESULTADO DA SIMULAÇÃO</span>
+<h2>Seu resultado aparecerá aqui</h2>
+<p>Após preencher os campos e calcular o cenário, você verá a distância estimada e o impacto do trânsito.</p>
+<div aria-hidden="true" class="sim-empty-illustration"><span>↗</span><i></i><i></i><i></i></div>
+</section>
+</aside>
+</div>
+<section class="sim-history-panel">
+<div class="sim-history-heading"><div><span class="sim-eyebrow">HISTÓRICO</span><h2>Simulações salvas</h2><p>Consulte e remova cenários que já foram calculados.</p></div></div>
+<div class="table-responsive">
+<table class="tabela-pedidos sim-history-table">
+<thead><tr><th>Cenário</th><th>Distância</th><th>Tempo-base</th><th>Tempo simulado</th><th>Acréscimo</th><th>Criado em</th><th>Ação</th></tr></thead>
+<tbody id="simulacoes-salvas"><tr><td class="estado-vazio" colspan="7">Carregando simulações…</td></tr></tbody>
+</table>
+</div>
+</section>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script defer="" src="./js/app.js?v=3.10.2"></script>
+</body>
+</html>

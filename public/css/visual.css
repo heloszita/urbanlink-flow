@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--ul-bg:#f4f6fb;--ul-navy:#1c2440;--ul-ink:#202940;--ul-muted:#718096;--ul-border:#e5eaf1;--ul-primary:#ec654a;--ul-orange:#ec654a;--ul-radius:16px;--ul-shadow:0 10px 30px rgba(24,38,63,.065);color-scheme:light}
+html{scroll-behavior:smooth}
+*,*::before,*::after{font-family:'DM Sans',Inter,system-ui,-apple-system,'Segoe UI',sans-serif!important;box-sizing:border-box}
+body{background:var(--ul-bg);color:var(--ul-ink);-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;letter-spacing:inherit}
+button,a,[role=button]{-webkit-tap-highlight-color:transparent}
+a,button{transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease,transform .2s ease}
+button:not(:disabled):hover,.cartao-acao-rapida:hover{transform:translateY(-2px)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[role=button]:focus-visible{outline:3px solid #f3aa9c;outline-offset:3px}
+input,textarea,select{border-radius:10px!important;min-width:0}
+.botao,.mapa-button,.cartao-acao-rapida{border-radius:10px}
+.botao-primario{background:var(--ul-primary)}.botao-primario:hover{background:#d9543b}
+.cabecalho-interno{position:relative;z-index:1000;min-height:72px;padding:13px clamp(18px,3vw,48px);border-bottom:1px solid var(--ul-border);box-shadow:0 1px 12px rgba(23,35,53,.035)}
+.cabecalho-interno .imagem-logo{height:29px;max-width:185px;object-fit:contain}
+.navegacao-topo{display:flex;align-items:center;gap:6px}
+.navegacao-topo a{margin:0!important;padding:10px 14px;border-radius:10px;color:#66738a;font-weight:700;font-size:.84rem}
+.navegacao-topo a:hover{color:var(--ul-navy);background:#f6f7fc}
+.navegacao-topo a.ativo{color:#cf4b33;background:#fff0eb}
+.perfil-conta{position:relative;min-width:0}
+.perfil-usuario{display:flex;align-items:center;gap:9px;border:1px solid #e5eaf1;background:#fff;border-radius:12px;padding:7px 11px;max-width:275px;font-size:.79rem;color:var(--ul-navy);font-weight:700;cursor:pointer;user-select:none}
+.perfil-usuario:hover,.perfil-usuario[aria-expanded=true]{background:#fff8f5;border-color:#f5bfaf}
+.perfil-usuario span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:185px}
+.perfil-usuario::after{content:'⌄';font-size:1.2rem;line-height:1;color:#7b8293;margin-left:1px}
+.menu-perfil{position:absolute;z-index:1100;top:calc(100% + 9px);right:0;min-width:205px;padding:7px;background:#fff;border:1px solid var(--ul-border);border-radius:13px;box-shadow:0 16px 40px rgba(27,31,63,.14);animation:ul-pop .18s ease}
+.menu-perfil[hidden]{display:none!important}
+.menu-perfil button{display:flex;align-items:center;gap:10px;width:100%;padding:11px 13px;text-align:left;background:transparent;border:0;border-radius:9px;color:#bd4734;font-weight:800;cursor:pointer}
+.menu-perfil button:hover{background:#fff0eb;transform:none}
+@keyframes ul-pop{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+.cartao-info,.cartao-metricas,.bloco-conteudo,.secao-branca,.janela-chat,.cartao-autenticacao,.cartao-contato,.cartao-info-lateral{border:1px solid var(--ul-border);border-radius:var(--ul-radius);box-shadow:var(--ul-shadow)}
+.cartao-autenticacao{max-width:545px;padding:clamp(23px,4vw,42px)}
+.area-autenticacao{padding-top:85px;background:radial-gradient(ellipse at 12% 2%,#ffe9e3 0%,transparent 38%),radial-gradient(ellipse at 98% 20%,#e8ecff 0%,transparent 42%),#f4f6fb;min-height:100vh}
+.auth-topbar{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:22px clamp(18px,5vw,75px);font-size:.84rem;color:#68748a}
+.auth-topbar a{display:inline-flex;align-items:center;justify-content:center;padding:10px 17px;border-radius:10px;text-decoration:none;color:#d7533b;font-weight:800;background:white;border:1px solid #f2cfca}
+.auth-topbar a:hover{background:#fff0eb}
+.etiqueta-tipo-usuario{border-radius:9px;padding:11px 15px;background:#252b4e}
+.formulario .grupo-form input,.formulario .grupo-form select{min-height:45px;border:1px solid #dce3ed;background:#fff;padding:11px 12px}
+.formulario .grupo-form input:focus{border-color:#ee775f;box-shadow:0 0 0 4px rgba(238,119,95,.09)}
+.auth-confirm-dialog,.cnh-viewer{border:0;border-radius:20px;padding:0;width:min(92vw,520px);max-height:92vh;box-shadow:0 26px 80px rgba(18,32,51,.25);background:#fff;color:#202940}
+.auth-confirm-dialog::backdrop,.cnh-viewer::backdrop{background:rgba(19,28,44,.58);backdrop-filter:blur(5px)}
+.auth-confirm-content{padding:35px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.auth-confirm-icon{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:#e7f7ed;color:#23834d;font-size:1.7rem}
+.auth-confirm-content h2{font-size:1.5rem;line-height:1.25;color:var(--ul-navy);margin:0}
+.auth-confirm-content p{font-size:.9rem;color:#69768b;line-height:1.6;margin:0}
+.auth-confirm-content .botao{display:block;text-decoration:none;width:100%;margin-top:10px}
+.cnh-viewer{width:min(96vw,900px)}.cnh-viewer-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--ul-border)}
+.cnh-viewer-header strong{font-size:1.03rem;color:var(--ul-navy)}.cnh-viewer-header button{font-size:1.4rem;border:0;background:#f3f5f9;border-radius:8px;width:35px;height:35px;cursor:pointer}
+.cnh-viewer-preview{min-height:220px;max-height:70vh;overflow:auto;display:grid;place-items:center;background:#f2f5fa;padding:12px}.cnh-viewer-preview img{max-width:100%;max-height:66vh;object-fit:contain}.cnh-viewer-preview iframe{display:block;width:100%;height:68vh;border:0;background:white}
+.cnh-viewer-footer{display:flex;justify-content:flex-end;gap:10px;padding:14px 20px}.cnh-viewer-footer a{display:inline-flex;align-items:center;text-decoration:none}
+.mensagem-app{border-radius:12px;padding:13px 16px;max-width:100%;margin:0 0 12px}
+/* Mensagens: enviadas ficam à direita, recebidas ficam à esquerda */
+.corpo-chat{min-height:300px;max-height:500px;overflow-y:auto;scroll-behavior:smooth;background:#f5f7fb;padding:24px;gap:10px}
+.chat-group{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.chat-divider{text-align:center;align-self:center;font-size:.7rem;font-weight:700;color:#7b8799;background:#e8edf5;border-radius:20px;padding:5px 12px}
+.balao-chat,.chat-bubble{max-width:min(79%,550px);min-width:72px;padding:12px 16px;border-radius:16px;display:flex;flex-direction:column;gap:6px;box-shadow:0 3px 9px rgba(27,39,57,.04);white-space:pre-wrap;overflow-wrap:anywhere;font-size:.86rem;line-height:1.55}
+.balao-chat p,.chat-bubble p{margin:0;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.balao-chat small,.chat-bubble small{font-size:.67rem;opacity:.72}
+.balao-chat strong,.chat-bubble strong{font-size:.72rem;line-height:1.4}
+.balao-chat.cliente,.chat-bubble.is-sent{align-self:flex-end;border-bottom-right-radius:4px;background:#252b4e;color:#fff}
+.balao-chat.agente,.chat-bubble.is-received{align-self:flex-start;border-bottom-left-radius:4px;background:#fff;color:#24304a;border:1px solid #e2e8f0}
+.janela-chat{overflow:hidden}.cabecalho-chat{padding:18px 22px}.rodape-chat{padding:14px 18px}.rodape-chat input{min-height:45px;border-radius:11px!important;border:1px solid var(--ul-border)}
+.area-azul-claro{background:#f3f6fb}.cartao-contato{box-shadow:0 6px 16px #15243c08}.hero-atendimento{padding:34px 20px}
+.admin-message-dialogue{display:flex;flex-direction:column;gap:10px;background:#f3f6fb;padding:16px;border-radius:14px;margin:14px 0}
+.admin-message-dialogue .chat-bubble{max-width:85%}
+.admin-message-body,.admin-message-previous-reply{border:0!important;border-radius:16px!important;margin:0!important;padding:12px 15px!important;background:initial!important}
+.admin-message-body p,.admin-message-previous-reply p{color:inherit!important}
+.admin-message-card{border-radius:15px!important;background:#fff!important}
+@media(max-width:750px){.cabecalho-interno{flex-wrap:wrap;gap:12px}.navegacao-topo{order:3;width:100%;overflow-x:auto;white-space:nowrap;justify-content:flex-start}.navegacao-topo a{flex:0 0 auto;padding:8px 10px}.perfil-usuario{max-width:45vw}.perfil-usuario span{max-width:100px}.auth-topbar{padding:12px 16px}.area-autenticacao{padding-top:70px}.auth-confirm-content{padding:25px}.balao-chat,.chat-bubble{max-width:91%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+.chat-refresh{border:1px solid #ffffff4a;background:#ffffff17;color:white;border-radius:9px;width:36px;height:36px;order:3;margin-left:auto;font-size:1.35rem;cursor:pointer;flex:0 0 auto}.chat-refresh:hover{background:#ffffff2c}
+
+
+/* Ajustes visuais da gestão de entregas */
+.cabecalho-secao{gap:18px;align-items:flex-start}
+.cabecalho-secao .subtitulo-bloco,.subtitulo-bloco{color:#6f7d90;font-size:.95rem;line-height:1.55;margin-top:8px}
+.botoes-topo{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.botoes-topo .botao{min-height:48px;padding:0 18px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;box-shadow:none;text-decoration:none}
+.botoes-topo .botao-secundario{background:#f7f9fc;border:1px solid #dde5f0;color:#27324a}
+.botoes-topo .botao-secundario:hover{background:#fff;border-color:#cfd9e7}
+
+.abas-status{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px;padding:8px;background:#edf4fb;border:1px solid #d9e4f0;border-radius:20px;box-shadow:0 10px 24px rgba(24,38,63,.045)}
+.aba{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:10px 16px;border:1px solid transparent;border-radius:14px;background:transparent;color:#5d6a7f;font-size:.95rem;font-weight:800;letter-spacing:-.01em;transition:background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease}
+.aba:hover{background:#ffffff;color:#1c2440;border-color:#dfe7f2;box-shadow:0 8px 16px rgba(29,42,67,.06)}
+.aba.ativa{background:#ffffff;color:#1c2440;border-color:#d8e2ef;box-shadow:0 10px 22px rgba(25,36,58,.08)}
+.contador-aba{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;padding:0 8px;border-radius:999px;background:#dfe9f5;color:#506178;font-size:.78rem;font-weight:800;line-height:1}
+.aba.ativa .contador-aba{background:#eef3ff;color:#2f4b88}
+
+.barra-filtros{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:20px;display:grid;grid-template-columns:minmax(220px,2fr) repeat(3,minmax(160px,1fr)) auto;gap:16px;align-items:end;box-shadow:0 10px 24px rgba(24,38,63,.05)}
+.campo-filtro{gap:8px}
+.campo-filtro label{font-size:.82rem;font-weight:800;color:#536277}
+.campo-filtro input,.campo-filtro select{min-height:48px;border:1px solid #d8e2ee;border-radius:12px!important;padding:12px 14px;background:#fbfcfe;color:#1f2940}
+.campo-filtro input::placeholder{color:#98a2b3}
+.campo-filtro input:focus,.campo-filtro select:focus{background:#fff;border-color:#ee775f;box-shadow:0 0 0 4px rgba(238,119,95,.1)}
+.alinhar-fim{min-height:48px;padding:0 18px;align-self:end}
+
+.cartao-tabela-gestao{border:1px solid #e2e8f0;border-radius:20px;padding:22px;box-shadow:0 14px 32px rgba(24,38,63,.055)}
+.cartao-tabela-gestao .texto-secundario{margin-bottom:14px}
+
+@media(max-width:1120px){.barra-filtros{grid-template-columns:repeat(2,minmax(220px,1fr))}.alinhar-fim{width:100%}}
+@media(max-width:820px){.cabecalho-secao{flex-direction:column}.botoes-topo{width:100%;justify-content:stretch}.botoes-topo .botao{flex:1 1 210px}.barra-filtros{grid-template-columns:1fr}.abas-status{padding:8px}.aba{flex:1 1 calc(50% - 10px)}.cartao-tabela-gestao{padding:18px}}
+@media(max-width:520px){.aba{flex:1 1 100%;justify-content:space-between;width:100%}.contador-aba{margin-left:auto}}
+
+
+/* Ajuste de layout do mapa resumido do motorista */
+.motorista-mapa-card .topo-mapa-info{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:14px!important}
+.motorista-mapa-card .topo-mapa-info>div:first-child{display:flex;flex-direction:column;gap:6px;max-width:100%}
+.motorista-mapa-card .topo-mapa-info strong{font-size:1.05rem;color:#1c2440}
+.motorista-mapa-card .topo-mapa-info small{font-size:.9rem;line-height:1.55;color:#738196}
+.driver-map-controls{width:100%;display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap}
+.driver-map-control,.driver-map-link{min-height:44px;padding:0 16px;border-radius:12px;font-size:.83rem;font-weight:800;line-height:1;box-shadow:none}
+.driver-map-link{display:inline-flex;align-items:center;justify-content:center;background:#f7f9fc;border:1px solid #dde5f0;color:#27324a;text-decoration:none}
+.driver-map-link:hover{background:#fff0eb;border-color:#f4c5b9;color:#e94d32;text-decoration:none;transform:translateY(-1px)}
+@media(max-width:760px){.driver-map-controls{justify-content:flex-start}.driver-map-control,.driver-map-link{flex:1 1 calc(50% - 10px)}}
+@media(max-width:520px){.driver-map-control,.driver-map-link{flex:1 1 100%}}
+
+
+/* Distribuição de entregas de clientes — painel do gestor */
+.gestao-entregas-orientacao{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:14px 18px;margin:0 0 18px;background:#f6f9fd;border:1px solid #e2e9f3;border-radius:14px}
+.gestao-entregas-orientacao strong{color:#1c2440;font-size:.93rem}
+.gestao-entregas-orientacao p{margin:5px 0 0;color:#69778c;font-size:.82rem;line-height:1.5}
+.gestao-entregas-pendentes{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:#fff1e8;color:#b64931;font-size:.79rem;font-weight:800;white-space:nowrap}
+.gestao-entregas-pendentes::before{content:'';width:7px;height:7px;border-radius:100%;background:#ee7650}
+.acoes-tabela{display:flex;flex-direction:column;gap:9px;min-width:182px}
+.botao-atribuir-motorista{display:flex;align-items:center;justify-content:center;gap:7px;min-height:39px;width:100%;padding:9px 13px;background:#ed674d;color:white;border:1px solid #ed674d;border-radius:10px;cursor:pointer;font-size:.78rem;font-weight:800;white-space:nowrap}
+.botao-atribuir-motorista:hover{background:#d9563d;border-color:#d9563d;box-shadow:0 6px 15px rgba(237,103,77,.18)}
+.acoes-status-entrega{display:flex;align-items:center;gap:7px}
+.acoes-status-entrega select{flex:1;min-width:0;max-width:175px;height:36px;padding:6px 10px;font-size:.76rem;border:1px solid #dce4ee;border-radius:9px;background:#fff;color:#34415a}
+.acoes-status-entrega .botao-pequeno{min-height:36px;background:#edf2f9;color:#27334c;border:1px solid #e0e6ef;font-weight:700}
+.acoes-status-entrega .botao-pequeno:disabled{opacity:.5;cursor:not-allowed}
+.janela-modal-atribuicao{width:min(92vw,530px);max-width:530px;max-height:90vh;overflow-y:auto;padding:30px;border:1px solid #ecf0f5;border-radius:19px;box-shadow:0 25px 70px rgba(20,28,51,.22)}
+.atribuir-etiqueta{display:block;margin-bottom:6px;color:#df6348;font-size:.72rem;letter-spacing:.04em;font-weight:800;text-transform:uppercase}
+.janela-modal-atribuicao .topo-modal h3{font-size:1.25rem}
+.janela-modal-atribuicao .topo-modal p{font-size:.85rem;line-height:1.5}
+.resumo-pedido-atribuicao{background:#f4f7fc;border:1px solid #e1e8f2;border-radius:13px;padding:15px;margin:0 0 20px;color:#516078;font-size:.83rem}
+.resumo-pedido-atribuicao>span:first-child{display:inline-block;margin-right:10px}
+.resumo-pedido-atribuicao p{color:#202940;line-height:1.5;margin:12px 0 6px;font-weight:700;overflow-wrap:anywhere}
+.resumo-pedido-atribuicao small{color:#718096}
+.janela-modal-atribuicao .grupo-input{gap:8px}
+.janela-modal-atribuicao .grupo-input label{color:#44516a;font-size:.83rem}
+.janela-modal-atribuicao .grupo-input select{min-height:46px;border:1px solid #dce4ee;background:#fff;border-radius:11px!important;padding:10px 12px}
+.atribuicao-ajuda{font-size:.79rem;color:#68768b;line-height:1.5;margin:0}
+#atribuir-mensagem[hidden]{display:none!important}
+.janela-modal-atribuicao .botoes-modal .botao{min-height:44px;padding:10px 18px}
+@media(max-width:750px){.janela-modal-atribuicao{padding:20px}.gestao-entregas-orientacao{align-items:flex-start}.gestao-entregas-pendentes{white-space:normal}.acoes-tabela{min-width:160px}}
+
+/* Geocodificação: visualização e correção opcional de coordenadas no formulário. */
+.geo-endereco{display:flex;flex-direction:column;align-items:stretch;gap:11px;padding:17px 19px;border:1px solid #d9e6f4;border-radius:16px;background:#f6f9fe;min-width:0}
+.geo-endereco-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
+.geo-endereco-topo strong{color:#1c2440;font-size:.96rem}
+.geo-tag{font-size:.71rem;font-weight:700;background:#e4f0ff;color:#315985;border-radius:99px;padding:5px 9px}
+.geo-endereco p{color:#58677c;font-size:.84rem;line-height:1.6;margin:0}
+.geo-verificar{align-self:flex-start;min-height:41px;padding:10px 15px;font-size:.82rem;cursor:pointer}
+.geo-verificar:disabled{opacity:.65;cursor:progress;transform:none}
+.geo-feedback{border-radius:10px;padding:10px 12px;background:#e9eef8;color:#51617c;font-size:.82rem;line-height:1.45}
+.geo-feedback[data-estado="encontrado"]{background:#e3f6ee;color:#23694e}
+.geo-feedback[data-estado="aproximado"]{background:#fff1df;color:#87511e}
+.geo-feedback[data-estado="erro"]{background:#fff0ed;color:#933d31}
+.geo-preview{font-size:.82rem;color:#d64e35;font-weight:800;text-decoration:none;align-self:flex-start}
+.geo-preview:hover{text-decoration:underline}.geo-preview[hidden]{display:none}
+.geo-credito{color:#8290a2;font-size:.7rem;line-height:1.5}
+.geo-detalhes{border-top:1px solid #dae3ef;padding-top:10px}
+.geo-detalhes summary{font-size:.79rem;font-weight:700;color:#536177;cursor:pointer;user-select:none}
+.geo-coordenadas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.geo-coordenadas .grupo-input{width:100%;min-width:0}
+.geo-coordenadas input{width:100%;min-width:0;padding:10px 12px;border:1px solid #d4dfeb;background:#fff}
+.geo-abrir-entrega{display:block;margin-top:8px;color:inherit;font-weight:800;text-decoration:underline}
+@media(max-width:580px){.geo-endereco{padding:14px}.geo-verificar{width:100%}.geo-coordenadas{grid-template-columns:1fr}}
+
+
+/* V3.6 - Correção definitiva do alinhamento das quatro ações do mapa.
+   Especificidade maior que .topo-mapa-info > div (que colocava os botões em coluna).
+   Mantém uma linha inclusive em telas estreitas, com rolagem horizontal acessível. */
+.motorista-mapa-card .topo-mapa-info > .driver-map-controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding: 2px 0 6px;
+}
+.motorista-mapa-card .topo-mapa-info > .driver-map-controls > .driver-map-control,
+.motorista-mapa-card .topo-mapa-info > .driver-map-controls > .driver-map-link {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: auto;
+  min-height: 43px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: .77rem;
+  text-align: center;
+}
+
+/* Próxima parada: ações alinhadas horizontalmente, sem alterar os IDs utilizados pela API. */
+.acoes-parada-motorista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:15px}
+.acoes-parada-motorista>.botao{display:inline-flex;align-items:center;justify-content:center;min-width:0;min-height:46px;margin:0;padding:10px 12px;text-align:center;font-size:.8rem;line-height:1.35;white-space:normal}
+
+
+/* Footer global */
+.rodape-global{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:22px 28px;background:#fff;border-top:1px solid #e8edf4;color:#667287;margin-top:auto}
+.rodape-global__brand{display:flex;flex-direction:column;gap:6px;max-width:560px}.rodape-global__brand strong{color:#1f2950;font-size:1rem}.rodape-global__brand span{font-size:.88rem;line-height:1.6}.rodape-global__links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.rodape-global__links a{color:#667287;text-decoration:none;font-weight:700}.rodape-global__links a:hover{color:#f35b3f}
+@media(max-width:700px){.rodape-global{flex-direction:column;padding:18px}.rodape-global__links{gap:12px}}
+
+
+/* Melhor espaçamento no painel ao lado do mapa da rota do motorista */
+.layout-grid-dashboard{gap:26px;align-items:flex-start}.coluna-dir{display:flex;flex-direction:column;gap:18px}.cartao-parada-atual,.coluna-dir .secao-branca{padding:24px;border-radius:22px;box-shadow:0 14px 30px rgba(24,38,63,.055)}.acoes-parada-motorista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.lista-sequencia-paradas{display:flex;flex-direction:column;gap:12px}
+@media(max-width:760px){.acoes-parada-motorista{grid-template-columns:1fr}}

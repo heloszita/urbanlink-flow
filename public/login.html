@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>
+   Login - UrbanLink
+  </title>
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/autenticacao.css" rel="stylesheet"/>
+<link href="./css/funcionalidades.css" rel="stylesheet"/>
+<link href="./css/visual.css" rel="stylesheet"/>
+
+<link href="./css/identidade.css?v=3.10.1" rel="stylesheet"/><link rel="stylesheet" href="./css/responsividade.css?v=3.12"/>
+<link rel="icon" href="./assets/favicon-32.png?v=3.13" type="image/png" sizes="32x32"/>
+<link rel="icon" href="./assets/favicon.ico?v=3.13" type="image/x-icon"/>
+</head>
+<body data-page="login" data-role="Todos">
+<header class="auth-topbar auth-header" aria-label="Cabeçalho UrbanLink">
+  <a class="auth-header-brand" href="index.html" aria-label="UrbanLink Flow — página inicial"><img src="./assets/logo.png" alt="UrbanLink Flow" width="174"></a>
+  <div class="auth-header-account">Ainda não tem uma conta? <a href="index.html">Criar conta</a></div>
+</header>
+<main class="area-autenticacao">
+<!-- Cartão padrão (sem a borda azul) -->
+<div class="cartao-autenticacao">
+<h1 class="titulo-autenticacao">
+     Entrar na plataforma
+    </h1>
+<p class="subtitulo-autenticacao">
+     Use seu e-mail e senha para acessar o UrbanLink Flow.
+    </p>
+<div class="etiqueta-tipo-usuario">
+     Cliente • Entregador • Administrador
+    </div>
+<form autocomplete="on" class="formulario" id="form-login">
+<div class="grupo-form">
+<label for="email-login">
+       E-mail
+      </label>
+<input id="email-login" name="email" placeholder="voce@email.com" required="" type="email"/>
+</div>
+<div class="grupo-form">
+<label for="senha-login">
+       Senha
+      </label>
+<input id="senha-login" name="senha" placeholder="Digite sua senha" required="" type="password"/>
+</div>
+<!-- Secção que separa a checkbox e o link de recuperação -->
+<div class="opcoes-login">
+<div class="grupo-checkbox">
+<input id="lembrar" type="checkbox"/>
+<label class="texto-checkbox" for="lembrar">
+        Lembrar de mim
+       </label>
+</div>
+<a class="link-esqueceu" data-aviso="A redefinição automática não está disponível. Solicite orientação ao administrador responsável." href="#">
+       Esqueci minha senha
+      </a>
+</div>
+<button class="botao botao-primario" type="submit">
+      Entrar
+     </button>
+</form>
+</div>
+</main>
+<footer aria-label="Rodapé UrbanLink Flow" class="urbanlink-footer">
+<div class="urbanlink-footer-inner">
+<div class="footer-brand">
+<a aria-label="UrbanLink Flow — página inicial" class="footer-logo-link" href="index.html"><img alt="UrbanLink Flow" loading="lazy" src="./assets/logo.png"/></a>
+<p>Conectando pessoas, entregas e caminhos.</p>
+</div>
+<nav aria-label="Links do rodapé" class="footer-navigation">
+<a href="index.html">Início</a>
+<a href="login.html">Entrar</a>
+<a data-footer-support="" href="atendimento-cliente.html">Atendimento</a>
+<a aria-label="Instagram do UrbanLink Flow (abre outra aba)" href="https://www.instagram.com/urban.linkflow?lqvp=MWJ2cnIydzhmMDBlNw==" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
+</nav>
+</div>
+<div class="footer-bottom"><span>© 2026 UrbanLink Systems. Projeto de desenvolvimento de sistemas.</span><span>Feito para uma logística urbana mais inteligente.</span></div>
+</footer><script defer="True" src="./js/app.js?v=3.10.2">
+</script>
+</body>
+</html>
