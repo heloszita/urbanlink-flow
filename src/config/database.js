@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const mysql = require('mysql2');
 require('dotenv').config();
 
 const ssl = process.env.DB_SSL === 'true' ? {
@@ -14,6 +15,7 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST || '127.0.0.1',
     port: Number(process.env.DB_PORT || 3306),
     dialect: 'mysql',
+    dialectModule: mysql,
     logging: process.env.DB_LOGGING === 'true' ? console.log : false,
     timezone: '-03:00',
     pool: { max: Number(process.env.DB_POOL_MAX || (process.env.VERCEL ? 2 : 5)), min: 0, acquire: 30000, idle: 10000 },
