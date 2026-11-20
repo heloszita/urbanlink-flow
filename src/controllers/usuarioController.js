@@ -91,7 +91,8 @@ const criarGestor = asyncHandler(async (req, res) => {
     const usuario = await Usuario.create({
       nome, email, senha_hash: await bcrypt.hash(senha, 12), perfil: 'Gestor', aprovado: true
     });
-    res.status(201).json({ mensagem: 'Gestor cadastrado.', usuario });
+    const { senha_hash: _senhaHash, ...dadosPublicos } = usuario.get({ plain: true });
+    res.status(201).json({ mensagem: 'Gestor cadastrado.', usuario: dadosPublicos });
   } catch (erro) {
     if (erro instanceof UniqueConstraintError) throw erroHttp(409, 'Já existe uma conta com esse e-mail.');
     throw erro;

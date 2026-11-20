@@ -112,7 +112,6 @@ test('CNH possui endpoint autenticado restrito e visualização integrada', () =
 
 test('fonte sem serifa padronizada em todas as telas', () => {
   const base = path.join(__dirname, '..');
-  assert.equal(fs.existsSync(path.join(base, 'public/css/tema-escuro.css')), false);
   const css = fs.readFileSync(path.join(base, 'public/css/visual.css'), 'utf8');
   assert.match(css, /DM Sans/);
   for (const file of fs.readdirSync(path.join(base, 'public')).filter(item => item.endsWith('.html'))) {

@@ -4,12 +4,13 @@ const { UniqueConstraintError } = require('sequelize');
 const { segredoValido, conviteAdminValido } = require('../config/segredos');
 const { Usuario } = require('../models');
 const { asyncHandler, erroHttp, texto } = require('../utils/http');
+const { versaoDaSenha } = require('../utils/credencial');
 
 function tokenPara(usuario) {
   if (!segredoValido(process.env.JWT_SECRET)) {
     throw erroHttp(500, 'JWT_SECRET precisa ter pelo menos 24 caracteres no arquivo .env.');
   }
-  return jwt.sign({ id: usuario.id, perfil: usuario.perfil }, process.env.JWT_SECRET, {
+  return jwt.sign({ id: usuario.id, perfil: usuario.perfil, sv: versaoDaSenha(usuario.senha_hash) }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN || '8h'
   });
 }
@@ -84,7 +85,8 @@ const login = asyncHandler(async (req, res) => {
   }
   if (!usuario.ativo) return res.status(403).json({ mensagem: 'Sua conta está desativada. Entre em contato com o administrador.' });
   const perfilEsperado = texto(req.body.perfil, 30);
-  if (perfilEsperado && perfilEsperado !== usuario.perfil) {
+  const gestorNaTelaAdministrativa = perfilEsperado === 'Administrador' && usuario.perfil === 'Gestor';
+  if (perfilEsperado && perfilEsperado !== usuario.perfil && !gestorNaTelaAdministrativa) {
     return res.status(403).json({
       mensagem: `Esta tela é destinada ao perfil ${perfilEsperado}. Seu perfil cadastrado é ${usuario.perfil}.`
     });

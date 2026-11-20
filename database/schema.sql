@@ -24,6 +24,13 @@ CREATE TABLE IF NOT EXISTS usuarios (
   updated_at DATETIME NOT NULL
 ) ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS recuperacao_conta (
+  usuario_id INT UNSIGNED NOT NULL PRIMARY KEY,
+  codigo_hash CHAR(64) NULL UNIQUE,
+  senha_redefinida_em DATETIME NULL,
+  CONSTRAINT fk_recuperacao_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS veiculos (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   placa VARCHAR(10) NOT NULL UNIQUE,

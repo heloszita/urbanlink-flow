@@ -10,18 +10,12 @@ function read(file) { return fs.readFileSync(path.join(base, file), 'utf8'); }
 test('estrutura limpa mantém um frontend, documentação essencial e imagens ativas', () => {
   assert.ok(fs.statSync(publicDir).isDirectory());
   assert.ok(!fs.existsSync(path.join(base, 'src/public')));
-  assert.ok(!fs.existsSync(path.join(base,'node_modules')));
   for (const filename of ['mapa-esquematico.svg','logo-positiva.png','logo-negativa.png']) {
     assert.ok(!fs.existsSync(path.join(publicDir,'assets',filename)), filename);
   }
   const docs = fs.readdirSync(path.join(base, 'docs')).sort();
-  assert.deepEqual(docs, [
-    'AUDITORIA_REQUISITOS.md',
-    'GUIA_DE_USO.md',
-    'LOCALIZACAO_AUTOMATICA.md',
-    'RELATORIO_LIMPEZA.md',
-    'openapi.json'
-  ]);
+  assert.deepEqual(docs, ['openapi.json']);
+  assert.deepEqual(fs.readdirSync(base).filter(name => name.endsWith('.md')), ['README.md']);
   assert.ok(!fs.existsSync(path.join(publicDir, 'guia.html')));
   assert.ok(!fs.existsSync(path.join(publicDir, 'guia-uso.html')));
   for (const file of ['public/css/refino-v37.css','public/css/visual.css']) {

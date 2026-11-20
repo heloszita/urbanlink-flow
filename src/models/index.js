@@ -6,6 +6,7 @@ const EventoEntrega = require('./EventoEntrega');
 const Rota = require('./Rota');
 const Chamado = require('./Chamado');
 const Simulacao = require('./Simulacao');
+const RecuperacaoConta = require('./RecuperacaoConta');
 
 Usuario.hasMany(Entrega, { as: 'entregasComoCliente', foreignKey: 'cliente_id', onDelete: 'RESTRICT' });
 Entrega.belongsTo(Usuario, { as: 'cliente', foreignKey: 'cliente_id' });
@@ -32,4 +33,4 @@ Usuario.hasMany(Simulacao, { as: 'simulacoes', foreignKey: 'usuario_id' });
 Simulacao.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuario_id' });
 Chamado.belongsTo(Usuario, { as: 'usuario', foreignKey: 'usuario_id' });
 
-module.exports = { Usuario, Veiculo, PosicaoVeiculo, Entrega, EventoEntrega, Rota, Chamado, Simulacao };
+module.exports = { Usuario, Veiculo, PosicaoVeiculo, Entrega, EventoEntrega, Rota, Chamado, Simulacao, RecuperacaoConta };

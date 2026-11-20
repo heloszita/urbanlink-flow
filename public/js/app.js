@@ -181,11 +181,6 @@
     });
   }
 
-  // Remove a preferência obsoleta do navegador; o site usa somente o tema claro.
-  function clearLegacyThemePreference() {
-    try { localStorage.removeItem('urbanlink_tema'); sessionStorage.removeItem('urbanlink_tema'); document.documentElement.removeAttribute('data-theme'); } catch (_) { /* Armazenamento indisponível. */ }
-  }
-
   function setupProfileLogout() {
     $$('.perfil-usuario').forEach(profile => {
       if (profile.dataset.logoutReady === 'true') return;
@@ -203,15 +198,31 @@
       menu.hidden = true;
       menu.id = `menu-perfil-${Math.random().toString(36).slice(2, 9)}`;
       profile.setAttribute('aria-controls', menu.id);
-      const logout = el('button', 'menu-logout', '↪  Sair da conta');
+      const tema = el('button', 'menu-tema', 'Modo escuro');
+      tema.type = 'button';
+      const atualizarTema = () => tema.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark'));
+      atualizarTema();
+      tema.addEventListener('click', () => {
+        window.alternarTemaUrbanLink();
+        atualizarTema();
+      });
+      window.addEventListener('storage', atualizarTema);
+      const recuperacao = el('button', 'menu-recuperacao', 'Código de recuperação');
+      recuperacao.type = 'button';
+      recuperacao.addEventListener('click', () => {
+        open(false);
+        profile.focus();
+        recoveryCodeDialog();
+      });
+      const logout = el('button', 'menu-logout', 'Sair da conta');
       logout.type = 'button';
       logout.addEventListener('click', event => {
         event.stopPropagation();
         clearSession();
         window.location.replace('index.html');
       });
-      menu.append(logout); holder.append(menu);
-      const open = value => { menu.hidden = !value; profile.setAttribute('aria-expanded', String(value)); if (value) logout.focus(); };
+      menu.append(tema, recuperacao, logout); holder.append(menu);
+      const open = value => { menu.hidden = !value; profile.setAttribute('aria-expanded', String(value)); if (value) tema.focus(); };
       profile.addEventListener('click', () => open(menu.hidden));
       profile.addEventListener('keydown', event => {
         if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(menu.hidden); }
@@ -220,6 +231,55 @@
       document.addEventListener('click', event => { if (!holder.contains(event.target)) open(false); });
       document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) { open(false); profile.focus(); } });
     });
+  }
+
+  function recoveryCodeDialog() {
+    const dialog = el('dialog', 'auth-confirm-dialog recuperacao-dialog');
+    dialog.setAttribute('aria-labelledby', 'titulo-codigo-recuperacao');
+    dialog.innerHTML = `
+      <div class="auth-confirm-content">
+        <h2 id="titulo-codigo-recuperacao">Código de recuperação</h2>
+        <p>Guarde o código em um local seguro para redefinir a senha se perder o acesso. Gerar outro código substitui o anterior.</p>
+        <form class="formulario">
+          <div class="grupo-form">
+            <label for="senha-codigo-recuperacao">Senha atual</label>
+            <input id="senha-codigo-recuperacao" name="senha" type="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="botao botao-primario">Gerar código</button>
+        </form>
+        <div class="recuperacao-resultado" hidden>
+          <label for="codigo-gerado">Seu código de uso único</label>
+          <input id="codigo-gerado" type="text" readonly spellcheck="false">
+        </div>
+        <button type="button" class="botao botao-secundario">Fechar</button>
+      </div>`;
+    const form = $('form', dialog);
+    const submit = $('button[type="submit"]', form);
+    const close = $('button[type="button"]', dialog);
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => dialog.remove(), { once: true });
+    dialog.addEventListener('cancel', event => { if (submit.disabled && !form.hidden) event.preventDefault(); });
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      $('.mensagem-app', form)?.remove();
+      submit.disabled = close.disabled = true;
+      try {
+        const data = await request('/auth/codigo-recuperacao', { method: 'POST', body: formData(form) });
+        const output = $('#codigo-gerado', dialog);
+        output.value = data.codigo;
+        form.reset();
+        form.hidden = true;
+        $('.recuperacao-resultado', dialog).hidden = false;
+        output.focus();
+        output.select();
+      } catch (error) {
+        message(error.message, 'erro', form);
+      } finally {
+        submit.disabled = close.disabled = false;
+      }
+    });
+    document.body.append(dialog);
+    dialog.showModal();
   }
 
   function supportHrefFor(profile) {
@@ -331,6 +391,40 @@
         message(error.message, 'erro', form);
       } finally {
         if (button) button.disabled = false;
+      }
+    });
+  }
+
+  function passwordRecoveryPage() {
+    const form = $('#form-recuperacao');
+    if (!form) return;
+    const origem = new URLSearchParams(window.location.search).get('origem');
+    const logins = { administrador: 'login-adm.html', motorista: 'login-motorista.html' };
+    const voltar = $('#voltar-login');
+    if (Object.hasOwn(logins, origem)) voltar.href = logins[origem];
+    const status = $('#status-recuperacao');
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      status.replaceChildren();
+      const { confirmacao, ...dados } = formData(form);
+      if (dados.senha !== confirmacao) {
+        message('As senhas precisam ser iguais.', 'erro', status);
+        return;
+      }
+      const submit = $('button[type="submit"]', form);
+      submit.disabled = true;
+      try {
+        const resultado = await request('/auth/redefinir-senha', { method: 'POST', body: dados, auth: false });
+        clearSession();
+        form.reset();
+        form.hidden = true;
+        message(resultado.mensagem, 'sucesso', status);
+        voltar.textContent = 'Entrar com a nova senha';
+        voltar.focus();
+      } catch (error) {
+        message(error.message, 'erro', status);
+      } finally {
+        submit.disabled = false;
       }
     });
   }
@@ -1877,13 +1971,12 @@
       'O endereço não pode ser editado diretamente depois do envio. Abra um chamado o quanto antes. Enquanto a entrega estiver Pendente ou Aguardando coleta, você pode cancelá-la e criar uma solicitação com o endereço correto.',
       'Entre em contato pelo atendimento e informe o código do pedido. Não considere a entrega concluída até que o sistema registre o status “Entregue”.',
       'O sistema ainda não possui um fluxo automático de devolução. Abra um chamado informando o código da entrega e o motivo para receber orientação da equipe.',
-      'A recuperação automática por e-mail não está configurada nesta versão. Solicite ao administrador responsável que oriente a redefinição de acesso.'
+      'Use o código de recuperação salvo anteriormente. Na tela de login, selecione “Esqueci minha senha” e preencha o e-mail, o código e a nova senha.'
     ];
     $$('.item-faq').forEach((item,index)=>{
       if (item.dataset.faqReady === 'true') return;
       const answer = el('p','resposta-faq',respostasFaq[index] || 'Entre em contato pelo formulário de atendimento para receber orientação.');
       answer.hidden = true;
-      answer.style.cssText = 'margin:8px 0 12px; padding:0 12px 10px; color:#687386; font-size:.86rem; line-height:1.5;';
       item.after(answer);
       item.setAttribute('role','button');
       item.setAttribute('tabindex','0');
@@ -1912,13 +2005,13 @@
   }
 
   async function init() {
-    clearLegacyThemePreference();
     setupProfileLogout();
     ensureGlobalFooter();
     enablePageTransitions();
     enableResponsiveTableLabels();
     globalActions();
     loginPage();
+    passwordRecoveryPage();
     cadastroPage();
     const page=document.body.dataset.page || '';
     if(!['login','cadastro',''].includes(page)){

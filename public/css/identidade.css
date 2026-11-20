@@ -1,11 +1,22 @@
-/* Identidade visual UrbanLink Flow V3.10: tema claro permanente. */
+/* Identidade visual UrbanLink Flow. */
 :root{--theme-surface:#fff;--theme-text:#23304a;--theme-muted:#6b788f;--theme-line:#e0e7f1;--theme-page:#f4f7fc;--theme-accent:#f35b3f}
 html{color-scheme:light}
-/* Menu suspenso de perfil: apenas logout */
-.perfil-conta .menu-perfil{min-width:228px;padding:8px;box-shadow:0 14px 34px #14204024}
+/* Menu suspenso de perfil */
+.perfil-conta .menu-perfil{min-width:min(228px,calc(100vw - 32px));padding:8px;box-shadow:0 14px 34px #14204024}
 .perfil-conta .menu-perfil button{min-height:43px;display:flex;align-items:center;gap:11px;padding:10px 12px;font-size:.87rem;line-height:1.35;border-radius:9px}
+.perfil-conta .menu-perfil .menu-tema,
+.perfil-conta .menu-perfil .menu-recuperacao{color:var(--theme-text)}
+.menu-tema::after{content:'';width:28px;height:16px;margin-left:auto;flex:none;border-radius:10px;background:radial-gradient(circle at 8px center,#fff 0 4px,transparent 4.5px),#66758a}
+.menu-tema[aria-pressed=true]::after{background:radial-gradient(circle at 20px center,#fff 0 4px,transparent 4.5px),#ba4a36}
 .perfil-conta .menu-perfil .menu-logout{color:#b74430}
 .perfil-conta .menu-perfil button:focus-visible{outline:2px solid #f35b3f;outline-offset:1px}
+
+.resposta-faq{margin:8px 0 12px;padding:0 12px 10px;color:var(--theme-muted);font-size:.86rem;line-height:1.5}
+.recuperacao-dialog .formulario,.recuperacao-resultado{width:100%}
+.recuperacao-resultado label{display:block;font-size:.85rem;font-weight:700;margin-bottom:6px}
+.recuperacao-resultado input{width:100%;padding:11px 12px;border:1px solid var(--theme-line);font-family:monospace!important;font-size:.88rem}
+.recuperacao-dialog [hidden],#form-recuperacao[hidden]{display:none}
+.voltar-login{display:inline-block;margin-top:18px}
 
 /* Patrocinadores: cartões de quatro marcas conceituais */
 .sponsor-demo-notice{margin:2px 0 32px;padding:14px 18px;border:1px solid #bbd3f4;background:#ecf5ff;color:#315579;border-radius:12px;font-size:.86rem;line-height:1.58}

@@ -1,0 +1,172 @@
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-page: #101724;
+  --theme-surface: #1a2334;
+  --theme-text: #edf2fa;
+  --theme-muted: #b3c1d4;
+  --theme-line: #46566d;
+  --theme-accent: #ffae9c;
+  --dark-field: #121b29;
+  --dark-raised: #243149;
+  --dark-selected: #3b2b38;
+  --ul-ink: var(--theme-text);
+  --ul-navy: var(--theme-text);
+  --ul-muted: var(--theme-muted);
+  --ul-bg: var(--theme-page);
+  --ul-border: var(--theme-line);
+  --u-ink: var(--theme-text);
+  --u-navy: var(--theme-text);
+  --u-slate: var(--theme-muted);
+  --u-bg: var(--theme-page);
+  --u-line: var(--theme-line);
+}
+
+/* Páginas, cartões e cabeçalhos. O mapa-base e as imagens mantêm as cores originais. */
+[data-theme="dark"] :is(body, .area-principal, .area-autenticacao, .area-azul-claro, .fundo-azul-claro, .mapa-layout) {
+  background: var(--theme-page);
+  color: var(--theme-text);
+}
+[data-theme="dark"] :is(
+  .cabecalho, .cabecalho-interno, .auth-topbar.auth-header, .urbanlink-footer, .rodape, .rodape-global,
+  .cartao, .cartao-destaque, .cartao-info, .cartao-metricas, .cartao-proxima-entrega, .secao-tabela, .secao-branca,
+  .bloco-form, .cartao-resumo, .cartao-info-lateral, .cartao-autenticacao, .bloco-conteudo,
+  .cartao-contato, .cartao-horarios, .janela-chat, .rodape-chat, .cartao-acao-rapida, .cartao-tabela-gestao,
+  .barra-filtros, .janela-modal, .auth-confirm-dialog, .cnh-viewer, .cartao-entrega-motorista,
+  .sponsor-featured, .sponsor-company, .cartao-master, .cartao-outro, .admin-review-panel,
+  .admin-help-card, .admin-message-stat, .admin-message-inbox, .sim-panel, .sim-explainer-card,
+  .sim-result-card, .sim-history-panel, .area-mapa-cliente, .mapa-sidebar, .mapa-group-card, .mapa-workflow-card,
+  .mapa-toolbar, .map-fix-dialog, .card-flutuante-proxima-parada, .balao-flutuante, .perfil-usuario, .menu-perfil
+) {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  border-color: var(--theme-line);
+}
+[data-theme="dark"] :is(.admin-metric-card, .admin-shortcut, .admin-message-card, .container-cartoes .cartao, .container-cartoes .cartao-destaque) {
+  background: var(--theme-surface) !important;
+  border-color: var(--theme-line) !important;
+}
+[data-theme="dark"] :is(.cabecalho, .cabecalho-interno, .auth-topbar.auth-header, .urbanlink-footer) img[src*="logo.png"] {
+  background: #fff;
+  box-shadow: 0 0 0 4px #fff;
+  border-radius: 2px;
+}
+[data-theme="dark"] :is(
+  .barra-acoes-massa, .abas-status, .corpo-chat, .admin-message-dialogue, .chat-divider, .cnh-viewer-preview,
+  .item-registro, .item-parada, .mapa-resumo, .mapa-stepper span, .mapa-delivery-row, .mapa-steps li, .mapa-feedback,
+  .sim-result-metric, .sim-result-ready, .sim-disclaimer, .sponsor-tags span, .motorista-pendente, .admin-document-row,
+  .caixa-radio, .caixa-estimativa, .alerta-info, .aviso-aprovacao-motorista, .item-faq, .sponsor-demo-notice,
+  .admin-team-highlight, .busca-rastreio, .balao-chat.agente, .chat-bubble.is-received
+) {
+  background: var(--dark-raised);
+  color: var(--theme-text);
+  border-color: var(--theme-line);
+}
+[data-theme="dark"] :is(.sim-disclaimer, .admin-shortcut) { color: var(--theme-text) !important; }
+[data-theme="dark"] :is(
+  .titulo-autenticacao, .titulos, .titulos p, .cartao h2, .cabecalho-secao h2, .cabecalho-pagina h2,
+  .secao-dashboard h2, .topo-tabela h3, .secao-branca h3, .cartao-resumo h3, .cabecalho-passo h3,
+  .cartao-acao-rapida strong, .cartao-contato strong, .item-detalhe p, .item-resumo p, .info-tempo strong,
+  .cartao-info-lateral strong, .titulo-faq, .cartao-horarios strong, .nome-motorista, .numero-cartao, .titulo-cartao,
+  .numero-metrica, .grupo-form label, .grupo-input label, .sim-field-label, .campo-filtro label, .texto-checkbox,
+  .admin-metric-card .numero-metrica, .admin-section-heading h2, .admin-shortcut strong, .admin-team-highlight h2,
+  .admin-help-card h3, .admin-document-row strong, .motorista-pendente strong, .admin-messages-heading h1,
+  .admin-inbox-heading h2, .admin-message-stat strong, .admin-message-sender strong, .admin-message-reply-form>label,
+  .sponsor-section-heading h2, .sponsor-featured-content h3, .sponsor-company h3, .sponsor-demo-notice strong,
+  .mapa-introducao h1, .mapa-list-heading h2, .mapa-group-header h2, .mapa-workflow-card h2, .mapa-delivery-item strong,
+  .mapa-label, .mapa-resumo strong, .map-fix-dialog header h2, .map-fix-coordinates label, .sim-history-heading h2,
+  .driver-map-popup strong, .balao-flutuante strong
+) { color: var(--theme-text); }
+[data-theme="dark"] :is(
+  .descricao, .texto-secundario, .subtitulo-autenticacao, .subtitulo-bloco, .subtitulo-pagina,
+  .subtexto-cartao, .migalhas, .previsao-texto, .veiculo-motorista, .cabecalho-passo p, .caixa-radio p,
+  .item-resumo small, .item-detalhe small, .info-tempo span, .item-tempo.futuro strong, .item-tempo.futuro span,
+  .cartao-contato p, .cartao-horarios p, .cartao-entrega-motorista p, .lista-eventos small, .sponsor-company p,
+  .sponsor-section-heading p, .sponsor-featured-content p, .urbanlink-footer .footer-brand p,
+  .urbanlink-footer .footer-bottom, .auth-confirm-content p, .admin-section-note, .admin-card-head>span:first-child,
+  .admin-shortcut small, .admin-pending-total span, .admin-help-card p, .admin-table-footer, .admin-message-date,
+  .admin-messages-empty, .admin-messages-footnote, .admin-document-row small, .mapa-help, .mapa-disclaimer,
+  .mapa-panel-heading p, .mapa-toolbar small, .mapa-cliente-ajuda, .mapa-cliente-cabecalho small,
+  .sim-panel-heading p, .sim-section-title p, .sim-explainer-card>p, .sim-selection-tools small, .sim-location-top span
+) { color: var(--theme-muted); }
+
+/* Campos, navegação, tabelas e ações secundárias. */
+[data-theme="dark"] :is(
+  .formulario .grupo-form input, .formulario .grupo-form select, .grupo-input input, .grupo-input select,
+  .formulario-internos textarea, .campo-filtro input, .campo-filtro select, .busca-rastreio input,
+  .rodape-chat input, .input-busca-pequeno input, .input-busca-grande input, .caixa-busca-estoque input,
+  .admin-message-filters input, .admin-message-filters select, .admin-message-reply-form textarea,
+  .admin-message-status-field select, .mapa-sidebar .mapa-input, .map-fix-coordinates input,
+  .janela-modal-atribuicao .grupo-input select, .sim-form>select, .recuperacao-resultado input
+) {
+  background: var(--dark-field);
+  color: var(--theme-text);
+  border-color: var(--theme-line);
+}
+[data-theme="dark"] :is(input, textarea)::placeholder { color: #a6b6cc; }
+[data-theme="dark"] :is(
+  .navegacao-topo a, .urbanlink-footer .footer-navigation a, .aba, .contador-aba, .aba.ativa .contador-aba,
+  .botoes-topo .botao-secundario, .botao-secundario, .botao-secundario-pequeno, .botao-seletor, .botao-opcoes,
+  .mapa-button-light, .mapa-tool-button, .driver-map-control, .pag-btn, .admin-table-buttons button,
+  .cnh-viewer-header button, .map-fix-dialog header button, .admin-document-row button,
+  .container-cartoes .cartao .profile-cta, .container-cartoes .cartao-destaque .profile-cta
+) {
+  color: var(--theme-text);
+  border-color: var(--theme-line);
+}
+[data-theme="dark"] :is(
+  .botoes-topo .botao-secundario, .botao-secundario, .botao-secundario-pequeno, .botao-seletor, .botao-opcoes,
+  .mapa-tool-button, .mapa-button-light, .driver-map-control:not(.driver-map-control-primary), .pag-btn, .contador-aba,
+  .admin-table-buttons button, .cnh-viewer-header button, .map-fix-dialog header button, .admin-document-row button,
+  .container-cartoes .cartao .profile-cta, .container-cartoes .cartao-destaque .profile-cta
+) { background: var(--dark-raised); }
+[data-theme="dark"] :is(
+  .navegacao-topo a:hover, .navegacao-topo a.ativo, .perfil-usuario:hover, .perfil-usuario[aria-expanded="true"],
+  .menu-perfil button:hover, .aba:hover, .aba.ativa, .pag-btn.ativo, .botao-seletor.ativo, .caixa-radio.selecionado,
+  .mapa-delivery-row.is-selected, .mapa-delivery-item:hover, .mapa-delivery-item.selected,
+  .sim-form select[multiple] option:checked, .container-cartoes .cartao .profile-cta:hover
+) {
+  background: var(--dark-selected);
+  border-color: var(--theme-accent);
+  color: var(--theme-text);
+}
+[data-theme="dark"] :is(
+  .cabecalho .login a, .link-esqueceu, .link-ver-todos, .link-acao, .admin-back-link,
+  .admin-view-all, .admin-help-card a, .admin-team-highlight>a, .admin-table-footer a, .mapa-button-outline,
+  .sim-text-button, .mapa-eyebrow, .sponsor-category, .sponsor-section-heading>span,
+  .perfil-conta .menu-perfil .menu-logout
+) { color: var(--theme-accent); }
+[data-theme="dark"] .auth-header .auth-header-account { color: var(--theme-muted); }
+[data-theme="dark"] .auth-header .auth-header-account a {
+  background: var(--dark-selected);
+  color: var(--theme-accent);
+  border-color: var(--theme-line);
+}
+[data-theme="dark"] :is(.tabela-pedidos, .sim-history-table) :is(th, td, tr) {
+  color: var(--theme-text);
+  border-color: var(--theme-line);
+}
+[data-theme="dark"] :is(.tabela-pedidos, .sim-history-table) th { background: var(--dark-raised); }
+[data-theme="dark"] :is(.tabela-pedidos, .sim-history-table) :is(td, tbody tr) { background: var(--theme-surface); }
+[data-theme="dark"] :is(.tabela-pedidos, .sim-history-table) td::before { color: var(--theme-muted); }
+[data-theme="dark"] :is(.botao-primario, .mapa-button-primary, .sim-submit-button, .admin-hero-primary) {
+  background: #aa412d;
+  color: #fff;
+}
+[data-theme="dark"] :is(.botao-primario, .mapa-button-primary, .sim-submit-button, .admin-hero-primary):hover { background: #923624; }
+
+/* Mensagens e controles do Leaflet. Os estados mantêm suas cores semânticas. */
+[data-theme="dark"] .mensagem-app.info { background: #183851; color: #cde9ff; }
+[data-theme="dark"] .mensagem-app.sucesso { background: #1a3a31; color: #bdeed3; }
+[data-theme="dark"] .mensagem-app.erro { background: #492c36; color: #ffd4d9; }
+[data-theme="dark"] .leaflet-control-zoom a,
+[data-theme="dark"] .leaflet-popup-content-wrapper,
+[data-theme="dark"] .leaflet-popup-tip {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+}
+[data-theme="dark"] .leaflet-popup-content strong { color: var(--theme-text); }
+[data-theme="dark"] .leaflet-control-attribution {
+  background: var(--theme-surface);
+  color: var(--theme-muted);
+}
+[data-theme="dark"] .leaflet-control-attribution a { color: #a8d4ff; }

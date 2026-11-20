@@ -1,6 +1,6 @@
 {
   "name": "urbanlink-flow",
-  "version": "3.11.0",
+  "version": "3.14.0",
   "description": "Plataforma de logística urbana UrbanLink Flow",
   "main": "src/app.js",
   "type": "commonjs",

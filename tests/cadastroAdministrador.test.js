@@ -22,6 +22,7 @@ function controlador() {
     jsonwebtoken: { sign: () => 'jwt-test' },
     sequelize: { UniqueConstraintError: class UniqueConstraintError extends Error {} },
     '../config/segredos': require('../src/config/segredos'),
+    '../utils/credencial': require('../src/utils/credencial'),
     '../models': { Usuario: { create: async data => { created.push(data); return { id: 1, ...data }; } } },
     '../utils/http': { asyncHandler: fn => fn, erroHttp, texto: (v, max) => String(v ?? '').trim().slice(0, max) }
   });

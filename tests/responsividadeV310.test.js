@@ -7,7 +7,7 @@ const read = path => fs.readFileSync(require('node:path').join(root, path), 'utf
 const pages = fs.readdirSync(path.join(root,'public')).filter(f => f.endsWith('.html'));
 
 test('todas as páginas usam viewport e CSS de responsividade', () => {
-  assert.equal(pages.length, 20);
+  assert.equal(pages.length, 21);
   for (const file of pages) {
     const html = read('public/'+file);
     assert.match(html, /name="viewport"|name="viewport"\s*\//, file);

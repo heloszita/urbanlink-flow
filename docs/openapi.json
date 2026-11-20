@@ -2,12 +2,12 @@
   "openapi": "3.0.3",
   "info": {
     "title": "UrbanLink Flow API",
-    "version": "3.7.0",
+    "version": "3.14.0",
     "description": "API REST para usuários, frota, entregas, rastreamento, planejamento de rotas e atendimento."
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api"
+      "url": "/api"
     }
   ],
   "components": {
@@ -279,6 +279,66 @@
           "403": {
             "description": "Perfil incompatível"
           }
+        }
+      }
+    },
+    "/auth/codigo-recuperacao": {
+      "post": {
+        "summary": "Gerar ou substituir o código de recuperação da conta",
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["senha"],
+                "properties": { "senha": { "type": "string", "format": "password" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Código revelado uma única vez",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "codigo": { "type": "string" } }
+                }
+              }
+            }
+          },
+          "401": { "description": "Autenticação necessária" },
+          "403": { "description": "Senha atual incorreta" },
+          "409": { "description": "Conta alterada durante a solicitação" },
+          "422": { "description": "Senha atual ausente" }
+        }
+      }
+    },
+    "/auth/redefinir-senha": {
+      "post": {
+        "summary": "Redefinir a senha e consumir o código de recuperação",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "codigo", "senha"],
+                "properties": {
+                  "email": { "type": "string", "format": "email" },
+                  "codigo": { "type": "string" },
+                  "senha": { "type": "string", "format": "password", "minLength": 8 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Senha redefinida e sessões anteriores invalidadas" },
+          "422": { "description": "Dados inválidos ou código indisponível" }
         }
       }
     },

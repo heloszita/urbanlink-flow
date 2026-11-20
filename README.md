@@ -1,75 +1,89 @@
-# UrbanLink Flow — instalação e operação
+# Como rodar o UrbanLink Flow na sua máquina
 
-Plataforma web para gestão de entregas urbanas, com front-end HTML/CSS/JavaScript, API Node.js/Express, banco MySQL/Sequelize, mapas Leaflet/OpenStreetMap, otimização aproximada de rotas e simulação de cenários. A interface funciona exclusivamente em **tema claro**.
+## 1. Instale os pré-requisitos
 
-## Requisitos
+- [Node.js](https://nodejs.org/) 20 ou superior, com npm. Na entrega, a instalação foi verificada com Node.js 24.
+- [MySQL Community Server](https://dev.mysql.com/downloads/mysql/8.4.html) 8.4 LTS ou posterior e, se preferir uma interface gráfica, [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+- Um navegador atualizado. Conecte-se à internet para carregar o mapa e consultar as rotas externas.
 
-- Node.js 20 ou superior, npm e MySQL 8 (ou compatível com Sequelize 6).
-- Internet para carregar os mapas e consultar o serviço de geocodificação/rotas.
-- Navegador atualizado. Para compartilhar posição GPS, use `localhost` ou HTTPS e conceda a permissão de localização.
+Inicie o serviço do MySQL e confira a porta e o usuário definidos na instalação. O Workbench é um cliente para acessar o servidor. Mantenha ambos instalados se quiser seguir as instruções gráficas.
 
-## Instalação e configuração
+## 2. Extraia e instale o projeto
 
-1. Extraia o projeto e abra a pasta `urbanlink-flow-main` no terminal.
-2. Execute `npm install`.
-3. Crie o banco `urbanlink_flow` e execute `database/schema.sql` no MySQL Workbench. Com `DB_SYNC=true`, o Sequelize também pode criar tabelas ao iniciar, conforme a configuração do ambiente.
-4. Crie `.env` com base em `.env.example` (`Copy-Item .env.example .env` no PowerShell). **Não publique o `.env`**, pois contém credenciais.
-5. Ajuste os campos `DB_*` para seu MySQL e configure `JWT_SECRET` com ao menos 24 caracteres aleatórios e `ADMIN_INVITE_CODE` privado com pelo menos 12 caracteres. Os valores ilustrativos do `.env.example` são rejeitados. Para instalações novas, `npm run configurar` pode gerar os segredos sem sobrescrever um `.env` existente. `npm run verificar-config` valida a configuração.
-6. Para localizar endereços por rua/número, configure no `.env`:
+Extraia todo o ZIP. Abra o terminal na pasta que contém o arquivo `package.json` e execute:
 
-   ```env
-   GEOCODING_ENABLED=true
-   GEOCODING_PROVIDER=nominatim
-   GEOCODING_CONTACT_EMAIL=contato-valido@exemplo.com
-   GEOCODING_API_KEY=
-   ```
+```sh
+node --version
+npm --version
+npm ci
+npm run configurar
+```
 
-   Use seu e-mail de contato e confira `docs/LOCALIZACAO_AUTOMATICA.md`. O Nominatim público é adequado apenas para baixo volume e exige respeito à política de utilização; em produção configure provedor apropriado. A busca depende de internet e pode não encontrar todos os endereços.
+O último comando cria o arquivo `.env` com um segredo JWT e um código privado de convite de administrador. Se existir um `.env`, o comando o preserva. Guarde esse arquivo localmente.
 
-7. Execute `npm start` e acesse `http://localhost:3000`. Verifique `/api/health` e `/api/docs`.
-8. Rode `npm test` para testar as regras e a estrutura do projeto. Os testes automatizados não substituem integração real com MySQL.
+## 3. Prepare o MySQL
 
-Ao atualizar uma versão existente, preserve o `.env` e o banco de dados. **Não apague nem recrie tabelas** apenas para aplicar esta limpeza.
+No Workbench, conecte-se ao MySQL local com uma conta que possa criar bancos e tabelas. Use **File → Open SQL Script** para abrir `database/schema.sql`. Execute todo o arquivo com o botão de raio. O script cria o banco `urbanlink_flow` e suas tabelas.
 
-## Perfis e fluxo principal
+Você também pode importar pelo terminal a partir da raiz do projeto. Abra o cliente MySQL, informe a senha quando solicitada e execute:
 
-1. **Cliente:** cria conta, solicita entrega e acompanha status, localização disponível e atendimento.
-2. **Administrador/Gestor:** cria ou gerencia a operação, analisa CNH e aprova motoristas, atribui motoristas/veículos a pedidos e acessa indicadores, mapas, relatórios, mensagens e simulações. Gestor pode ser criado por administrador pela API.
-3. **Motorista:** anexa CNH, cadastra veículo e aguarda aprovação; depois vê pedidos atribuídos, compartilha posição manualmente e atualiza as etapas das entregas.
+```sh
+mysql -h 127.0.0.1 -P 3306 -u root -p
+```
 
-Fluxo: **Cliente solicita → Administrador atribui motorista e veículo → Motorista executa → Cliente acompanha**. Situação habitual: `Pendente → Aguardando coleta → Em trânsito → Saiu para entrega → Entregue`. O sistema valida transições e permissões no backend.
+```sql
+SOURCE database/schema.sql
+SHOW TABLES;
+EXIT;
+```
 
-### Limites do mapa e das simulações
+O script pode ser reaplicado a uma instalação anterior com o banco padrão `urbanlink_flow`. A tabela `recuperacao_conta` será criada e as tabelas e registros existentes serão preservados. Faça um backup antes de atualizar o ambiente do curso.
 
-- O mapa é interativo e exibe entregas com coordenadas e últimas posições compartilhadas; exige conexão para os mapas e serviços externos.
-- A sequência de paradas utiliza vizinho mais próximo / distância de Haversine, **não** trânsito em tempo real.
-- O traçado viário pode depender do OSRM e não equivale à otimização de deslocamento com dados atuais de tráfego.
-- Pedidos antigos ou endereços não localizados podem permanecer sem coordenadas; o administrador pode tentar corrigir em **Mapa e rotas**.
-- Simulações usam velocidade e fator de congestionamento definidos pelo usuário; não são medições de trânsito ao vivo.
+## 4. Configure e inicie o servidor
 
-## Estrutura do projeto
+Abra o `.env` e preencha os campos do banco com os dados da conexão que acabou de testar:
 
-| Pasta ou arquivo | Finalidade |
-|---|---|
-| `public/` | Única pasta pública: páginas, estilos, scripts e assets |
-| `src/` | Controladores, serviços, modelos, middlewares, rotas e API |
-| `database/schema.sql` | Estrutura inicial do banco MySQL |
-| `api/index.js` | Entrada para implantação serverless |
-| `tests/` | Testes automatizados (`npm test`) |
-| `scripts/` | Configuração e checagem do `.env` |
-| `docs/GUIA_DE_USO.md` | Manual de uso por perfil, **fora do site** |
-| `docs/AUDITORIA_REQUISITOS.md` | Comparação com requisitos do projeto e limites conhecidos |
-| `docs/LOCALIZACAO_AUTOMATICA.md` | Geocodificação e cuidados com provedores externos |
-| `docs/openapi.json` | Contrato OpenAPI (acessível por `/api/docs/openapi.json`) |
-| `docs/RELATORIO_LIMPEZA.md` | O que foi removido e preservado nesta versão |
+| Campo | Valor para rodar localmente |
+| --- | --- |
+| `DB_HOST` | `127.0.0.1` |
+| `DB_PORT` | Porta do MySQL, geralmente `3306` |
+| `DB_NAME` | `urbanlink_flow` |
+| `DB_USER` | Usuário com acesso ao banco |
+| `DB_PASSWORD` | Senha do usuário do MySQL |
+| `DB_SSL` | `false` para o MySQL local padrão |
+| `DB_SYNC` | `false` após a importação do script |
+| `PORT` | Porta do site, padrão `3000` |
 
-## Regras importantes
+Se a senha do MySQL contiver espaços ou `#`, coloque-a entre aspas no `.env`. Mantenha os valores gerados de `JWT_SECRET` e `ADMIN_INVITE_CODE`. Considere configurar `SUPPORT_PHONE` e `SUPPORT_EMAIL` se quiser exibir os contatos do curso nas páginas de atendimento.
 
-- O `.env` é privado. Não inclua códigos de administrador, JWT ou senhas de banco em commits ou em capturas compartilhadas.
-- A conta do motorista precisa ser aprovada antes de operações restritas.
-- No modelo atual, apenas uma entrega ativa pode ocupar um veículo por vez.
-- A criação ou alteração de uma entrega registra histórico; as operações críticas usam transações quando cabível.
-- O favicon com símbolo UrbanLink é exibido **somente em `index.html`**; as páginas internas não usam esse ícone na aba. Os ícones dentro da interface continuam.
-- Não há páginas de guia dentro do site; o documento de uso está apenas em `docs/GUIA_DE_USO.md`.
+Para testar a localização automática de endereços em baixo volume, mantenha `GEOCODING_ENABLED=true` e `GEOCODING_PROVIDER=nominatim` e preencha `GEOCODING_CONTACT_EMAIL` com um e-mail válido. Para uma demonstração sem geocodificação externa, use `GEOCODING_ENABLED=false`. A gestão pode inserir coordenadas verificadas em **Mapa e rotas**.
 
-Para rotas e payloads da API, consulte `docs/openapi.json` ou acesse `/api/docs` com o servidor iniciado.
+```sh
+npm run verificar-config
+npm start
+```
+
+Abra [o UrbanLink Flow](http://localhost:3000) e confira se [a API está conectada ao banco](http://localhost:3000/api/health). O resultado deve conter `"status":"ok"` e `"banco":"conectado"`. Mantenha o terminal aberto durante a demonstração e pressione Ctrl+C para parar o servidor. Se alterar `PORT`, ajuste as URLs.
+
+## 5. Confira a demonstração
+
+Use dados fictícios e contas com e-mails diferentes. Mantenha o MySQL e o servidor em execução.
+
+1. Na página inicial, cadastre **Cliente**, **Entregador** e **Administrador**. No cadastro administrativo, use o valor de `ADMIN_INVITE_CODE` do seu `.env`. No cadastro do entregador, anexe um arquivo de CNH fictício aceito pela tela e conclua a etapa de cadastro do veículo.
+2. Entre como administrador e aprove o motorista após verificar o arquivo na área de análise.
+3. Entre como cliente, solicite uma entrega e guarde o código gerado. Consulte a entrega em **Acompanhamento**.
+4. Na **Gestão de entregas** do administrador, atribua o pedido a um motorista aprovado e a um veículo disponível.
+5. Entre como motorista e avance pelas etapas da entrega. Confira o histórico no perfil do cliente. Se quiser testar GPS, mantenha o acesso por `localhost` e permita a localização quando o navegador solicitar.
+6. Para testar o atendimento, envie uma mensagem pelo perfil do cliente e responda em **Mensagens** no perfil administrativo. Confira também **Mapa e rotas** e **Simulações** com entregas que tenham latitude e longitude.
+7. No menu do perfil, alterne **Modo escuro** e recarregue a página para verificar a preferência. O mesmo menu contém **Sair da conta**.
+8. Para testar a recuperação, abra **Código de recuperação** no menu do perfil, confirme a senha atual e guarde o código. Saia da conta, abra **Esqueci minha senha** no login e use o e-mail e o código para definir uma nova senha. Após o uso, gere outro código para uma futura recuperação.
+
+Em outro terminal, execute `npm test` na raiz para rodar os testes automatizados.
+
+## 6. Resolva problemas de inicialização
+
+- **Falha de conexão com o MySQL.** Confirme que o servidor MySQL está ativo. Teste o host, a porta, o usuário e a senha no Workbench ou no cliente `mysql`, e compare com o `.env`.
+- **Banco ou tabela inexistente.** Importe todo o `database/schema.sql` e confira `DB_NAME` no `.env`.
+- **Segredo ou convite inválido.** Execute `npm run verificar-config` e confira os valores gerados em `.env`. Use o convite do `.env` no cadastro administrativo.
+- **Porta do site ocupada.** Ajuste `PORT` no `.env`, reinicie o servidor e abra o endereço com a nova porta.
+- **Mapa sem ponto para uma entrega.** Confira a internet, o endereço e a geocodificação. A gestão pode corrigir a localização manualmente e salvar latitude e longitude em **Mapa e rotas**.
