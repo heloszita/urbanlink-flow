@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Acompanhamento - UrbanLink</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body class="fundo-cinza">
+    <!-- CABEÇALHO INTERNO -->
+    <header class="cabecalho-interno">
+        <div class="logo">
+            <span class="icone-menu">≡</span> 
+            <img src="caminho-logo.png" alt="Logotipo" class="imagem-logo">
+        </div>
+        <nav class="navegacao-topo">
+            <a href="inicial-cliente.html">Início</a>
+            <a href="acompanhamento.html" class="ativo">Acompanhamento</a>
+            <a href="atendimento-cliente.html">Atendimento</a>
+            <a href="patrocinadores.html">Patrocinadores</a>
+        </nav>
+        <div class="perfil-usuario">
+            <img src="caminho-icone-usuario.png" alt="Ícone" class="icone-img">
+            <span>Bem Vindo, Usuário</span>
+        </div>
+    </header>
+
+    <main class="conteudo-dashboard">
+        
+        <!-- CABEÇALHO DA PÁGINA -->
+        <div class="cabecalho-acompanhamento">
+            <div>
+                <h2>Acompanhe sua entrega</h2>
+                <p class="subtitulo-pagina">Pedido #AA-0000 • ele está a caminho.</p>
+            </div>
+            <input type="text" class="input-busca-pequeno" placeholder="Digite o código do pedido">
+        </div>
+
+        <div class="layout-grid-dashboard">
+            
+            <!-- COLUNA ESQUERDA: MAPA E LINHA DO TEMPO -->
+            <div class="coluna-esq">
+                <!-- Área do Mapa -->
+                <div class="area-mapa">
+                    <img src="caminho-mapa.png" alt="Mapa" class="imagem-mapa">
+                    <div class="balao-flutuante">
+                        <small>Chega hoje até</small>
+                        <strong>11:30</strong>
+                    </div>
+                </div>
+
+                <!-- Linha do Tempo -->
+                <div class="secao-branca">
+                    <h3>Por onde seu pedido já passou</h3>
+                    <div class="linha-tempo">
+                        <div class="item-tempo">
+                            <div class="ponto verde"></div>
+                            <div class="info-tempo">
+                                <strong>Pedido confirmado</strong>
+                                <span>08:10</span>
+                            </div>
+                        </div>
+                        <div class="item-tempo">
+                            <div class="ponto verde"></div>
+                            <div class="info-tempo">
+                                <strong>Separado no estoque</strong>
+                                <span>08:40</span>
+                            </div>
+                        </div>
+                        <div class="item-tempo">
+                            <div class="ponto verde"></div>
+                            <div class="info-tempo">
+                                <strong>Saiu para entrega</strong>
+                                <span>09:05</span>
+                            </div>
+                        </div>
+                        <div class="item-tempo atual">
+                            <div class="ponto laranja"></div>
+                            <div class="info-tempo">
+                                <strong>A caminho de você</strong>
+                                <span>Motorista está a 2,3 km</span>
+                            </div>
+                            <span class="tag-situacao">situação atual</span>
+                        </div>
+                        <div class="item-tempo futuro">
+                            <div class="ponto cinza"></div>
+                            <div class="info-tempo">
+                                <strong>Entregue</strong>
+                                <span>Previsto para 11:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUNA DIREITA: CARTÕES DE ESTADO -->
+            <div class="coluna-dir">
+                
+                <!-- Cartão Escuro -->
+                <div class="cartao-status-escuro">
+                    <p>Seu pedido está a caminho</p>
+                    <h2>0,0 km Restantes</h2>
+                    <div class="barra-progresso-escura">
+                        <div class="preenchimento" style="width: 80%;"></div>
+                    </div>
+                    <p class="rodape-progresso">80% do caminho percorrido</p>
+                </div>
+
+                <!-- Cartão Motorista -->
+                <div class="cartao-info-lateral">
+                    <strong>Quem está com o seu pedido</strong>
+                    <div class="perfil-motorista mt-15">
+                        <div class="icone-avatar com-letra">M</div>
+                        <div>
+                            <p class="nome-motorista">Motorista</p>
+                            <p class="veiculo-motorista">Moto • Placa ABC-1D23</p>
+                        </div>
+                    </div>
+                    <div class="botoes-acao mt-15">
+                        <button class="botao botao-primario">Ligar</button>
+                        <button class="botao botao-secundario">Mensagem</button>
+                    </div>
+                </div>
+
+                <!-- Cartão Detalhes -->
+                <div class="cartao-info-lateral">
+                    <strong>Detalhes da entrega</strong>
+                    <div class="item-detalhe mt-15">
+                        <small>Endereço</small>
+                        <p>Av. Atlântica, 2400 - apto ---</p>
+                    </div>
+                    <div class="item-detalhe">
+                        <small>Quem recebe</small>
+                        <p>Nome do Cliente</p>
+                    </div>
+                    <div class="item-detalhe">
+                        <small>Itens</small>
+                        <p>2 itens • Caixa Média</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,15 +1,60 @@
 /* Área de mensagens exclusiva da administração */
-#admin-acoes-rapidas { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-.admin-message-action-icon { width: 42px; height: 42px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 11px; background: #fff0eb; color: #e94d32; font-size: 1.35rem; }
-.admin-message-action-copy { display: flex; flex-direction: column; gap: 4px; }
-.admin-message-action-copy small { color: #7d8491; font-size: .72rem; }
+#admin-acoes-rapidas { 
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); 
+}
 
-.admin-messages-page { max-width: 1220px; }
-.admin-messages-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; margin: 8px 0 25px; }
-.admin-back-link { display: inline-block; margin-bottom: 17px; color: #e94d32; font-size: .8rem; font-weight: 800; text-decoration: none; }
-.admin-back-link:hover { text-decoration: underline; }
-.admin-messages-heading h1 { margin: 5px 0 8px; color: #1b1642; font-size: clamp(1.55rem, 3vw, 2.05rem); }
-.admin-messages-intro { max-width: 680px; color: #727b89; font-size: .9rem; line-height: 1.55; }
+.admin-message-action-icon { 
+  width: 42px; 
+  height: 42px; 
+  display: grid; 
+  place-items: center; 
+  flex: 0 0 auto; 
+  border-radius: 11px; 
+  background: #fff0eb; 
+  color: #e94d32; 
+  font-size: 1.35rem; }
+
+.admin-message-action-copy { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+}
+.admin-message-action-copy small { 
+  color: #7d8491; 
+  font-size: .72rem; 
+}
+
+.admin-messages-page { 
+  max-width: 1220px;
+ }
+.admin-messages-heading { 
+  display: flex; 
+  align-items: flex-end; 
+  justify-content: space-between; 
+  gap: 22px; 
+  margin: 8px 0 25px; }
+.admin-back-link { 
+  display: inline-block; 
+  margin-bottom: 17px; 
+  color: #e94d32; 
+  font-size: .8rem; 
+  font-weight: 800; 
+  text-decoration: none; 
+}
+.admin-back-link:hover { 
+  text-decoration: underline; 
+}
+.admin-messages-heading h1 { 
+  margin: 5px 0 8px; 
+  color: #1b1642; 
+  font-size: clamp(1.55rem, 3vw, 2.05rem); 
+}
+.admin-messages-intro { 
+  max-width: 680px; 
+  color: #727b89; 
+  font-size: .9rem; 
+  line-height: 1.55; 
+}
 .admin-refresh { width: auto; flex: 0 0 auto; }
 .admin-message-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 22px; }
 .admin-message-stat { padding: 18px 20px; border: 1px solid #e8eaf0; border-radius: 12px; background: #fff; box-shadow: 0 3px 12px rgba(25, 31, 50, .035); }
