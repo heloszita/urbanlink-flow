@@ -21,7 +21,7 @@ html[data-theme="dark"] {
   --u-line: var(--theme-line);
 }
 
-/* Páginas, cartões e cabeçalhos. O mapa-base e as imagens mantêm as cores originais. */
+/* Páginas, cartões e cabeçalhos. O mapa-base mantém as cores originais. */
 [data-theme="dark"] :is(body, .area-principal, .area-autenticacao, .area-azul-claro, .fundo-azul-claro, .mapa-layout) {
   background: var(--theme-page);
   color: var(--theme-text);
@@ -44,11 +44,6 @@ html[data-theme="dark"] {
 [data-theme="dark"] :is(.admin-metric-card, .admin-shortcut, .admin-message-card, .container-cartoes .cartao, .container-cartoes .cartao-destaque) {
   background: var(--theme-surface) !important;
   border-color: var(--theme-line) !important;
-}
-[data-theme="dark"] :is(.cabecalho, .cabecalho-interno, .auth-topbar.auth-header, .urbanlink-footer) img[src*="logo.png"] {
-  background: #fff;
-  box-shadow: 0 0 0 4px #fff;
-  border-radius: 2px;
 }
 [data-theme="dark"] :is(
   .barra-acoes-massa, .abas-status, .corpo-chat, .admin-message-dialogue, .chat-divider, .cnh-viewer-preview,
