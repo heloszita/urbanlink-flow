@@ -1,6 +1,11 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
+const ssl = process.env.DB_SSL === 'true' ? {
+  rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false',
+  ca: process.env.DB_SSL_CA || undefined
+} : null;
+
 const sequelize = new Sequelize(
   process.env.DB_NAME || 'urbanlink_flow',
   process.env.DB_USER || 'root',
@@ -12,7 +17,7 @@ const sequelize = new Sequelize(
     logging: process.env.DB_LOGGING === 'true' ? console.log : false,
     timezone: '-03:00',
     pool: { max: Number(process.env.DB_POOL_MAX || (process.env.VERCEL ? 2 : 5)), min: 0, acquire: 30000, idle: 10000 },
-    dialectOptions: process.env.DB_SSL === 'true' ? { ssl: { rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false' } } : {},
+    dialectOptions: ssl ? { ssl } : {},
     define: { underscored: true, freezeTableName: true }
   }
 );
